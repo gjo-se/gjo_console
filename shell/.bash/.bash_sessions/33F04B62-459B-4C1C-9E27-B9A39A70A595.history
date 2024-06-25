@@ -1,0 +1,502 @@
+l
+clear
+goto_vagrant 
+cd resortragaz-ch/
+vagrant status
+vagrant ssh
+vagrant global status
+vagrant global-status
+vagrant suspend 7639bfe
+vagrant up
+vagrant suspend
+vagrant up
+vagrant ssh
+edit_hosts 
+edit_httpd
+edit_httpd-vhosts 
+reload_apache 
+df -u
+df
+cd ~
+mkdir Sitegeist
+cd Sitegeist
+ll
+git clone ssh://git@git.sitegeist.de:40022/biege/Tools.git .
+ll
+bash backup.sh 
+cd Sitegeist
+cd Project_backups/
+du -hs sitegeist#hl-kreuzfahrten-ol15
+du -hs sitegeist#hl-kreuzfahrten-ol15
+du -hs sitegeist#hl-kreuzfahrten-ol15
+du -hs sitegeist#hl-kreuzfahrten-ol15
+du -hs sitegeist#hl-kreuzfahrten-ol15
+du -hs sitegeist#hl-kreuzfahrten-ol15
+du -hs sitegeist#hl-kreuzfahrten-ol15
+du -hs sitegeist#hl-kreuzfahrten-ol15
+ll
+cd sitegeist#hl-kreuzfahrten-ol15/
+cd www_config/
+cd var/
+cd www/
+cd www_config/
+cd ..
+cd ..
+cd ..
+ll
+cd ..
+cd relaunch/
+ll
+cd var/www/relaunch/
+pwd
+sudo nano /etc/hosts
+sudo nano /etc/hosts
+vagrant global-status
+vagrant up
+vagrant ssh
+vagrant ssh
+vagrant ssh
+vagrant suspend
+goto_hosts
+exit
+vagrant up
+vagrant up
+vagrant ssh
+vagrant global-status
+vagrant suspend 8d3ce7f
+vagrant up
+vagrant ssh
+edit_hosts 
+vagrant global-status
+vagrant ssh
+vagrant up
+vagrant up
+vagrant ssh
+vagrant suspend
+vagrant ssh
+vagrant up
+vagrant up
+vagrant ssh
+vagrant up
+vagrant ssh
+vagrant suspend
+vagrant suspend
+vagrant global-status
+git checkout -b feature/21114/testimonialFix
+git status
+git checkout -b feature/21212promoTeaserFix2
+git checkout -b feature/21212/promoTeaserFix2
+vagrant up
+vagrant ssh
+cd typo3conf/ext/gjo_vagrant
+vagrant up
+vagrant box update
+vagrant provision
+vagrant ssh
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant ssh
+vagrant provision
+apchectl start
+apachectl start
+sudo apachectl start
+vagrant ssh
+linkAndInstallExtension 
+linkAndInstallExtension test-typo3-762 builder
+vagrant global-status
+vagrant suspend 7639bfe
+vagrant ssh
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5-Berufsleben/Development/Projects/test-typo3-762/typo3conf/ext/gjo_vagrant
+vagrant ssh
+vagrant ssh
+vagrant up
+vagrant status
+vagrant global-status
+vagrant up
+git checkout -b feature/21212/promoTeaserFix3
+vagrant suspend
+cd typo3conf/ext/gjo_vagrant
+vagrant up provision
+vagrant up
+vagrant box update
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant ssh
+vagrant provision
+vagrant ssh
+vagrant provision
+vagrant ssh
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant ssh
+vagrant halt
+vagrant suspoend
+vagrant suspend
+vagrant up
+git checkout -b feature/21215/personfinderFix2
+vagrant global-status
+vagrant halt 7639bfe
+cd /Volumes/Daten/Users/gregoryjodaily/VirtualBox VMs/
+cd /Volumes/Daten/Users/gregoryjodaily/VirtualBox VMs
+cd /Volumes/Daten/Users/gregoryjodaily/VirtualBox\ VMs/
+cd ~/.ssh/
+subl id_rsa.pub
+ragazdev
+ssh 
+212.243.204.154
+ssh 212.243.204.154
+ssh sitegeist@212.243.204.154
+ssh sitegeist@212.243.204.154 -p 222
+subl ~/.ssh/config
+ssh ragazdev
+ssh-add ~/.ssh/id_rsa
+ssh ragazdev
+vagrant up
+vagrant suspend
+vagrant up
+vagrant up
+vagrant suspend
+vagrant global-status
+vagrant up
+vagrant ssh
+vagrant suspend
+vagrant up
+vagrant suspend
+vagrant suspend
+vagrant up
+vagrant ssh
+vagrant up
+vagrant global-status
+vagrant suspend 8d3ce7f
+ssh ragazdev
+ssh ragazdev
+edit_hosts 
+edit_hosts 
+reload_apache 
+ssh ragazdev
+vagrant global-status
+vagrant suspend 8d3ce7f
+find /Volumes/Daten/Users/gregoryjodaily/Sitegeist/Project_backups/sitegeist#hl-kreuzfahrten-ol15/relaunch/var/www/relaunch/Web/fileadmin/webcams/-ctime +30 -print0 | xargs -0 -n1
+find /Volumes/Daten/Users/gregoryjodaily/Sitegeist/Project_backups/sitegeist#hl-kreuzfahrten-ol15/relaunch/var/www/relaunch/Web/fileadmin/webcams -ctime +30 -print0 | xargs -0 -n1
+vagrant up
+npm i
+vagrant ssh
+vagrant suspend
+vagrant up
+gulp watch
+cd /var/www/html/projects/hl-kreuzfahrten-ol15/
+gulp watch
+sass --help
+gem install sass
+sudo gem install sass
+sass --help
+sass --watch ~/Documents/Offline/5-Berufsleben/Development/vagrant/hl-kreuzfahrten-ol15/Web/typo3conf/ext/hlkf_config/Resources/Private/Sass:~/Documents/Offline/5-Berufsleben/Development/vagrant/hl-kreuzfahrten-ol15/Web/typo3conf/ext/hlkf_config/Resources/Public/Styles
+sass --watch ~/Documents/Offline/5-Berufsleben/Development/vagrant/hl-kreuzfahrten-ol15/Web/typo3conf/ext/hlkf_config/Resources/Private/Sass/Default.scss:~/Documents/Offline/5-Berufsleben/Development/vagrant/hl-kreuzfahrten-ol15/Web/typo3conf/ext/hlkf_config/Resources/Public/Styles/Default.css
+sass --watch ~/Documents/Offline/5-Berufsleben/Development/vagrant/hl-kreuzfahrten-ol15/Web/typo3conf/ext/hlkf_config/Resources/Private/Sass/Default.scss:~/Documents/Offline/5-Berufsleben/Development/vagrant/hl-kreuzfahrten-ol15/Web/typo3conf/ext/hlkf_config/Resources/Public/Styles/Default.css
+vagrant global-status
+vagrant suspend 8d3ce7f
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Offline/5-Berufsleben/Development/vagrant/hl-kreuzfahrten-ol15
+npm i
+brew install node
+node -v
+console.log('hallo');
+> console.log('hello node');
+node > console.log('hello node');
+node
+node
+npm i
+gulp --tasks
+gulp-sass 
+node
+node -v
+npm -v
+vagrant global-status
+vagrant suspend 7639bfe
+vagrant up
+npm install
+gulp watch
+npm install -g gulp
+gulp watch
+npm install gulp
+gulp watch
+npm install
+gulp watch
+gulp --task
+vagrant up
+npm rebuild node-sass
+gulp watch
+gulp --tasks
+gulp watch
+vagrant suspend
+cd /Volumes/Daten/Users/gregoryjodaily/Music/iTunes/iTunes Media/Mobile Applications
+vagrant up
+vagrant suspend
+vagrant up
+vagrant suspend
+vagrant up
+vagrant suspend
+vagrant suspend
+vagrant global-status
+vagrant up
+vagrant ssh
+vagrant up
+vagrant suspend
+ssh –p40022 sitegeist@gfo-online.de
+ssh –p40022 sitegeist@gfo-online.de
+ssh -p40022 sitegeist@fo-online.de
+ssh -p40022 sitegeist@gfo-online.de
+ssh -p40022 sitegeist@gfo-online.de
+ssh -p40022 sitegeist@gfo-online.de
+vagrant global-status
+getTypo3Lib 6.2.25
+vagrant provision
+cd typo3conf/ext/gjo_vagrant
+vagrant provision
+vagrant ssh
+vagrant provision
+vagrant ssh
+vagrant provision
+touch FILETAYPE
+vagrant provision
+vagrant provision
+vagrant destroy
+vagrant up
+vagrant up
+vagrant ssh
+vagrant provision
+vagrant ssh
+vagrant destroy
+vagrant up
+vagrant ssh
+vagrant provision
+vagrant ssh
+vagrant destroy
+vagrant destroy
+vagrant up
+vagrant ssh
+vagrant destroy
+vagrant up
+vagrant provision
+vagrant provision
+vagrant ssh
+vagrant provision
+vagrant ssh
+vagrant suspend
+vagrant up
+vagrant ssh
+subl /Library/Preferences/com.apple.TimeMachine 
+vagrant global-status
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_vagrant
+vagrant up
+vagrant ssh
+ll
+cd provisioning/
+vagrant global-status
+vagrant ssh
+ vagrant provision
+ vagrant provision
+ vagrant provision
+ vagrant up
+ vagrant ssh
+ vagrant provision
+ vagrant provision
+ vagrant provision
+ vagrant ssh
+ vagrant provision
+ vagrant ssh
+ vagrant provision
+cd ..
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant ssh
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+cd /home/vagrant
+vagrant ssh
+vagrant provision
+vagrant provision
+vagrant ssh
+vagrant provision
+vagrant ssh
+vagrant provision
+vagrant ssh
+vagrant global-status
+vagrant suspend 062a821
+vagrant destroy
+git clone ssh://git@git.sitegeist.de:40022/sitegeist/helmag-com.git
+git branch -v
+ll
+vagrant global-status
+vagrant halt 7110ff0
+vagrant up
+vagrant suspend
+vagrant up
+vagrant ssh
+vagrant suspend
+vagrant up
+vagrant global-status
+vagrant suspend 7110ff0
+vagrant up
+vagrant suspend
+cd typo3conf/ext/gjo_vagrant
+vagrant up
+vagrant provision
+vagrant ssh
+vagrant provision
+vagrant ssh
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant ssh
+vagrant ssh
+vagrant provision
+vagrant up
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant ssh
+cd typo3conf/ext/gjo_vagrant
+vagrant ssh
+vagrant up
+cd typo3conf/ext/gjo_vagrant
+vagrant up
+vagrant ssh
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant ssh
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant destroy
+vagrant up
+vagrant destroy
+vagrant up
+vagrant up
+vagrant provsio
+vagrant provsion
+vagrant provision
+vagrant destroy
+vagrant up
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5-Berufsleben/Development/Projects/test-typo3-762/typo3conf/ext/gjo_vagrant
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+sudo chown -R vagrant:vagrant vagrant/
+sudo chown -R vagrant:vagrant vagrant/
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant provision
+vagrant ssh
+edit_hosts
+vagrant ssh
+edit_hosts
+vagrant ssh
+vagrant global-status
+vagrant suspend 1bc48a5
+cd /
+cd Volumes/
+cd MobileBackups/
+cd Backups.backupdb/
+cd Gregorys\ MacBook\ Pro/
+cd /
+cd Volumes/

@@ -1,0 +1,31 @@
+cs ~/Library/Preferences/
+ll
+cd ~/Library/
+cd Preference
+cd Preferences/
+cd PhpStorm2016.1
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5-Berufsleben/Development/Projects/test-typo3-762/typo3conf/ext/gjo_vagrant
+cd typo3cvagrant ssh
+vagrant ssh
+vagrant ssh
+vagrant ssh
+vagrant ssh
+vagrant status
+vagrant destroy
+edit_hosts 
+cd /etc/hosts
+subl /etc/hosts
+cd /var/www/html/projects/
+cd ~
+cs .ssh/
+cd .ssh/
+ll
+cd ~
+cd Sitegeist/
+bash backup.sh
+bash backup.sh
+bash backup.sh
+bash backup.sh
+bash backup.sh
+bash backup.sh
+bash backup.sh

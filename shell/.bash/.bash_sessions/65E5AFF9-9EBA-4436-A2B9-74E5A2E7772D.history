@@ -1,0 +1,2037 @@
+--
+-- Table structure for table `be_groups`
+--
+DROP TABLE IF EXISTS `be_groups`;
+CREATE TABLE `be_groups` (
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+--
+-- Dumping data for table `be_groups`
+--
+LOCK TABLES `be_groups` WRITE;
+INSERT INTO `be_groups` VALUES (1,0,1502986730,'Redakteure','pages_language_overlay:author,pages_language_overlay:description,pages_language_overlay:media,pages_language_overlay:author_email,pages_language_overlay:abstract,pages_language_overlay:nav_title,pages_language_overlay:hidden,pages_language_overlay:starttime,pages_language_overlay:keywords,pages_language_overlay:endtime,pages_language_overlay:doktype,pages_language_overlay:urltype,pages_language_overlay:subtitle,pages_language_overlay:url,pages_language_overlay:shortcut_mode,backend_layout:hidden,backend_layout:icon,sys_file_metadata:categories,sys_file_metadata:title,sys_file_reference:alternative,sys_file_reference:autoplay,sys_file_reference:description,sys_file_reference:crop,sys_file_reference:link,sys_file_reference:title,sys_file_collection:sys_language_uid,sys_file_collection:starttime,sys_file_collection:endtime,sys_file_collection:l10n_parent,sys_file_collection:hidden,sys_domain:redirectHttpStatusCode,sys_domain:forced,sys_domain:hidden,sys_domain:prepend_params,sys_category:sys_language_uid,sys_category:starttime,sys_category:endtime,sys_category:l10n_parent,sys_category:hidden,pages:newUntil,pages:alias,pages:fe_login_mode,pages:author,pages:backend_layout_next_level,pages:backend_layout,pages:editlock,pages:description,pages:cache_timeout,pages:cache_tags,pages:media,pages:author_email,pages:mount_pid_ol,pages:module,pages:nav_hide,pages:content_from_pid,pages:abstract,pages:extendToSubpages,pages:is_siteroot,pages:categories,pages:tx_fluidpages_layout,pages:layout,pages:lastUpdated,pages:l18n_cfg,pages:nav_title,pages:no_cache,pages:no_search,pages:hidden,pages:tsconfig_includes,pages:php_tree_stop,pages:tx_fed_page_flexform,pages:tx_fed_page_flexform_sub,pages:tx_fed_page_controller_action,pages:tx_fed_page_controller_action_sub,pages:starttime,pages:keywords,pages:endtime,pages:tx_fluidpages_templatefile,pages:TSconfig,pages:doktype,pages:subtitle,pages:shortcut_mode,pages:target,pages:fe_group,tt_content:pi_flexform;login;sDEF;pages,tt_content:pages,tt_content:header_position,tt_content:editlock,tt_content:rowDescription,tt_content:imagewidth,tt_content:date,tt_content:uploads_description,tt_content:uploads_type,tt_content:table_delimiter,tt_content:tx_fed_fcefile,tt_content:frame_class,tt_content:imageheight,tt_content:sectionIndex,tt_content:categories,tt_content:image_zoom,tt_content:layout,tt_content:linkToTop,tt_content:header_link,tt_content:table_header_position,tt_content:imageorient,tt_content:imageborder,tt_content:recursive,tt_content:space_after_class,tt_content:space_before_class,tt_content:imagecols,tt_content:colPos,tt_content:sys_language_uid,tt_content:starttime,tt_content:endtime,tt_content:table_tfoot,tt_content:table_caption,tt_content:table_class,tt_content:table_enclosure,tt_content:header_layout,tt_content:bullets_type,tt_content:subheader,tt_content:l18n_parent,tt_content:hidden,tt_content:fe_group,fe_users:address,fe_users:lockToDomain,fe_users:felogin_redirectPid,fe_users:image,fe_users:tx_extbase_type,fe_users:email,fe_users:fax,fe_users:company,fe_users:disable,fe_users:country,fe_users:lastlogin,fe_users:middle_name,fe_users:last_name,fe_users:name,fe_users:felogin_forgotHash,fe_users:zip,fe_users:city,fe_users:starttime,fe_users:endtime,fe_users:telephone,fe_users:title,fe_users:TSconfig,fe_users:first_name,fe_users:www,fe_groups:lockToDomain,fe_groups:felogin_redirectPid,fe_groups:tx_extbase_type,fe_groups:hidden,fe_groups:TSconfig,fe_groups:subgroup','tt_content:CType:--div--:ALLOW,tt_content:CType:header:ALLOW,tt_content:CType:text:ALLOW,tt_content:CType:textpic:ALLOW,tt_content:CType:image:ALLOW,tt_content:CType:textmedia:ALLOW,tt_content:CType:bullets:ALLOW,tt_content:CType:table:ALLOW,tt_content:CType:uploads:ALLOW,tt_content:CType:menu_abstract:ALLOW,tt_content:CType:menu_categorized_content:ALLOW,tt_content:CType:menu_categorized_pages:ALLOW,tt_content:CType:menu_pages:ALLOW,tt_content:CType:menu_subpages:ALLOW,tt_content:CType:menu_recently_updated:ALLOW,tt_content:CType:menu_related_pages:ALLOW,tt_content:CType:menu_section:ALLOW,tt_content:CType:menu_section_pages:ALLOW,tt_content:CType:menu_sitemap:ALLOW,tt_content:CType:menu_sitemap_pages:ALLOW,tt_content:CType:shortcut:ALLOW,tt_content:CType:list:ALLOW,tt_content:CType:div:ALLOW,tt_content:CType:html:ALLOW,tt_content:CType:login:ALLOW,tt_content:CType:form_formframework:ALLOW,tt_content:CType:fluidcontent_content:ALLOW','0,1',NULL,'1','1,6,4,7,3,254,255,199,187','pages,sys_category,sys_collection,sys_file,sys_file_collection,sys_file_metadata,sys_file_reference,sys_file_storage,backend_layout,fe_groups,fe_users,pages_language_overlay,sys_domain,tt_content,sys_note','pages,sys_category,sys_collection,sys_file,sys_file_collection,sys_file_metadata,sys_file_reference,sys_file_storage,backend_layout,fe_groups,fe_users,pages_language_overlay,sys_domain,tt_content,sys_note',1502985849,1,'web_layout,web_ViewpageView,web_list,web_info,web_func,web_FormFormbuilder,file_FilelistList,user_setup,help_DocumentationDocumentation,help_CshmanualCshmanual,help_AboutAbout,help_AboutAboutmodules','1','readFolder,writeFolder,addFolder,renameFolder,moveFolder,deleteFolder,readFile,writeFile,addFile,renameFile,replaceFile,moveFile,copyFile,deleteFile',0,'','',0,'','',0,0,'','gjo_introduction:ConveyorSolutions.html,gjo_introduction:Experts.html,gjo_introduction:HeadlineAndText.html,gjo_introduction:Parallax.html,gjo_introduction:ProductSlider.html,gjo_introduction:ReferenceSlider.html,gjo_introduction:ServiceTeaser.html,gjo_introduction:Slider.html,gjo_introduction:SlidingGateHardware.html,gjo_introduction:Tradition.html','');
+UNLOCK TABLES;
+--
+-- Table structure for table `be_sessions`
+--
+DROP TABLE IF EXISTS `be_sessions`;
+CREATE TABLE `be_sessions` (
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+--
+-- Dumping data for table `be_sessions`
+--
+LOCK TABLES `be_sessions` WRITE;
+UNLOCK TABLES;
+--
+-- Table structure for table `be_users`
+--
+DROP TABLE IF EXISTS `be_users`;
+CREATE TABLE `be_users` (
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+--
+-- Dumping data for table `be_users`
+--
+LOCK TABLES `be_users` WRITE;
+INSERT INTO `be_users` VALUES (1,0,1501857145,'admin_ger','',0,'$pbkdf2-sha256$25000$fU8WEj0RtZQty0ROIWHUtw$zPqVKuXLm06CwLTcA9ecvpGYeqpMGLnUltbAS5cAQCg',1,'',0,0,0,'de','',NULL,0,1501508249,0,'',NULL,'','a:28:{s:14:\"interfaceSetup\";s:7:\"backend\";s:10:\"moduleData\";a:12:{s:10:\"web_layout\";a:2:{s:8:\"function\";s:1:\"2\";s:8:\"language\";s:1:\"0\";}s:8:\"web_info\";a:3:{s:8:\"function\";s:55:\"TYPO3\\CMS\\Frontend\\Controller\\PageInformationController\";s:5:\"pages\";s:1:\"0\";s:5:\"depth\";s:1:\"0\";}s:8:\"web_func\";a:1:{s:8:\"function\";s:76:\"TYPO3\\CMS\\WizardCrpages\\Controller\\CreatePagesWizardModuleFunctionController\";}s:6:\"web_ts\";a:6:{s:8:\"function\";s:85:\"TYPO3\\CMS\\Tstemplate\\Controller\\TypoScriptTemplateInformationModuleFunctionController\";s:19:\"constant_editor_cat\";s:14:\"frontend login\";s:15:\"ts_browser_type\";s:5:\"const\";s:16:\"ts_browser_const\";s:1:\"0\";s:19:\"ts_browser_fixedLgd\";s:1:\"1\";s:23:\"ts_browser_showComments\";s:1:\"1\";}s:10:\"FormEngine\";a:2:{i:0;a:1:{s:32:\"1de5647ccb0f2c01ad81693a7f8707ba\";a:4:{i:0;s:278:\"<span title=\"{page.label}\r\n                \r\n            \r\n        \r\n\r\n\r\n        \r\n            \r\n                \r\n                    \r\n                        \r\n                            Hermann Francksen Nach...\">{page.label}\r\n                \r\n            \r\n    ...</span>\";i:1;a:6:{s:4:\"edit\";a:1:{s:10:\"tt_content\";a:1:{i:50;s:4:\"edit\";}}s:7:\"defVals\";a:1:{s:10:\"tt_content\";a:3:{s:6:\"colPos\";s:1:\"0\";s:16:\"sys_language_uid\";s:1:\"0\";s:5:\"CType\";s:4:\"html\";}}s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:174:\"&edit[tt_content][50]=edit&defVals[tt_content][colPos]=0&defVals[tt_content][sys_language_uid]=0&defVals[tt_content][CType]=html&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:10:\"tt_content\";s:3:\"uid\";i:50;s:3:\"pid\";i:27;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}}i:1;s:32:\"6ecd559a1edf32da91a84cf2328b25a3\";}s:57:\"TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getUpdateSignal\";a:0:{}s:16:\"opendocs::recent\";a:8:{s:32:\"6ecd559a1edf32da91a84cf2328b25a3\";a:4:{i:0;s:12:\"Bestätigung\";i:1;a:6:{s:4:\"edit\";a:1:{s:5:\"pages\";a:1:{i:27;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:76:\"&edit[pages][27]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:5:\"pages\";s:3:\"uid\";i:27;s:3:\"pid\";i:11;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}s:32:\"11cef26797fc48028b88a7e832b4366b\";a:4:{i:0;s:278:\"<span title=\"{page.label}\r\n                \r\n            \r\n        \r\n\r\n\r\n        \r\n            \r\n                \r\n                    \r\n                        \r\n                            Hermann Francksen Nach...\">{page.label}\r\n                \r\n            \r\n    ...</span>\";i:1;a:6:{s:4:\"edit\";a:1:{s:10:\"tt_content\";a:1:{i:50;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:81:\"&edit[tt_content][50]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:10:\"tt_content\";s:3:\"uid\";i:50;s:3:\"pid\";i:27;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}s:32:\"d0c8e5fac82115102cd14aa904ddc80b\";a:4:{i:0;s:7:\"jchaake\";i:1;a:6:{s:4:\"edit\";a:1:{s:8:\"be_users\";a:1:{i:3;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:78:\"&edit[be_users][3]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:8:\"be_users\";s:3:\"uid\";i:3;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}s:32:\"9fd70d2e4633450fd3f0168933a68eea\";a:4:{i:0;s:10:\"Redakteure\";i:1;a:6:{s:4:\"edit\";a:1:{s:9:\"be_groups\";a:1:{i:1;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:79:\"&edit[be_groups][1]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:9:\"be_groups\";s:3:\"uid\";i:1;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}s:32:\"34aaba1b72f1d8a28a3355b7c5ff5736\";a:4:{i:0;s:21:\"<em>[Kein Titel]</em>\";i:1;a:6:{s:4:\"edit\";a:1:{s:14:\"sys_filemounts\";a:1:{i:1;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:84:\"&edit[sys_filemounts][1]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:14:\"sys_filemounts\";s:3:\"uid\";i:1;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}s:32:\"9b209de23811ef89bec385c059f31cd5\";a:4:{i:0;s:7:\"TSBasic\";i:1;a:6:{s:4:\"edit\";a:1:{s:12:\"sys_template\";a:1:{i:1;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:82:\"&edit[sys_template][1]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:12:\"sys_template\";s:3:\"uid\";i:1;s:3:\"pid\";i:1;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}s:32:\"276f73f4cd21c6d6d94d1f160dd3a704\";a:4:{i:0;s:19:\"<em>[No title]</em>\";i:1;a:6:{s:4:\"edit\";a:1:{s:10:\"tt_content\";a:1:{i:49;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:81:\"&edit[tt_content][49]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:10:\"tt_content\";s:3:\"uid\";i:49;s:3:\"pid\";i:11;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}s:32:\"30e6429bac1adf342bb5148d4b52864b\";a:4:{i:0;s:9:\"admin_ger\";i:1;a:6:{s:4:\"edit\";a:1:{s:8:\"be_users\";a:1:{i:1;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:78:\"&edit[be_users][1]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:8:\"be_users\";s:3:\"uid\";i:1;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}}s:8:\"web_list\";a:2:{s:15:\"bigControlPanel\";s:1:\"1\";s:12:\"localization\";s:1:\"1\";}s:9:\"tx_beuser\";s:530:\"O:40:\"TYPO3\\CMS\\Beuser\\Domain\\Model\\ModuleData\":2:{s:9:\"\0*\0demand\";O:36:\"TYPO3\\CMS\\Beuser\\Domain\\Model\\Demand\":12:{s:11:\"\0*\0userName\";s:0:\"\";s:11:\"\0*\0userType\";i:0;s:9:\"\0*\0status\";i:0;s:9:\"\0*\0logins\";i:0;s:19:\"\0*\0backendUserGroup\";N;s:6:\"\0*\0uid\";N;s:16:\"\0*\0_localizedUid\";N;s:15:\"\0*\0_languageUid\";N;s:16:\"\0*\0_versionedUid\";N;s:6:\"\0*\0pid\";N;s:61:\"\0TYPO3\\CMS\\Extbase\\DomainObject\\AbstractDomainObject\0_isClone\";b:0;s:69:\"\0TYPO3\\CMS\\Extbase\\DomainObject\\AbstractDomainObject\0_cleanProperties\";a:0:{}}s:18:\"\0*\0compareUserList\";a:0:{}}\";s:16:\"browse_links.php\";a:1:{s:10:\"expandPage\";s:1:\"0\";}s:9:\"file_list\";a:1:{s:15:\"bigControlPanel\";s:1:\"1\";}s:8:\"web_view\";a:1:{s:6:\"States\";a:2:{s:18:\"widthSelectorValue\";s:9:\"1280|100%\";s:21:\"languageSelectorValue\";s:1:\"1\";}}}s:19:\"thumbnailsByDefault\";i:1;s:14:\"emailMeAtLogin\";i:0;s:11:\"startModule\";s:22:\"help_AboutAboutmodules\";s:8:\"titleLen\";s:2:\"50\";s:8:\"edit_RTE\";i:1;s:20:\"edit_docModuleUpload\";i:1;s:15:\"resizeTextareas\";i:1;s:25:\"resizeTextareas_MaxHeight\";s:3:\"500\";s:24:\"resizeTextareas_Flexible\";i:0;s:4:\"lang\";s:2:\"de\";s:19:\"firstLoginTimeStamp\";i:1501508281;s:15:\"moduleSessionID\";a:11:{s:10:\"web_layout\";s:32:\"5e3474c03ff4a8f754587b9b16abaf4d\";s:8:\"web_info\";s:32:\"e9111626cfd735f6220b5e419aab477d\";s:8:\"web_func\";s:32:\"e9111626cfd735f6220b5e419aab477d\";s:6:\"web_ts\";s:32:\"0fd7303846835f8a0994f6d549d88012\";s:10:\"FormEngine\";s:32:\"dd0be231a9f8c0cb79a7a57bb86ca34f\";s:57:\"TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getUpdateSignal\";s:32:\"dd0be231a9f8c0cb79a7a57bb86ca34f\";s:16:\"opendocs::recent\";s:32:\"dd0be231a9f8c0cb79a7a57bb86ca34f\";s:8:\"web_list\";s:32:\"1bfacbe944a8c872dc51e2ee4f007d0a\";s:9:\"tx_beuser\";s:32:\"a992185b35436c222724710c344383eb\";s:16:\"browse_links.php\";s:32:\"dd0be231a9f8c0cb79a7a57bb86ca34f\";s:9:\"file_list\";s:32:\"0a1d8544e05f1d2c4f163d7fa105871b\";}s:17:\"BackendComponents\";a:1:{s:6:\"States\";a:2:{s:8:\"Pagetree\";a:1:{s:9:\"stateHash\";a:10:{i:0;s:1:\"1\";i:1;s:1:\"1\";i:3;s:1:\"1\";i:4;s:1:\"1\";i:5;s:1:\"1\";i:9;s:1:\"1\";i:18;s:1:\"1\";s:4:\"root\";s:1:\"1\";s:16:\"lastSelectedNode\";s:2:\"pb\";s:1:\"b\";s:1:\"1\";}}s:17:\"typo3-module-menu\";a:1:{s:9:\"collapsed\";s:5:\"false\";}}}s:18:\"disablePMKTextarea\";i:1;s:16:\"TSFE_adminConfig\";a:11:{s:5:\"DUMMY\";s:6:\"711860\";s:11:\"display_top\";s:1:\"1\";s:15:\"display_preview\";s:1:\"1\";s:13:\"display_cache\";s:0:\"\";s:12:\"display_edit\";s:0:\"\";s:15:\"display_tsdebug\";s:0:\"\";s:12:\"display_info\";s:0:\"\";s:23:\"preview_showHiddenPages\";s:1:\"0\";s:25:\"preview_showHiddenRecords\";s:1:\"0\";s:22:\"preview_showFluidDebug\";s:1:\"0\";s:20:\"preview_simulateDate\";s:0:\"\";}s:11:\"browseTrees\";a:2:{s:6:\"folder\";s:96:\"a:1:{i:25218;a:5:{i:62822724;i:1;i:14248556;i:1;i:187419009;i:1;i:25435040;i:1;i:55604473;i:1;}}\";s:11:\"browsePages\";s:73:\"a:1:{i:0;a:7:{i:0;i:1;i:1;i:1;i:2;i:1;i:6;i:1;i:4;i:1;i:3;i:1;i:11;i:1;}}\";}s:10:\"inlineView\";s:228:\"a:2:{i:0;b:0;s:10:\"tt_content\";a:3:{i:7;a:1:{s:18:\"sys_file_reference\";a:1:{i:1;s:0:\"\";}}s:25:\"NEW598c65da432b5100663906\";a:1:{s:18:\"sys_file_reference\";a:1:{i:0;s:1:\"2\";}}i:19;a:1:{s:18:\"sys_file_reference\";a:1:{i:0;s:0:\"\";}}}}\";s:8:\"realName\";s:0:\"\";s:5:\"email\";s:0:\"\";s:8:\"password\";s:0:\"\";s:9:\"password2\";s:0:\"\";s:6:\"avatar\";s:0:\"\";s:25:\"showHiddenFilesAndFolders\";i:0;s:10:\"copyLevels\";s:0:\"\";s:15:\"recursiveDelete\";i:0;s:18:\"resetConfiguration\";s:0:\"\";}',NULL,NULL,1,'',0,0,NULL,1503041234,0,NULL,0,1,NULL),(2,0,1502089208,'_cli_','',0,'$pbkdf2-sha256$25000$GnF0x8/oiXTM8hs1LADv.A$rQFUbopGlJy7g.KanWPWKtRq6sA9yASiFR5pJonCmVU',1,'',0,0,0,'','',NULL,0,1502089208,0,'',NULL,'','a:13:{s:14:\"interfaceSetup\";s:0:\"\";s:10:\"moduleData\";a:0:{}s:19:\"thumbnailsByDefault\";i:1;s:14:\"emailMeAtLogin\";i:0;s:11:\"startModule\";s:22:\"help_AboutAboutmodules\";s:8:\"titleLen\";i:50;s:8:\"edit_RTE\";s:1:\"1\";s:20:\"edit_docModuleUpload\";s:1:\"1\";s:15:\"resizeTextareas\";i:1;s:25:\"resizeTextareas_MaxHeight\";i:500;s:24:\"resizeTextareas_Flexible\";i:0;s:4:\"lang\";s:0:\"\";s:19:\"firstLoginTimeStamp\";i:1502089208;}',NULL,NULL,1,'',0,0,NULL,0,0,NULL,0,1,NULL),(3,0,1502987466,'jchaake','',0,'$pbkdf2-sha256$25000$kq4OsS0zWuucRYvuVMuMGg$iaFDCuwPsmSX6Z9e8bPj9ayvu2nh6fekQUTPxOzjGPE',1,'',0,0,0,'de','jc.haake@tiger.de','',3,1502986014,1,'Jens-Christian Haake','web_layout,web_ViewpageView,web_list,web_info,web_func,web_FormFormbuilder,file_FilelistList,user_setup,help_DocumentationDocumentation,help_CshmanualCshmanual,help_AboutAbout,help_AboutAboutmodules','0,1','a:15:{s:14:\"interfaceSetup\";s:0:\"\";s:10:\"moduleData\";a:5:{s:10:\"web_layout\";a:2:{s:8:\"function\";s:1:\"1\";s:8:\"language\";s:1:\"0\";}s:9:\"tx_beuser\";s:530:\"O:40:\"TYPO3\\CMS\\Beuser\\Domain\\Model\\ModuleData\":2:{s:9:\"\0*\0demand\";O:36:\"TYPO3\\CMS\\Beuser\\Domain\\Model\\Demand\":12:{s:11:\"\0*\0userName\";s:0:\"\";s:11:\"\0*\0userType\";i:0;s:9:\"\0*\0status\";i:0;s:9:\"\0*\0logins\";i:0;s:19:\"\0*\0backendUserGroup\";N;s:6:\"\0*\0uid\";N;s:16:\"\0*\0_localizedUid\";N;s:15:\"\0*\0_languageUid\";N;s:16:\"\0*\0_versionedUid\";N;s:6:\"\0*\0pid\";N;s:61:\"\0TYPO3\\CMS\\Extbase\\DomainObject\\AbstractDomainObject\0_isClone\";b:0;s:69:\"\0TYPO3\\CMS\\Extbase\\DomainObject\\AbstractDomainObject\0_cleanProperties\";a:0:{}}s:18:\"\0*\0compareUserList\";a:0:{}}\";s:10:\"FormEngine\";a:2:{i:0;a:0:{}i:1;s:32:\"0b31934163bb7f99ba39d73a2ff6ed58\";}s:57:\"TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getUpdateSignal\";a:0:{}s:16:\"opendocs::recent\";a:2:{s:32:\"0b31934163bb7f99ba39d73a2ff6ed58\";a:4:{i:0;s:6:\"uhaake\";i:1;a:6:{s:4:\"edit\";a:1:{s:8:\"be_users\";a:1:{i:4;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:78:\"&edit[be_users][4]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:8:\"be_users\";s:3:\"uid\";i:4;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}s:32:\"d0c8e5fac82115102cd14aa904ddc80b\";a:4:{i:0;s:7:\"jchaake\";i:1;a:6:{s:4:\"edit\";a:1:{s:8:\"be_users\";a:1:{i:3;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:78:\"&edit[be_users][3]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:8:\"be_users\";s:3:\"uid\";i:3;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}}}s:19:\"thumbnailsByDefault\";i:1;s:14:\"emailMeAtLogin\";i:0;s:11:\"startModule\";s:22:\"help_AboutAboutmodules\";s:8:\"titleLen\";i:50;s:8:\"edit_RTE\";s:1:\"1\";s:20:\"edit_docModuleUpload\";s:1:\"1\";s:15:\"resizeTextareas\";i:1;s:25:\"resizeTextareas_MaxHeight\";i:500;s:24:\"resizeTextareas_Flexible\";i:0;s:4:\"lang\";s:2:\"de\";s:19:\"firstLoginTimeStamp\";i:1502986030;s:15:\"moduleSessionID\";a:5:{s:10:\"web_layout\";s:32:\"9cae74e0fbdd80d5870a1d8668a8a83f\";s:9:\"tx_beuser\";s:32:\"a992185b35436c222724710c344383eb\";s:10:\"FormEngine\";s:32:\"a992185b35436c222724710c344383eb\";s:57:\"TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getUpdateSignal\";s:32:\"a992185b35436c222724710c344383eb\";s:16:\"opendocs::recent\";s:32:\"a992185b35436c222724710c344383eb\";}s:17:\"BackendComponents\";a:1:{s:6:\"States\";a:2:{s:8:\"Pagetree\";a:1:{s:9:\"stateHash\";a:10:{i:0;s:1:\"1\";i:1;s:1:\"1\";i:3;s:1:\"1\";i:4;s:1:\"1\";i:5;s:1:\"1\";i:9;s:1:\"1\";i:18;s:1:\"1\";s:4:\"root\";s:1:\"1\";s:16:\"lastSelectedNode\";s:2:\"p0\";s:3:\"1-1\";s:1:\"1\";}}s:17:\"typo3-module-menu\";a:1:{s:9:\"collapsed\";s:5:\"false\";}}}}','','readFolder,writeFolder,addFolder,renameFolder,moveFolder,deleteFolder,readFile,writeFile,addFile,renameFile,replaceFile,moveFile,copyFile,deleteFile',1,'',0,0,'',0,0,'',0,1,''),(4,0,1502987541,'uhaake','',0,'$pbkdf2-sha256$25000$ilcziqLTDGkwq/X7KQkt0g$d6w0eG0Aqyq/FxFu/Vh.tH6ZdVdgHSFTYWV485w8h9c',1,'',0,0,0,'de','Ulrike.Haake@tiger.de','',3,1502987491,3,'Ulricke Haake','','',NULL,'','readFolder,writeFolder,addFolder,renameFolder,moveFolder,deleteFolder,readFile,writeFile,addFile,renameFile,replaceFile,moveFile,copyFile,deleteFile',1,'',0,0,'',0,0,NULL,0,1,'');
+UNLOCK TABLES;
+--
+-- Table structure for table `cache_md5params`
+--
+DROP TABLE IF EXISTS `cache_md5params`;
+CREATE TABLE `cache_md5params` (
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+--
+-- Dumping data for table `cache_md5params`
+--
+LOCK TABLES `cache_md5params` WRITE;
+UNLOCK TABLES;
+--
+-- Table structure for table `cache_treelist`
+--
+DROP TABLE IF EXISTS `cache_treelist`;
+CREATE TABLE `cache_treelist` (
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+--
+-- Dumping data for table `cache_treelist`
+--
+LOCK TABLES `cache_treelist` WRITE;
+UNLOCK TABLES;
+--
+-- Table structure for table `cf_cache_hash`
+--
+DROP TABLE IF EXISTS `cf_cache_hash`;
+CREATE TABLE `cf_cache_hash` (
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+--
+-- Dumping data for table `cf_cache_hash`
+--
+LOCK TABLES `cf_cache_hash` WRITE;
+goto_projects 
+cd tiger.de
+typo3cms help
+typo3cms help database:export
+typo3cms database:export --exclude-tables tx_extensionmanager_domain_model_extension
+c
+ssh tiger
+typo3cms database:export --exclude-tables be_sessions,cache_md5params,cache_treelist,cf_cache_hash,cf_cache_hash_tags,cf_cache_imagesizes,cf_cache_imagesizes_tags,cf_cache_pages,cf_cache_pages_tags,cf_cache_pagesection,cf_cache_pagesection_tags,cf_cache_rootline,cf_cache_rootline_tags,cf_extbase_datamapfactory_datamap,cf_extbase_datamapfactory_datamap_tags,cf_extbase_object,cf_extbase_object_tags,cf_extbase_reflection,cf_extbase_reflection_tags,cf_fluidcontent,cf_fluidcontent_tags,cf_flux,cf_flux_tags,cf_vhs_main,cf_vhs_main_tags,cf_vhs_markdown,cf_vhs_markdown_tags,fe_sessions,tx_realurl_pathdata,tx_realurl_uniqalias,tx_realurl_uniqalias_cache_map,tx_realurl_urldata,tx_scheduler_task,tx_scheduler_task_group,tx_extensionmanager_domain_model_extension,tx_extensionmanager_domain_model_repository,sys_log,sys_history
+alias
+reload_bash_profile 
+exportDb 
+typo3cms database:export --exclude-tables be_sessions,cache_md5params,cache_treelist,cf_cache_hash,cf_cache_hash_tags,cf_cache_imagesizes,cf_cache_imagesizes_tags,cf_cache_pages,cf_cache_pages_tags,cf_cache_pagesection,cf_cache_pagesection_tags,cf_cache_rootline,cf_cache_rootline_tags,cf_extbase_datamapfactory_datamap,cf_extbase_datamapfactory_datamap_tags,cf_extbase_object,cf_extbase_object_tags,cf_extbase_reflection,cf_extbase_reflection_tags,cf_fluidcontent,cf_fluidcontent_tags,cf_flux,cf_flux_tags,cf_vhs_main,cf_vhs_main_tags,cf_vhs_markdown,cf_vhs_markdown_tags,fe_sessions,tx_realurl_pathdata,tx_realurl_uniqalias,tx_realurl_uniqalias_cache_map,tx_realurl_urldata,tx_scheduler_task,tx_scheduler_task_group,tx_extensionmanager_domain_model_extension,tx_extensionmanager_domain_model_repository,sys_log,sys_history
+goto_projects 
+cd tiger.de
+typo3cms database:export --exclude-tables be_sessions,cache_md5params,cache_treelist,cf_cache_hash,cf_cache_hash_tags,cf_cache_imagesizes,cf_cache_imagesizes_tags,cf_cache_pages,cf_cache_pages_tags,cf_cache_pagesection,cf_cache_pagesection_tags,cf_cache_rootline,cf_cache_rootline_tags,cf_extbase_datamapfactory_datamap,cf_extbase_datamapfactory_datamap_tags,cf_extbase_object,cf_extbase_object_tags,cf_extbase_reflection,cf_extbase_reflection_tags,cf_fluidcontent,cf_fluidcontent_tags,cf_flux,cf_flux_tags,cf_vhs_main,cf_vhs_main_tags,cf_vhs_markdown,cf_vhs_markdown_tags,fe_sessions,tx_realurl_pathdata,tx_realurl_uniqalias,tx_realurl_uniqalias_cache_map,tx_realurl_urldata,tx_scheduler_task,tx_scheduler_task_group,tx_extensionmanager_domain_model_extension,tx_extensionmanager_domain_model_repository,sys_log,sys_history
+ssh tiger
+c
+typo3cms database:export --exclude-tables be_sessions,cache_md5params,cache_treelist,cf_cache_hash,cf_cache_hash_tags,cf_cache_imagesizes,cf_cache_imagesizes_tags,cf_cache_pages,cf_cache_pages_tags,cf_cache_pagesection,cf_cache_pagesection_tags,cf_cache_rootline,cf_cache_rootline_tags,cf_extbase_datamapfactory_datamap,cf_extbase_datamapfactory_datamap_tags,cf_extbase_object,cf_extbase_object_tags,cf_extbase_reflection,cf_extbase_reflection_tags,cf_fluidcontent,cf_fluidcontent_tags,cf_flux,cf_flux_tags,cf_vhs_main,cf_vhs_main_tags,cf_vhs_markdown,cf_vhs_markdown_tags,fe_sessions,tx_realurl_pathdata,tx_realurl_uniqalias,tx_realurl_uniqalias_cache_map,tx_realurl_urldata,tx_scheduler_task,tx_scheduler_task_group,tx_extensionmanager_domain_model_extension,tx_extensionmanager_domain_model_repository,sys_log,sys_history
+c
+typo3cms database:export --exclude-tables be_sessions,cache_md5params,cache_treelist,cf_cache_hash,cf_cache_hash_tags,cf_cache_imagesizes,cf_cache_imagesizes_tags,cf_cache_pages,cf_cache_pages_tags,cf_cache_pagesection,cf_cache_pagesection_tags,cf_cache_rootline,cf_cache_rootline_tags,cf_extbase_datamapfactory_datamap,cf_extbase_datamapfactory_datamap_tags,cf_extbase_object,cf_extbase_object_tags,cf_extbase_reflection,cf_extbase_reflection_tags,cf_fluidcontent,cf_fluidcontent_tags,cf_flux,cf_flux_tags,cf_vhs_main,cf_vhs_main_tags,cf_vhs_markdown,cf_vhs_markdown_tags,fe_sessions,tx_realurl_pathdata,tx_realurl_uniqalias,tx_realurl_uniqalias_cache_map,tx_realurl_urldata,tx_scheduler_task,tx_scheduler_task_group,tx_extensionmanager_domain_model_extension,tx_extensionmanager_domain_model_repository,sys_log,sys_history
+exportDb 
+cc
+typo3cms help
+typo3cms help database:export
+typo3cms database:export --exclude-tables be_sessions,fe_sessions,sys_log
+c
+# clean the screen
+c
+#stdIn the dump
+typo3cms database:export --exclude-tables be_sessions,fe_sessions,sys_log
+# clean the screen
+c
+#stdIn the dump
+typo3cms database:export --exclude-tables be_sessions,fe_sessions,sys_log
+c
+typo3cms database:export --exclude-tables be_sessions,cache_md5params,cache_treelist,cf_cache_hash,cf_cache_hash_tags,cf_cache_imagesizes,cf_cache_imagesizes_tags,cf_cache_pages,cf_cache_pages_tags,cf_cache_pagesection,cf_cache_pagesection_tags,cf_cache_rootline,cf_cache_rootline_tags,cf_extbase_datamapfactory_datamap,cf_extbase_datamapfactory_datamap_tags,cf_extbase_object,cf_extbase_object_tags,cf_extbase_reflection,cf_extbase_reflection_tags,cf_fluidcontent,cf_fluidcontent_tags,cf_flux,cf_flux_tags,cf_vhs_main,cf_vhs_main_tags,cf_vhs_markdown,cf_vhs_markdown_tags,fe_sessions,tx_realurl_pathdata,tx_realurl_uniqalias,tx_realurl_uniqalias_cache_map,tx_realurl_urldata,tx_scheduler_task,tx_scheduler_task_group
+c
+typo3cms database:export --exclude-tables be_sessions,cache_md5params,cache_treelist,cf_cache_hash,cf_cache_hash_tags,cf_cache_imagesizes,cf_cache_imagesizes_tags,cf_cache_pages,cf_cache_pages_tags,cf_cache_pagesection,cf_cache_pagesection_tags,cf_cache_rootline,cf_cache_rootline_tags,cf_extbase_datamapfactory_datamap,cf_extbase_datamapfactory_datamap_tags,cf_extbase_object,cf_extbase_object_tags,cf_extbase_reflection,cf_extbase_reflection_tags,cf_fluidcontent,cf_fluidcontent_tags,cf_flux,cf_flux_tags,cf_vhs_main,cf_vhs_main_tags,cf_vhs_markdown,cf_vhs_markdown_tags,fe_sessions,tx_realurl_pathdata,tx_realurl_uniqalias,tx_realurl_uniqalias_cache_map,tx_realurl_urldata,tx_scheduler_task,tx_scheduler_task_group,tx_extensionmanager_domain_model_extension,tx_extensionmanager_domain_model_repository
+c
+typo3cms help
+typo3cms help database:import
+ssh tiger '/home/www/p289267/html/tiger/test/ typo3cms database:import'
+ssh tiger '/home/www/p289267/html/tiger/test/typo3cms database:import'
+ssh tiger
+linkAndInstallExtension 
+linkAndInstallExtension tiger.de gjo_tiger
+typo3cms help
+typo3cms extension:activate gjo_tiger
+typo3cms help database:updateschema
+typo3cms database:updateschema --dry-run
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+edit_hosts 
+edit_httpd-vhosts 
+goto_pro
+goto_projects 
+cd test-typo3-874/
+goto_libs 
+alias
+ln -s ~/Documents/Dropbox/5-Berufsleben/Development/Projects/test-typo3-874 ~/Sites
+ln -s ~/Documents/Offline/5-Berufsleben/Development/library/typo3/typo3_src-8.7.4/ ~/Documents/Dropbox/5-Berufsleben/Development/Projects/test-typo3-874/typo3_src
+goto_projects 
+cd test-typo3-874/
+ln -s typo3_src/index.php
+ln -s typo3_src/typo3
+touch FIRST_INSTALL
+reload_apache 
+edit_hosts 
+linkAndInstallExtension 
+linkAndInstallExtension test-typo3-874 example
+linkAndInstallExtension test-typo3-874 styleguide
+alias
+typo3cms help
+cd ..
+cd tiger.de
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+cd .
+..
+cd test-typo3-874/
+typo3cms help
+..
+cd tiger.de
+cc
+typo3cms database:updateschema
+cc
+linkAndInstallExtension 
+linkAndInstallExtension test-typo3-874 gjo_ex_datatypes
+typo3cms database:export --exclude-tables be_sessions,cache_md5params,cache_treelist,cf_cache_hash,cf_cache_hash_tags,cf_cache_imagesizes,cf_cache_imagesizes_tags,cf_cache_pages,cf_cache_pages_tags,cf_cache_pagesection,cf_cache_pagesection_tags,cf_cache_rootline,cf_cache_rootline_tags,cf_extbase_datamapfactory_datamap,cf_extbase_datamapfactory_datamap_tags,cf_extbase_object,cf_extbase_object_tags,cf_extbase_reflection,cf_extbase_reflection_tags,cf_fluidcontent,cf_fluidcontent_tags,cf_flux,cf_flux_tags,cf_vhs_main,cf_vhs_main_tags,cf_vhs_markdown,cf_vhs_markdown_tags,fe_sessions,tx_realurl_pathdata,tx_realurl_uniqalias,tx_realurl_uniqalias_cache_map,tx_realurl_urldata,tx_scheduler_task,tx_scheduler_task_group,tx_extensionmanager_domain_model_extension,tx_extensionmanager_domain_model_repository,sys_log,sys_history
+typo3cms help
+c
+typo3cms help
+typo3cms help extension:setup
+cc
+typo3cms help
+typo3cms help extension:activate
+typo3cms extension:activate gjo_tiger
+cc
+rm -rf typo3temp/*
+cc
+typo3cms help
+typo3cms configuration:show DB
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:export --exclude-tables be_sessions,cache_md5params,cache_treelist,cf_cache_hash,cf_cache_hash_tags,cf_cache_imagesizes,cf_cache_imagesizes_tags,cf_cache_pages,cf_cache_pages_tags,cf_cache_pagesection,cf_cache_pagesection_tags,cf_cache_rootline,cf_cache_rootline_tags,cf_extbase_datamapfactory_datamap,cf_extbase_datamapfactory_datamap_tags,cf_extbase_object,cf_extbase_object_tags,cf_extbase_reflection,cf_extbase_reflection_tags,cf_fluidcontent,cf_fluidcontent_tags,cf_flux,cf_flux_tags,cf_vhs_main,cf_vhs_main_tags,cf_vhs_markdown,cf_vhs_markdown_tags,fe_sessions,tx_realurl_pathdata,tx_realurl_uniqalias,tx_realurl_uniqalias_cache_map,tx_realurl_urldata,tx_scheduler_task,tx_scheduler_task_group,tx_extensionmanager_domain_model_extension,tx_extensionmanager_domain_model_repository,sys_log,sys_history
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+alias
+linkAndInstallExtensio 
+linkAndInstallExtension
+linkAndInstallExtension test-typo3-874 ajaxselectlist
+cc
+typo3cms database:updateschema
+gem install compass
+sudo gem install compass
+cd ..
+cd test-typo3-874/
+cd _works/
+compass create firstProject
+compass watch ~/Documents/Dropbox/5-Berufsleben/Development/Projects/test-typo3-874/_works/firstProject/
+sass --version
+cd..
+..
+cd tiger.de
+compass watch _works/Prototype/
+cd tiger.de
+compass watch _works/Prototype/
+exportDb 
+c
+exportDb 
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+exportDb 
+ll
+cd typo3conf/ext/gjo_introduction/Resources/Private/Sass/
+compass watch
+cc
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5\-Berufsleben/Development/Projects/tiger\.de
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5\-Berufsleben/Development/Projects/tiger\.de
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5\-Berufsleben/Development/Projects/tiger\.de
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+c
+exportDb 
+c
+clear
+q
+c
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+alias exportDb
+exportDb
+c
+cc
+typo3cms database:updateschema
+cc
+history 
+cd typo3conf/ext/gjo_introduction/Resources/Private/Sass/
+compass watch
+cd /var/log/mysql
+cd /var
+cd mysql/
+cd /var
+cd log/
+cc
+c
+cc
+mysqldumpslow
+cc
+c
+compass watch
+exportDb 
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+exportDb 
+ll
+touch .ssh/config 
+nano .ssh/config 
+ssh doseo
+nano .ssh/config 
+ssh doseo
+c
+ssh doseo
+alias ll
+c
+alias getTypo3Libs
+alias
+scp -rp ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/fileadmin/user_upload/ gregorerdmann_gjose@server.doseo.de /var/www/clients/client14/web468/web/tiger.de/test/fileadmin/user_upload
+scp -rp ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/fileadmin/user_upload/ gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/fileadmin/user_upload
+scp -rp ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/typo3conf gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf
+ssh doseo
+cc
+alias
+linkAndInstallExtension
+linkAndInstallExtension tiger.de news
+cd /private/var/log/apache2/
+nano tiger.de-access_log
+nano tor-online.de-error_log
+nano tiger.de-error_log
+cc
+alias
+edit_httpd-vhosts
+cc
+edit_httpd-vhosts
+typo3cms help
+typo3cms extension:activate gjo_boilerplate
+typo3cms deextension:activate gjo_tiger
+typo3cms extension:deactivate gjo_tiger
+typo3cms extension:deactivate gjo_boilerplate
+typo3cms extension:deactivate gjo_introduction
+typo3cms extension:deactivate gjo_boilerplate
+typo3cms extension:deactivate gjo_tiger
+typo3cms deextension:activate gjo_boilerplate
+typo3cms extension:activate gjo_boilerplate
+typo3cms extension:activate gjo_introduction
+typo3cms extension:activate gjo_tiger
+cc
+alias
+goto_projects 
+cd tiger.de
+exportDb 
+exportDB
+alias
+exportDb
+~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+exportDb
+cd fileadmin/user_upload/news/
+edit_ssh
+alias
+ll
+cd .ssh/
+nano config 
+scp ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/fileadmin/user_upload/news gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/fileadmin/user_upload
+scp ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/fileadmin/user_upload/news/ gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/fileadmin/user_upload
+ssh doseo
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/fileadmin/user_upload/news gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/fileadmin/user_upload
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/fileadmin/user_upload gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/fileadmin
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/typo3conf gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test
+rsync -avz --exclude '*.log' ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/typo3conf gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test
+rsync -avzK --exclude '*.log' ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/typo3conf gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test
+goto_ext 
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/flux gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_boilerplate gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_introduction gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_tiger gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/news gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_introduction gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+cd /usr/local/bin/
+cd composer
+cd ../Cellar/composer/1.4.2/bin/composer
+cd ..
+cd Cellar/
+cd composer/
+cd 1.4.2/
+cd bin/
+cd composer 
+..
+cd libexec/
+composer.phar
+composer.phar install
+ll
+brew install composer
+composer --version
+sudo chmod +x /usr/local/bin/composer
+composer --version
+brew upgrade ruby
+brew update
+brew install ruby-build
+brew install rbenv
+rbenv install 2.4.2
+rbenv global 2.4.2
+composer -v
+brew install composer
+brew upgrade composer
+composer --version
+brew install php71
+brew upgrade php71
+composer --version
+phps 7.1
+sphp 7.1
+sphp
+sphp 7.1.12_23
+sphp 7.1.12
+sphp 71
+php -v
+sphp
+alias
+phpSwitch 71
+php -v
+phpSwitch 70
+brew unlink php71
+phpSwitch 70
+php -v
+php56 -v
+brew update
+brew upgrade
+php -v
+brew unlink php70
+brew upgrade
+php -v
+brew install php
+brew tap homebrew/dupes
+brew tap homebrew/versions
+brew tap homebrew/homebrew-php
+brew unlink php70
+brew install php71
+brew link php71
+php --version
+brew --version
+brew doctor
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+alias
+linkAndInstallExtension
+linkAndInstallExtension tiger.de aimeos
+goto_ext 
+cd aimeos/
+php -r "readfile('https://getcomposer.org/installer');" | php -- --filename=composer
+git pull https://github.com/aimeos/aimeos-typo3.git
+COMPOSER=composer.aimeos.json composer update
+php -r "readfile('https://getcomposer.org/installer');" | php -- --filename=composer
+git pull https://github.com/aimeos/aimeos-typo3.git
+COMPOSER=composer.aimeos.json composer update
+php /usr/local/bin/composer.phar
+cd /usr/local/Cellar/php71/
+cd 7.1.12_23/
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5\-Berufsleben/Development/localRepositories/ext/gjo\_tiger
+mdfind composer.phar
+/usr/local/bin/composer.phar -v
+/usr/local/bin/composer -v
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5\-Berufsleben/Development/localRepositories/ext/gjo\_tiger
+cd /usr/local/opt/jpeg/lib
+cd /usr/local/bin/
+cd /usr/local/pcre/bin/
+nano pcre-config 
+cd /usr/local/Cellar/php71/7.1.7_19/bin/
+nano php
+apacheErrorLog
+brew doctor
+php -v
+brew switch libjpeg 8d
+php -v
+php71
+php71 -v
+php -v
+composer -v
+brew install composer
+composer --version
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+composer --version
+sudo chmod +x /usr/local/bin/composer
+composer --version
+reload_bash_profile 
+composer --version
+php -v
+reload_bash_profile 
+composer --version
+reload_bash_profile 
+composer --version
+path
+reload_bash_profile 
+path
+reload_bash_profile 
+path
+composer -v
+brew doctor
+reload_bash_profile 
+composer -v
+goto_ext 
+cd aimeos/
+COMPOSER=composer.aimeos.json composer update
+COMPOSER=composer.json composer update
+composer update
+sudo composer update
+bash history
+history
+php -v
+composer update
+sudo composer update
+brew switch libjpeg 8d
+sudo composer update
+brew switch libjpeg 9d
+brew switch libjpeg 9b
+sudo composer update
+php -v
+brew switch libjpeg 8
+brew switch libjpeg 8d
+php -v
+brew switch libjpeg 9b
+cd /usr/local/opt/jpeg/lib/
+..
+brew switch libjpeg 8d
+cd /usr/local/opt/jpeg/lib/
+cp libjpeg.8.dylib ../
+ll
+..
+brew switch libjpeg 9b
+ll
+cd lib
+..
+brew switch libjpeg 8d
+ll
+cd lib/
+cp libjpeg.8.dylib /
+cp libjpeg.8.dylib /Users/gregoryjodaily
+brew switch libjpeg 9b
+mv /Users/gregoryjodaily/libjpeg.8.dylib /usr/local/opt/jpeg/lib
+ll
+brew switch libjpeg 9b
+ll
+php -v
+composer -v
+im -v
+imagemagic
+php56 -v
+php71
+php71 -v
+php -v
+reload_bash_profile 
+php -v
+composer -v
+goto_projects 
+cd tiger.de
+linkAndInstallExtension 
+linkAndInstallExtension tiger.de gjo_extends_aimoes
+typo3cms extension:install gjo_extends_aimoes
+typo3cms help
+typo3cms extension:activate gjo_extends_aimeos
+linkAndInstallExtension tiger.de gjo_extends_aimeos
+typo3cms extension:activate gjo_extends_aimeos
+q
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+exportDb 
+c
+cc
+typo3cms help
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+linkAndInstallExtension gjo_tiger 
+linkAndInstallExtension gjo_tiger.de
+linkAndInstallExtension tiger.de
+linkAndInstallExtension
+linkAndInstallExtension tiger.de aimeos_pay
+typo3cms database:updateschema
+cc
+exportDb 
+goto_projects 
+cd tiger.de
+exportDb 
+mount
+cc
+typo3cms help
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+typo3cms extension:activate gjoextendsaimeos
+typo3cms extension:activate gjoextendsaimoes
+cc
+typo3cms database:updateschema
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+chflags nohidden ~/Library
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+exportDb 
+cd /usr/local/lib/
+/Library/Application
+/Library/
+cd /Library/
+cd /Application Support/
+cd libmp3lame.dylib
+cd Application Support/
+ll
+..
+cd Application Support
+..
+cd "Application Support"/
+find libmp3lame
+find / -libmp3lame
+find / -iname "*.dylib"
+find / -iname "libmp3lame.dylib"
+sudo find / -iname "libmp3lame.dylib"
+linkAndInstallExtension 
+linkAndInstallExtension test-typo3-874 quick_shop
+linkAndInstallExtension test-typo3-874 powermail
+typo3cms help
+goto_projects 
+cd test-typo3-874/
+typo3cms help
+typo3cms extension:activate powermail
+typo3cms database:updateschema
+cc
+..
+cd tiger.de
+cc
+typo3cms database:updateschema
+cc
+typo3cms help
+typo3cms extension:activate gjo_boilerplate
+cc
+linkAndInstallExtension 
+linkAndInstallExtension tiger.de gjo_extends_felogin
+cc
+typo3cms help
+typo3cms extension:activate gjo_extends_felogin
+cc
+linkAndInstallExtension tiger.de femanager
+typo3cms extension:activate femanager
+linkAndInstallExtension tiger.de gjo_extends_femanager
+typo3cms extension:activate gjo_extends_femanager
+cc
+exportDb
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+exportDb
+ll
+cd .ssh/
+nano config 
+ssh tiger
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+linkAndInstallExtension 
+linkAndInstallExtension tiger.de gjo_extends_frontend
+typo3cms help
+typo3cms extension:activate gjo_extends_frontend
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms extension:deactivate gjo_extends_frontend
+typo3cms autocomplete
+typo3cms extension:activate gjo_extends_femanager
+cc
+typo3cms extension:activate gjo_extends_femanager
+cc
+typo3cms extension:activate gjo_boilerplate
+typo3cms help
+typo3cms database:updateschema
+cc
+typo3cms extension:activate gjo_boilerplate
+typo3cms extension:activate gjo_extends_femanager
+cc
+typo3cms database:updateschema
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+linkAndInstallExtension 
+linkAndInstallExtension tiger.de gjo_shop
+cc
+service mysql restart
+mysql restart
+sudo mysql restart
+sudo /usr/local/mysql/support-files/mysql.server restart
+cd /usr/local/Cellar/mysql/5.7.20
+cd support-files/
+mysql.server restart
+goto_projects 
+cd tiger.de
+typo3cms help
+typo3cms database:updateschema
+typo3cms extension:activate shop
+typo3cms extension:activate gjo_shop
+typo3cms database:updateschema
+mysql
+mysql -v
+mysqld
+ysqlstop
+q
+cd /var/run/
+mkdir /var/run/mysqld
+ll
+sudo /var/run/mysqld
+sudo mkdir /var/run/mysqld
+touch /var/run/mysqld/mysqld.pid
+sudo touch /var/run/mysqld/mysqld.pid
+sudo chown -R mysql:mysql /var/run/mysqld
+ll
+mysql.server start
+mysql.server status
+ps aux | grep mysql
+sudo kill 708
+ps aux | grep mysql
+sudo kill 26584
+sudo kill 26566
+sudo kill 26564
+sudo kill 26416
+ps aux | grep mysql
+cd /usr/local/var/mysql/
+mysql.server start
+touch Gregorys-MacBook-Pro.local.pid
+ll
+..
+chown -R mysql:mysql /usr/local/var/mysql/
+sudo chown -R mysql:mysql /usr/local/var/mysql/
+ll
+cd mysql/
+mysql.server start
+sudo mysql.server start
+ll
+mysql.server status
+typo3cms database:updateschema
+mysql.server restart
+mysql.server status
+sudo mysql.server start
+mysql.server status
+sudo mysql.server status
+typo3cms database:updateschema
+typo3cms help
+typo3cms extension:activate gjo_shop
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+sudo mysql.server start
+cd ..
+cd tiger.de
+typo3cms database:updateschema
+sudo mysql.server start
+sudo mysql.server status
+sudo mysql.server restart
+cc
+typo3cms database:updateschema
+cc
+typo3cms help
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms extension:activate gjo_shop
+cc
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+exportDb 
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+history
+typo3cms database:updateschema
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+goto_pro
+goto_projects 
+cd tiger.de
+exportDb 
+typo3cms extension:activate gjo_shop
+typo3cms database:updateschema
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+history watch
+history
+cd typo3conf/ext/gjo_introduction/Resources/Private/Sass/
+compass watch
+ssh tiger
+edit_ssh
+ssh
+ll
+cd .ssh/
+nano config
+reload_bash_profile 
+edit_sshconfig 
+reload_bash_profile 
+edit_sshconfig 
+reload_bash_profile 
+edit_sshconfig 
+ssh doseo
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+linkAndInstallExtension 
+linkAndInstallExtension tiger.de cart_paypal
+typo3cms database:updateschema
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/fileadmin/user_upload gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/fileadmin
+rsync -avz --exclude '*.log' ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/typo3conf gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/flux gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+ssh doseo
+goto_projects 
+cd tiger.de
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_introduction gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+rsync -avz --exclude '/typo3conf/ext' --exclude '/typo3conf/l10n' --exclude '*.log' ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/typo3conf gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/flux gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_boilerplate gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_extends_felogin gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_extends_femanager gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_introduction gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_shop gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_tiger gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+rsync -avz ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/femanager gregorerdmann_gjose@server.doseo.de:/var/www/clients/client14/web468/web/tiger.de/test/typo3conf/ext
+cc
+history
+typo3cms extension:activate gjo_shop
+ssh doeseo
+ssh doseo
+curl https://api-3t.sandbox.paypal.com/nvp   -s   --insecure   -d USER=YourUserID   -d PWD=YourPassword   -d SIGNATURE=YourSignature   -d METHOD=SetExpressCheckout   -d VERSION=98   -d PAYMENTREQUEST_0_AMT=10   -d PAYMENTREQUEST_0_CURRENCYCODE=USD   -d PAYMENTREQUEST_0_PAYMENTACTION=SALE   -d cancelUrl=https://example.com/cancel   -d returnUrl=https://example.com/success
+curl https://api-3t.sandbox.paypal.com/nvp   -s   --insecure   -d USER=paypal-sandbox-business_api1.gjo-se.com   -d PWD=2TM8EAXDR25Z5W5G   -d SIGNATURE=AlKEFboR3SJNbSa5rJ59D0Mk9y-rAjkRU2ZEeZrKtGuoJAPMZGHGrTMp   -d METHOD=SetExpressCheckout   -d VERSION=98   -d PAYMENTREQUEST_0_AMT=10   -d PAYMENTREQUEST_0_CURRENCYCODE=USD   -d PAYMENTREQUEST_0_PAYMENTACTION=SALE   -d cancelUrl=https://example.com/cancel   -d returnUrl=https://example.com/success
+url https://api-3t.sandbox.paypal.com/nvp   -s   --insecure   -d USER=paypal-sandbox-business_api1.gjo-se.com   -d PWD=2TM8EAXDR25Z5W5G   -d SIGNATURE=AlKEFboR3SJNbSa5rJ59D0Mk9y-rAjkRU2ZEeZrKtGuoJAPMZGHGrTMpXXX   -d METHOD=SetExpressCheckout   -d VERSION=98   -d PAYMENTREQUEST_0_AMT=10   -d PAYMENTREQUEST_0_CURRENCYCODE=USD   -d PAYMENTREQUEST_0_PAYMENTACTION=SALE   -d cancelUrl=https://example.com/cancel   -d returnUrl=https://example.com/success
+curl https://api-3t.sandbox.paypal.com/nvp   -s   --insecure   -d USER=paypal-sandbox-business_api1.gjo-se.com   -d PWD=2TM8EAXDR25Z5W5G   -d SIGNATURE=AlKEFboR3SJNbSa5rJ59D0Mk9y-rAjkRU2ZEeZrKtGuoJAPMZGHGrTMpXXX   -d METHOD=SetExpressCheckout   -d VERSION=98   -d PAYMENTREQUEST_0_AMT=10   -d PAYMENTREQUEST_0_CURRENCYCODE=USD   -d PAYMENTREQUEST_0_PAYMENTACTION=SALE   -d cancelUrl=https://example.com/cancel   -d returnUrl=https://example.com/success
+curl https://api-3t.sandbox.paypal.com/nvp   -s   --insecure   -d USER=paypal-sandbox-business_api1.gjo-se.com   -d PWD=2TM8EAXDR25Z5W5G   -d SIGNATURE=AlKEFboR3SJNbSa5rJ59D0Mk9y-rAjkRU2ZEeZrKtGuoJAPMZGHGrTMp   -d METHOD=SetExpressCheckout   -d VERSION=98   -d PAYMENTREQUEST_0_AMT=10   -d PAYMENTREQUEST_0_CURRENCYCODE=USD   -d PAYMENTREQUEST_0_PAYMENTACTION=SALE   -d cancelUrl=https://example.com/cancel   -d returnUrl=https://example.com/success
+curl -v https://api.sandbox.paypal.com/v1/oauth2/token    -H "Accept: application/json"    -H "Accept-Language: en_US"    -u "AewavtOX1f3E1H36w68V1GeoN_YoM-AuplFOgSeaG2aP56RMF7d3hLO8zyggUSMOq27lWY4tsiHfZVhU:EH4JUZCYS5DfpvASOkK2VQOr_HWx_70FSIe3z1ksQrpsJv9BDJgulLeGBhEUWBTE9jLVmZKhqE_0UFeY"    -d "grant_type=client_credentials"
+curl -v https://api.sandbox.paypal.com/v1/payments/payment   -H "Content-Type: application/json"   -H "Authorization: Bearer A21AAHQ1lw1oI07w7mmuM_-kFs6PdgHufhbNtCfoEMqFtHeoHoNbALrVERusXJWET5js7wzRB4xl7P4emj-6WZyzBtaMfwq0g"   -d '{
+  "intent": "sale",
+  "redirect_urls": {
+    "return_url": "https://example.com/your_redirect_url.html",
+    "cancel_url": "https://example.com/your_cancel_url.html"
+  },
+  "payer": {
+    "payment_method": "paypal"
+  },
+  "transactions": [{
+    "amount": {
+      "total": "7.47",
+      "currency": "USD"
+    }
+  }]
+}'
+curl -v -X POST https://api.sandbox.paypal.com/v1/checkout/orders -H "Content-Type: application/json" -H "Authorization: Bearer A21AAHQ1lw1oI07w7mmuM_-kFs6PdgHufhbNtCfoEMqFtHeoHoNbALrVERusXJWET5js7wzRB4xl7P4emj-6WZyzBtaMfwq0g" -d '{
+  "purchase_units": [
+  {
+    "reference_id": "store_mobile_world_order_1234",
+    "description": "Mobile World Store order-1234",
+    "amount": {
+    "currency": "USD",
+    "details": {
+      "subtotal": "1.09",
+      "shipping": "0.02",
+      "tax": "0.33"
+    },
+    "total": "1.44"
+    },
+    "payee": {
+    "email": "seller@example.com"
+    },
+    "items": [
+    {
+      "name": "NeoPhone",
+      "sku": "sku03",
+      "price": "0.54",
+      "currency": "USD",
+      "quantity": "1",
+      "category": "PHYSICAL"
+    },
+    {
+      "name": "Fitness Watch",
+      "sku": "sku04",
+      "price": "0.55",
+      "currency": "USD",
+      "quantity": "1",
+      "category": "PHYSICAL"
+    }
+    ],
+    "shipping_address": {
+    "recipient_name": "John Doe",
+    "line1": "2211 N First Street",
+    "line2": "Building 17",
+    "city": "San Jose",
+    "country_code": "US",
+    "postal_code": "95131",
+    "state": "CA",
+    "phone": "(123) 456-7890"
+    },
+    "shipping_method": "United Postal Service",
+    "partner_fee_details": {
+    "receiver": {
+      "email": "partner@example.com"
+    },
+    "amount": {
+      "value": "0.01",
+      "currency": "USD"
+    }
+    },
+    "payment_linked_group": 1,
+    "custom": "custom_value_2388",
+    "invoice_number": "invoice_number_2388",
+    "payment_descriptor": "Payment Mobile World"
+  }
+  ],
+  "redirect_urls": {
+  "return_url": "https://example.com/return",
+  "cancel_url": "https://example.com/cancel"
+  }
+}'
+curl -v -X POST https://api.sandbox.paypal.com/v1/checkout/orders -H "Content-Type: application/json" -H "Authorization: Bearer A21AAHQ1lw1oI07w7mmuM_-kFs6PdgHufhbNtCfoEMqFtHeoHoNbALrVERusXJWET5js7wzRB4xl7P4emj-6WZyzBtaMfwq0g" -d '{
+  "purchase_units": [
+  {
+    "reference_id": "store_mobile_world_order_1234",
+    "description": "Mobile World Store order-1234",
+    "amount": {
+    "currency": "USD",
+    "details": {
+      "subtotal": "1.09",
+      "shipping": "0.02",
+      "tax": "0.33"
+    },
+    "total": "1.44"
+    },
+    "payee": {
+    "email": "paypal-sandbox-business@gjo-se.com"
+    },
+    "items": [
+    {
+      "name": "NeoPhone",
+      "sku": "sku03",
+      "price": "0.54",
+      "currency": "USD",
+      "quantity": "1",
+      "category": "PHYSICAL"
+    },
+    {
+      "name": "Fitness Watch",
+      "sku": "sku04",
+      "price": "0.55",
+      "currency": "USD",
+      "quantity": "1",
+      "category": "PHYSICAL"
+    }
+    ],
+    "shipping_address": {
+    "recipient_name": "John Doe",
+    "line1": "2211 N First Street",
+    "line2": "Building 17",
+    "city": "San Jose",
+    "country_code": "US",
+    "postal_code": "95131",
+    "state": "CA",
+    "phone": "(123) 456-7890"
+    },
+    "shipping_method": "United Postal Service",
+    "partner_fee_details": {
+    "receiver": {
+      "email": "partner@example.com"
+    },
+    "amount": {
+      "value": "0.01",
+      "currency": "USD"
+    }
+    },
+    "payment_linked_group": 1,
+    "custom": "custom_value_2388",
+    "invoice_number": "invoice_number_2388",
+    "payment_descriptor": "Payment Mobile World"
+  }
+  ],
+  "redirect_urls": {
+  "return_url": "https://example.com/return",
+  "cancel_url": "https://example.com/cancel"
+  }
+}'
+curl -v -X POST https://api.sandbox.paypal.com/v1/checkout/orders -H "Content-Type: application/json" -H "Authorization: Bearer A21AAHQ1lw1oI07w7mmuM_-kFs6PdgHufhbNtCfoEMqFtHeoHoNbALrVERusXJWET5js7wzRB4xl7P4emj-6WZyzBtaMfwq0g" -d '{
+  "purchase_units": [
+  {
+    "reference_id": "store_mobile_world_order_1234",
+    "description": "Mobile World Store order-1234",
+    "amount": {
+    "currency": "USD",
+    "details": {
+      "subtotal": "1.09",
+      "shipping": "0.02",
+      "tax": "0.33"
+    },
+    "total": "1.44"
+    },
+    "payee": {
+    "email": "paypal-sandbox-business@gjo-se.com"
+    },
+    "items": [
+    {
+      "name": "NeoPhone",
+      "sku": "sku03",
+      "price": "0.54",
+      "currency": "USD",
+      "quantity": "1",
+      "category": "PHYSICAL"
+    },
+    {
+      "name": "Fitness Watch",
+      "sku": "sku04",
+      "price": "0.55",
+      "currency": "USD",
+      "quantity": "1",
+      "category": "PHYSICAL"
+    }
+    ],
+    "shipping_address": {
+    "recipient_name": "John Doe",
+    "line1": "2211 N First Street",
+    "line2": "Building 17",
+    "city": "San Jose",
+    "country_code": "US",
+    "postal_code": "95131",
+    "state": "CA",
+    "phone": "(123) 456-7890"
+    },
+    "shipping_method": "United Postal Service",
+    "partner_fee_details": {
+    "receiver": {
+      "email": "b2c@gjo-se.com"
+    },
+    "amount": {
+      "value": "0.01",
+      "currency": "USD"
+    }
+    },
+    "payment_linked_group": 1,
+    "custom": "custom_value_2388",
+    "invoice_number": "invoice_number_2388",
+    "payment_descriptor": "Payment Mobile World"
+  }
+  ],
+  "redirect_urls": {
+  "return_url": "https://example.com/return",
+  "cancel_url": "https://example.com/cancel"
+  }
+}'
+goto_projects tiger.de
+cd tiger.de
+typo3cms extension:activate gjo_shop
+cc
+goto_projects 
+cd tiger.de
+exportDb 
+sudo /usr/local/mysql/support-files/mysql.server start
+mysql.server start
+sudo mysql.server start
+cc
+curl -v https://api.sandbox.paypal.com/v1/oauth2/token    -H "Accept: application/json"    -H "Accept-Language: en_US"    -u "AewavtOX1f3E1H36w68V1GeoN_YoM-AuplFOgSeaG2aP56RMF7d3hLO8zyggUSMOq27lWY4tsiHfZVhU:EH4JUZCYS5DfpvASOkK2VQOr_HWx_70FSIe3z1ksQrpsJv9BDJgulLeGBhEUWBTE9jLVmZKhqE_0UFeY"    -d "grant_type=client_credentials"
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+history 
+cd typo3conf/ext/gjo_introduction/Resources/Private/Sass/
+compass watch
+history 
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/_works/Prototype/sass/
+composer watch
+compass watch
+..
+cd typo3conf/ext/gjo_introduction/Resources/Public/
+..
+cd Private/
+cd Sass/
+compass watch
+goto_projects 
+cd tiger.de
+exportDb 
+cc
+..
+goto_projects 
+tiger.de
+cc
+cd tiger.de
+cc
+typo3cms extension:activate gjo_shop
+cc
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5\-Berufsleben/Development/localRepositories/ext/gjo\_introduction/Configuration/TypoScript/ContentElement
+cd /Users/gregoryjodaily/Sites/tiger.de/typo3conf/ext/gjo_introduction/Resources/Privtae/Templates/ContentElements
+history 
+history 1971
+history -d 1971
+ll
+compass watch
+cd typo3conf/ext/gjo_introduction/Resources/Private/Sass/
+goto_projects 
+cd tiger.de
+compass watch
+cd typo3conf/ext/gjo_introduction/Resources/Private/Sass/
+compass watch
+goto_projects 
+cd tiger.de
+exportDb 
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5\-Berufsleben/Development/Projects/tiger\.de/typo3conf
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5\-Berufsleben/Development/Projects/tiger\.de/typo3conf
+cc
+goto_projects tiger.de
+cd tiger.de
+exportDb 
+/System/Library/Frameworks/DVDPlayback.framework/Versions/A/DVDPlayback ; exit;
+cd /System/Library/Frameworks/DVDPlayback.framework/Versions/A/DVDPlayback
+cd /System/Library/Frameworks/DVDPlayback.framework/Versions/A/
+cp DVDPlayback DVDPlayback_backup
+sudo copy DVDPlayback DVDPlayback_backup
+sudo cp DVDPlayback DVDPlayback_backup
+goto_projects 
+cd tiger.de
+cd typo3conf/ext/gjo_introduction/Resources/Private/
+cs Sass
+cd Sass
+cd scss/
+compass watch
+..
+compass watch
+sass watch
+sass --watch
+sass --watch mdb.scss:output.css
+sass --watch scss/mdb.scss:output.css
+sass --version
+sass -v
+gem install sass
+sudo gem update sass
+sass -v
+sass --watch scss/mdb.scss:output.css
+npm install --global gulp
+..
+cd _works/
+cd Gulp/
+npm init
+npm install --save-dev gulp
+..
+cd GulpTest/
+npm install --save-dev gulp
+npm init
+npm install --save-dev gulp
+npm install gulp-sass --save-dev
+gulp default
+..
+cd typo3conf/ext/gjo_introduction/Resources/Private/
+cd Gulp/
+npm init
+npm install --save-dev gulp
+install gulp-sass --save-dev
+npm install gulp-sass --save-dev
+gulp default
+gulp sass
+mysql.server start
+mysql.server stop
+mysql.server restart
+sudo mysql.server start
+gulp sass
+cc
+goto_projects 
+cd tiger.de
+cc
+reload_bash_profile 
+gulp_sass 
+gulp sass
+reload_bash_profile 
+gulp sass
+gulp_sass 
+reload_bash_profile 
+goto_tiger.de 
+reload_bash_profile 
+goto_tiger.de 
+goto_gulp 
+gulp sass
+reload_bash_profile 
+gulp sass
+goto_tiger.de 
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+goto_tiger.de 
+exportDb 
+typo3cms extension:activate gjo_introduction
+cc
+gulp sass
+cc
+typo3cms extension:activate gjo_introduction
+cc
+typo3cms extension:activate gjo_introduction
+cc
+typo3cms extension:activate gjo_introduction
+cc
+typo3cms extension:activate gjo_introduction
+cc
+typo3cms extension:activate gjo_introduction
+cc
+typo3cms extension:activate gjo_introduction
+cc
+c
+cc
+c
+cc
+goto_tiger.de 
+exportDb 
+c
+cc
+CC
+cc
+typo3cms extension:activate gjo_introduction
+cc
+typo3cms extension:activate gjo_extends_femanager
+cc
+typo3cms extension:activate gjo_extends_femanager
+cc
+typo3cms extension:activate gjo_extends_femanager
+typo3cms extension:activate gjo_extends_boilerplate
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+linkAndInstallExtension 
+linkAndInstallExtension test-typo3-874 form_validate
+linkAndInstallExtension test-typo3-874 javascript_book
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+goto_tiger.de 
+exportDb 
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+typo3cms extension:activate gjo_boilerplate
+cc
+ssh erdmann-visbek.de
+mysql start
+service mysql start
+mysql.server start
+mysql -v
+sudo mysql.server start
+dbExport
+alias
+exportDb
+..
+exportDb
+sudo mysql.server start
+php -v
+apache restart
+alias
+reload_apache
+cc
+sudo mysql.server start
+cc
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+exportDb 
+cd ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de
+exportDb 
+sudo mysql.server start
+reload_apache
+cc
+goto_gulp 
+watch
+alias
+compass watch
+..
+cd Sass/
+compass watch
+..
+compass watch Sass
+history watch
+sass watch
+sass --watch
+sass --watch scss/mdb.scss:output.css
+cd Gulp/
+gulp sass
+..
+compass watch Sass/
+cd /Volumes/Daten/Users/
+goto_tiger.de 
+cd typo3conf/ext/gjo_introduction/Resources/Private
+cd Sass/
+compass watch
+compass watch --trace
+..
+cd Gulp/
+gulp sass
+gulp sass watch
+sass watch
+gulp sass
+goto_tiger.de 
+cc
+cccc
+cc
+mysql -v
+mysql --version
+alias
+linkAndInstallExtension
+linkAndInstallExtension tiger.de gjo_vagrant
+reload_bash_profile 
+reload_mysql 
+gulp sass
+compass watch
+gulp sass
+cc
+gulp sass
+cc
+goto_gulp 
+
+gulp sass
+goto_tiger.de 
+exportDb 
+goto_gulp 
+gulp sass
+goto_gulp 
+gulp sass
+..
+cc
+goto_gulp 
+gulp sass
+goto_gulp 
+gulp sass
+alias
+typo3cms help
+typo3cms extension:activate gjo_boilerplate
+cc
+goto_gulp 
+gulp sass
+[A
+gulp sass
+goto_gulp 
+gulp sass
+goto_gulp 
+gulp sass
+goto_gulp 
+gulp sass
+goto_gulp 
+gulp sass
+goto_tiger.de 
+exportDb 
+goto_tiger.de 
+exportDb 
+goto_gulp 
+gulp sass
+reload_mysql 
+goto_gulp 
+reload_mysql 
+gulp sass
+goto_tiger.de 
+exportDb 
+goto_gulp 
+gulp sass
+goto_gulp 
+gulp sass
+goto_gulp 
+gulp sass
+cc
+reload_mysql 
+cc
+reload_mysql 
+cc
+typo3cms help
+typo3cms extension:activate gjo_tiger
+typo3cms extension:activate gjo_boilerplate
+cc
+goto_gulp 
+gulp sass
+goto_tiger.de 
+exportDb 
+goto_gulp 
+gulp sass
+alias
+edit_sshconfig
+goto_gulp 
+gulp sass
+goto_gulp 
+gulp sass
+ssh doseo
+ssh gjo
+cc
+goto_gulp 
+gulp sass
+[A
+gulp sass
+goto_tiger.de 
+exportDb 
+goto_tiger.de 
+exportDb 
+reload_mysql 
+cc
+CC
+cc
+reload_mysql 
+cc
+CC
+cc
+reload_mysql 
+goto_tiger.de 
+exportDb 
+alias
+getTypo3Lib
+ssh tiger
+ssh tiger
+xit
+exit
+goto_tiger
+alias
+goto_tiger.de
+exportDb 
+edit_sshconfig 
+ssh tiger
+edit_sshconfig 
+edit_httpd
+alias
+edit_httpd-vhosts
+ssh tiger
+ln -nfs /Volumes/Daten/Users/gregoryjodaily/Documents/Offline/5-Berufsleben/Development/library/typo3/typo3_src-8.7.19 /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/typo3_src
+ln -nfs /Volumes/Daten/Users/gregoryjodaily/Documents/Offline/5-Berufsleben/Development/library/typo3/typo3_src-8.7.19/typo3 /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/typo
+ln -nfs /Volumes/Daten/Users/gregoryjodaily/Documents/Offline/5-Berufsleben/Development/library/typo3/typo3_src-8.7.19/typo3 /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/typo3
+ssh tiger
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/typo3conf ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/typo3conf/ext/femanager ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/femanager ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/cart_paypal ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/flux ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_boilerplate ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_extends_felogin ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_extends_femanager ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_introduction ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_shop ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/news ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/fileadmin/user_upload ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/fileadmin
+ssh tiger
+pwd
+ssh tiger
+cc
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_tiger ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+ssh tiger
+xit
+exit
+reload_mysql 
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_introduction ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+goto_gulp 
+gulp sass
+ssh tiger
+goto_tiger.de 
+cc
+goto_tiger.de 
+exportDb 
+goto_gulp 
+gulp sass
+reload_mysql 
+cc
+typo3cms help
+typo3cms extension:activate gjo_shop
+typo3cms extension:activate gjo_extends_femanager
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms database:updateschema
+cc
+reload_mysql 
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+typo3cms database:updateschema
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms database:updateschema
+typo3cms extension:activate gjo_shop
+cc
+typo3cms database:updateschema
+cc
+typo3cms extension:activate gjo_shop
+typo3cms database:updateschema
+cc
+typo3cms extension:activate gjo_shop
+cc
+typo3cms database:updateschema
+cc
+typo3cms database:updateschema
+cc
+goto_tiger.de 
+exportDb 
+goto_tiger.de 
+exportDb 
+reload_mysql 
+reload_apache 
+php -v
+sudo apachectl start
+sudo apachectl configtest
+sudo apachectl stop
+sudo apachectl configtest
+sudo apachectl start
+sudo apachectl configtest
+nano /private/etc/apache2/httpd.conf
+brew update
+brew upgrade
+brew cleanup
+brew list | grep php
+brew uninstall --force php56 php56-apcu php56-opcache php56-xdebug php56-yaml
+brew uninstall --force php70 php70-apcu php70-opcache php70-xdebug php70-yaml
+brew uninstall --force php71 php71-apcu php71-opcache php71-xdebug php71-yaml
+brew uninstall --force php72 php72-apcu php72-opcache php72-xdebug php72-yaml
+brew cleanup
+brew list | grep php
+brew uninstall --force php53 php53-apcu php53-opcache php53-xdebug php53-yaml
+brew uninstall --force php54 php54-apcu php54-opcache php54-xdebug php54-yaml
+brew uninstall --force php55 php55-apcu php55-opcache php55-xdebug php55-yaml
+brew cleanup
+brew list | grep php
+rm -Rf /usr/local/etc/php/*
+brew --version
+brew doctor
+brew install git
+sudo mkdir -p /usr/local/Frameworks
+brew doctor
+whoami
+sudo chown -R $(gregoryjodaily) /usr/local/Frameworks
+brew doctor
+sudo chown -R gregoryjodaily /usr/local/Frameworks
+brew doctor
+brew cask reinstall xquartz
+brew prune
+brew doctor
+sudo apachectl stop
+sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null
+brew install httpd
+sudo brew services start httpd
+ps -aef | grep httpd
+brew install php@5.6
+brew install php@7.0
+brew install php@7.1
+brew install php@7.2
+php -v
+brew unlink php@7.2 && brew link --force --overwrite php@5.6
+php -v
+brew list | grep php
+php -v
+/usr/local/Cellar/
+cd /usr/local/Cellar/
+php@7.0 -v
+unlink php 7.1
+php -v
+reload_bash_profile 
+php -v
+alias
+reload_bash_profile 
+php -v
+alias
+reload_apache 
+alias
+reload_bash_profile 
+alias
+reload_bash_profile 
+source ~/.bash_profile
+unalias php
+alias
+unalias php77
+alias
+reload_bash_profile 
+alias
+unalias php77
+alias
+unalias php56
+unalias php70
+unalias php71
+alias
+php -v
+brew install php@5.6
+brew install php@7.0
+brew install php@7.1
+brew install php@7.2
+brew link php
+brew unlink php@5.6
+brew link php
+php -v
+brew install openldap
+brew reinstall php --build-from-source
+brew doctore
+brew doctor
+/usr/local/lib
+cd /usr/local/lib
+rm -rf /usr/local/lib/libusb-1.0.0.dylib
+brew link composer
+brew link --overwrite composer
+brew link --overwrite mono
+brew doctor
+brew prune
+php -v
+reload_apache 
+php -v
+brew unlink php@7.2 && brew link --force --overwrite php@5.6
+php -v
+alias
+php -v
+edit_httpd
+open -e /usr/local/etc/httpd/httpd.conf
+reload_bash_profile 
+edit_httpd
+sudo apachectl -k restart
+php -v
+linkAndInstallExtension 
+linkAndInstallExtension tiger.de gjo_enviroment
+cd /usr/local/bin/
+cd php
+cd php/
+edit_php71
+php -v
+sudo apachectl -k stop
+php -v
+sudo apachectl -k stop
+reload_apache 
+brew unlink php@5.6 && brew link --force --overwrite php@7.2
+php -v
+brew uninstall php56
+brew cleanup
+brew update
+brew install php56 --without-ldap
+brew unlink php@7.2 && brew link --force --overwrite php@5.6
+php -v
+sudo apachectl -k stop
+echo "<?php phpinfo();" > ~/Sites/info.php
+sudo apachectl -k stop
+sudo apachectl start
+brew doctor
+php -v
+brew link php
+reload_apache 
+brew install homebrew/dupes/libiconv
+reload_apache 
+apache --version
+reload_apache 
+php -v
+reload_apache 
+curl -L https://gist.githubusercontent.com/rhukster/f4c04f1bf59e0b74e335ee5d186a98e2/raw > /usr/local/bin/sphp
+chmod +x /usr/local/bin/sphp
+echo $PATH
+/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+sphp7.0
+sphp 7.0
+sphp
+sphp 7.1
+php -v
+brew unlink php@5.6 && brew link --force --overwrite php@7.2
+php -v
+sphp 5.6.38
+sphp 5.6
+reload_apache 
+php -v
+brew unlink php@7.2 && brew link --force --overwrite php@7.1
+php -v
+brew update
+brew install mariadb
+mysql -v
+brew unlink mysql
+brew install mariadb
+brew services start mariadb
+/usr/local/bin/mysql_secure_installation
+ll /tmp
+touch /tmp/mysql.sock
+ll /tmp
+cd /tmp
+chown -R mysql /tmp/mysql.sock 
+cd /tmp
+sudo chown -R mysql /tmp/mysql.sock 
+cd /tmp
+/usr/local/bin/mysql_secure_installation
+reload_mysql 
+mysql -v
+mysqld -v
+reload_apache 
+clean
+cc
+c
+mysqld -v
+php -v
+brew doctor
+exit
+goto_tiger.de 
+exportDb 
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/fileadmin/user_upload ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/fileadmin
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/Projects/tiger.de/typo3conf ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/cart_paypal ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/femanager ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/flux ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_boilerplate ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_extends_felogin ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_extends_femanager ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_introduction ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_tiger ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_shop ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/news ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+ssh tiger
+goto_gulp 
+gulp_sass
+gulp sass
+npm install node-sass gulp-sass --save-dev
+gulp sass
+npm init
+npm update check failed
+npm install gulp --save-dev
+gulp sass
+goto_tiger.de 
+cc
+typo3cms help
+typo3cms database:updateschema
+cc
+rsync -av ~/Documents/Dropbox/5-Berufsleben/Development/localRepositories/ext/gjo_shop ssh-421531-tiger@93.187.234.108:/kunden/568748_14548/rp-hosting/1792/A01568/tiger_de/live/typo3conf/ext
+cc
+sudo npm install gulp-cli -g
+gulp --help
+gulp sass
+npm install gulp
+goto_gulp 
+gulp sass
+reload_mysql 
+cc
+goto_tiger.de 
+exportDb 
+gulp sass
+goto_gulp 
+gulp sass
+reload_mysql 
+cc
+reload_mysql 
+goto_gulp 
+gulp sass
+goto_tiger.de 
+exportDb 
+goto_gulp 
+gulp sass
+goto_gulp 
+gulp sass
+cc
+goto_gulp 
+gulp sass
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5\-Berufsleben/Development/Projects/tiger\.de/\_works/Design
+cd /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5\-Berufsleben/Development/Projects/tiger\.de/fileadmin/user\_upload
+goto_gulp 
+gulp sass
+goto_gulp 
+gulp sass
+goto_tiger.de 
+exportDb 
+goto_gulp 
+gulp sass
+reload_mysql 
+cc
+c
+cc
+reload_mysql 
+goto_tiger.de 
+exoprtD
+exportDb 
+cc
+goto_tiger.de 
+exportDb 
+goto_tiger.de 
+exportDb 
+reload_mysql 
+goto_tiger.de 
+exportDb 
+cc
+alias
+history
+typo3cms database:updateschema
+cc
+goto_gulp 
+gulp sass
+goto_tiger.de 
+exportDb 
+goto_tiger.de 
+exportDb 
+goto_gulp 
+gulp sass
+reload_mysql 
+/Volumes/Daten/Users/gregoryjodaily/Downloads/_scans 
+reload_mysql 
+pwd
+reload_mysql 
+cc
+goto_tiger.de 
+cc
+reload_mysql 
+cc
+npm install --global foundation-cli
+cd _works/
+cd Design/
+cd Email/
+foundation new --framework emails
+npm install
+npm install -g npm
+cd Email/
+npm start
+npm install gulp
+npm start
+npm install gulp
+goto_tig
+goto_tiger.de 
+cd typo3conf/ext/gjo_introduction/Resources/Private/
+foundation new --framework emails
+npm install
+sudo npm install --global foundation-cli
+foundation new --framework emails
+git -v
+git --version
+node -v
+npm -v
+npm install -g gulp bower
+sudo npm install -g gulp bower
+sudo npm install --global foundation-cli
+foundation
+foundation new --framework emails
+sudo npm install
+npm install
+bower install
+cd Emails/
+npm install
+bower install
+npm start
+npm install gulp
+npm start
+foundation
+foundation update 
+..
+foundation update 
+foundation update Emails
+foundation update --framework emails
+cd Emails/
+foundation update --framework emails
+npm start
+npm install
+npm audit fix
+npm start
+pwd
+cd /
+cd Volumes/
+cd Samsung_T1/
+diskutil list
+diskutil eraseDisk JHFS+ Transfer disk5
+ll
+rm -rf Sitegeist/
+cd VirtualBox\ VMs/
+rm -rf WIN\ 7\ -\ Absturzversion/
+rm -rf FluidTYPO3-Vagrant_default_1462265110397_54496/
+rm -rf WIN\ 7\ -\ Neu/
+ssh mycloud
+nano ~/.ssh/config
+ssh mycloud
+~/.ssh/config
+nano ~/.ssh/config
+rsync -avz ~/Music/_unsortiert sshd@192.168.2.108:/shares/gregoryjo/4-Privatleben/Music
+rm -rf ~/Music/_unsortiert
+c
+rsync -avz ~/Music/iTunes sshd@192.168.2.108:/shares/gregoryjo/4-Privatleben/Music
+ssh mycloud
+nano ~/.ssh/config
+ssh mycloud
+rsync -avz ~/Music/iTunes sshd@192.168.2.109:/shares/gregoryjo/4-Privatleben/Music
+rsync -avz ~/Music/Documents/Offline sshd@192.168.2.109:/shares/gregoryjo/_unsortiert
+rsync -avz ~/Documents/Offline sshd@192.168.2.109:/shares/gregoryjo/_unsortiert
+rsync -avz ~/Documents/Pictures sshd@192.168.2.109:/shares/gregoryjo/_unsortiert
+rsync -avz ~/Pictures sshd@192.168.2.109:/shares/gregoryjo/_unsortiert
+ssh mycloud
+veracrypt –h
+chflags hidden
+ssh mycloud
+ll
+alias
+history
+find / -name linkAndInstall
+find / -name "linkAndInstall*"
+ls -la
+cd ..
+cd ..
+pwd
+ls
+cd Users/
+rm gregoryjodaily/.bash
+ln -s /Volumes/Daten/Users/gregoryjodaily/Documents/Dropbox/5-Berufsleben/gjoSe/Development/localRepositories/ext/gjo_vagrant/vagrant/modules/.bash gregoryjodaily/.bash
+cd gregoryjodaily/
+ls -la
+ll
+source ~/.bash_profile
+ll
+alias
+linkAndInstallExtension
+linkAndInstallExtension tiger.de femanager
+linkAndInstallExtension tiger.de/ femanager
+linkAndInstallExtension
+linkAndInstallExtension tiger.de
+linkAndInstallExtension tiger.dede
+linkAndInstallExtension tiger.de berta
+linkAndInstallExtension tiger.de femanager
+linkAndInstallExtension tiger.de flux
+linkAndInstallExtension tiger.de gjo_boilerplate
+linkAndInstallExtension tiger.de gjo_enviroment
+linkAndInstallExtension tiger.de gjo_extends_felogin
+linkAndInstallExtension tiger.de gjo_extends_femanager
+linkAndInstallExtension tiger.de gjo_introduction
+linkAndInstallExtension tiger.de gjo_shop
+linkAndInstallExtension tiger.de gjo_tiger
+linkAndInstallExtension tiger.de news
