@@ -14,13 +14,13 @@ function localShellScript(){
     return
 }
 
-function vmShellScripts(){
-
-    source "${scriptPath}/.bash/bash_profile/vmShellScripts/_vmConstants.sh"
-    source "${scriptPath}/.bash/bash_profile/vmShellScripts/goto-vm.sh"
-
-    return
-}
+#function vmShellScripts(){
+#
+#    source "${SCRIPTPATH}/.bash/bash_profile/vmShellScripts/_vmConstants.sh"
+#    source "${SCRIPTPATH}/.bash/bash_profile/vmShellScripts/goto-vm.sh"
+#
+#    return
+#}
 
 function localAndVmShellScripts(){
 
@@ -46,7 +46,7 @@ case $OSTYPE in
     localAndVmShellScripts
     ;;
   *)
-    vmShellScripts
+#    vmShellScripts
     localAndVmShellScripts
     ;;
 esac

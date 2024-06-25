@@ -1,8 +1,8 @@
-Umbuntu on WIN:
-- user: gregory
-- password: admin
-
-https://ddev.com/get-started/
+#Umbuntu on WIN:
+#- user: gregory
+#- password: admin
+#
+#https://ddev.com/get-started/
 #############################
 ### DDEV                  ###
 #############################

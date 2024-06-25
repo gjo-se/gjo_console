@@ -37,10 +37,11 @@
 
     alias q='exit'
 
-    alias typo3cms='php vendor/helhum/typo3-console/typo3cms'
+    alias typo3='./vendor/bin/typo3'
+    alias cc='typo3 cache:flush'
+    alias ext-setup='typo3 extension:setup'
 
-    alias cc='typo3cms cache:flush --force'
-    alias exportDb='typo3cms database:export --exclude-tables be_sessions,cache_md5params,cache_treelist,cf_cache_hash,cf_cache_hash_tags,cf_cache_imagesizes,cf_cache_imagesizes_tags,cf_cache_pages,cf_cache_pages_tags,cf_cache_pagesection,cf_cache_pagesection_tags,cf_cache_rootline,cf_cache_rootline_tags,cf_extbase_datamapfactory_datamap,cf_extbase_datamapfactory_datamap_tags,cf_extbase_object,cf_extbase_object_tags,cf_extbase_reflection,cf_extbase_reflection_tags,cf_fluidcontent,cf_fluidcontent_tags,cf_flux,cf_flux_tags,cf_vhs_main,cf_vhs_main_tags,cf_vhs_markdown,cf_vhs_markdown_tags,fe_sessions,tx_scheduler_task,tx_scheduler_task_group,tx_extensionmanager_domain_model_extension,tx_extensionmanager_domain_model_repository,sys_log,sys_history'
+    alias exportDb='typo3 database:export --exclude-tables be_sessions,cache_md5params,cache_treelist,cf_cache_hash,cf_cache_hash_tags,cf_cache_imagesizes,cf_cache_imagesizes_tags,cf_cache_pages,cf_cache_pages_tags,cf_cache_pagesection,cf_cache_pagesection_tags,cf_cache_rootline,cf_cache_rootline_tags,cf_extbase_datamapfactory_datamap,cf_extbase_datamapfactory_datamap_tags,cf_extbase_object,cf_extbase_object_tags,cf_extbase_reflection,cf_extbase_reflection_tags,cf_fluidcontent,cf_fluidcontent_tags,cf_flux,cf_flux_tags,cf_vhs_main,cf_vhs_main_tags,cf_vhs_markdown,cf_vhs_markdown_tags,fe_sessions,tx_scheduler_task,tx_scheduler_task_group,tx_extensionmanager_domain_model_extension,tx_extensionmanager_domain_model_repository,sys_log,sys_history'
 
 #   mans:   Search manpage given in agument '1' for term given in argument '2' (case insensitive)
 #           displays paginated result with colored search terms and two lines surrounding each hit.             Example: mans mplayer codec

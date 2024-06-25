@@ -13,30 +13,30 @@ function localShellScript(){
     return
 }
 
-function vmShellScripts(){
-
-
-
-    source "${scriptPath}/.bash/bash_profile/vmShellScripts/_vmConstants.sh"
-
-    source "${scriptPath}/.bash/bash_profile/vmShellScripts/goto-vm.sh"
-
-
-    return
-}
+# function vmShellScripts(){
+#
+#
+#
+#     source "${scriptPath}/.bash/bash_profile/vmShellScripts/_vmConstants.sh"
+#
+#     source "${scriptPath}/.bash/bash_profile/vmShellScripts/goto-vm.sh"
+#
+#
+#     return
+# }
 
 function localAndVmShellScripts(){
 
-    source "${LOCAL_AND_VM_SCRIPTS}/utils.sh"
-    source "${LOCAL_AND_VM_SCRIPTS}/bash_logout.sh"
-    source "${LOCAL_AND_VM_SCRIPTS}/bashrc.sh"
-    source "${LOCAL_AND_VM_SCRIPTS}/enviromentConfiguration.sh"
-    source "${LOCAL_AND_VM_SCRIPTS}/terminal.sh"
-    source "${LOCAL_AND_VM_SCRIPTS}/fileAndFolder.sh"
-    source "${LOCAL_AND_VM_SCRIPTS}/searching.sh"
-    source "${LOCAL_AND_VM_SCRIPTS}/processManagement.sh"
-    source "${LOCAL_AND_VM_SCRIPTS}/networking.sh"
-    source "${LOCAL_AND_VM_SCRIPTS}/webDevelopment.sh"
+    source "${scriptPath}/scripts/enviroment/localAndVmShellScripts/utils.sh"
+    source "${scriptPath}/scripts/enviroment/localAndVmShellScripts/bash_logout.sh"
+    source "${scriptPath}/scripts/enviroment/localAndVmShellScripts/bashrc.sh"
+    source "${scriptPath}/scripts/enviroment/localAndVmShellScripts/enviromentConfiguration.sh"
+    source "${scriptPath}/scripts/enviroment/localAndVmShellScripts/terminal.sh"
+    source "${scriptPath}/scripts/enviroment/localAndVmShellScripts/fileAndFolder.sh"
+    source "${scriptPath}/scripts/enviroment/localAndVmShellScripts/searching.sh"
+    source "${scriptPath}/scripts/enviroment/localAndVmShellScripts/processManagement.sh"
+    source "${scriptPath}/scripts/enviroment/localAndVmShellScripts/networking.sh"
+    source "${scriptPath}/scripts/enviroment/localAndVmShellScripts/webDevelopment.sh"
 
 #    source "${BASH_IT}/bash_it.sh"
 
@@ -49,7 +49,7 @@ case $OSTYPE in
     localAndVmShellScripts
     ;;
   *)
-    vmShellScripts
+#     vmShellScripts
     localAndVmShellScripts
     ;;
 esac
