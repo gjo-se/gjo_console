@@ -1,0 +1,4 @@
+# WIN Symlink
+mklink /d gjo_console C:\Users\gjo\Dropbox\5-Berufsleben\gjoSe\Development\localRepositories\gjo_console
+
+sudo New-Item -ItemType SymbolicLink -Path  C:\Users\gjo\Dropbox\5-Berufsleben\gjoSe\Development\Projects\tiger.de\packages\gjo_console -Target C:\Users\gjo\Dropbox\5-Berufsleben\gjoSe\Development\localRepositories\ext\gjo\gjo_console

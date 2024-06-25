@@ -1,0 +1,9 @@
+{
+  "name": "gjo/gjo-console",
+  "type": "typo3-cms-extension",
+  "description": "GJO Console",
+  "replace": {
+    "gjo_console": "self.version",
+    "gjo/gjo-console": "self.version"
+  }
+}
