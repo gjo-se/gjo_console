@@ -40,6 +40,7 @@
     alias typo3='./vendor/bin/typo3'
     alias cc='typo3 cache:flush'
     alias ext-setup='typo3 extension:setup'
+    alias list='typo3 list' # List TYPO3 Console commands
 
     alias exportDb='typo3 database:export --exclude-tables be_sessions,cache_md5params,cache_treelist,cf_cache_hash,cf_cache_hash_tags,cf_cache_imagesizes,cf_cache_imagesizes_tags,cf_cache_pages,cf_cache_pages_tags,cf_cache_pagesection,cf_cache_pagesection_tags,cf_cache_rootline,cf_cache_rootline_tags,cf_extbase_datamapfactory_datamap,cf_extbase_datamapfactory_datamap_tags,cf_extbase_object,cf_extbase_object_tags,cf_extbase_reflection,cf_extbase_reflection_tags,cf_fluidcontent,cf_fluidcontent_tags,cf_flux,cf_flux_tags,cf_vhs_main,cf_vhs_main_tags,cf_vhs_markdown,cf_vhs_markdown_tags,fe_sessions,tx_scheduler_task,tx_scheduler_task_group,tx_extensionmanager_domain_model_extension,tx_extensionmanager_domain_model_repository,sys_log,sys_history'
 

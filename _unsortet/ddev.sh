@@ -8,6 +8,8 @@
 #############################
 
 ddev ssh
+ddev composer validate
+
 
 #############################
 ### Create a Project 12.4 ###
