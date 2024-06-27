@@ -12,6 +12,17 @@ ddev composer validate
 
 
 #############################
+### add EXT in Project    ###
+#############################
+
+# - copy EXT in packages (Symlink dont work in WIN)
+# Error: gjo-se/gjo-site-package dev-main requires php ~8.3.0 -> your php version (8.1.1; overridden via config.platform, actual: 8.3.8) does not satisfy that requirement.
+# Solution: --ignore-platform-reqs
+ddev composer require gjo-se/gjo-site-package:@dev --ignore-platform-reqs
+
+
+
+#############################
 ### Create a Project 12.4 ###
 #############################
 
