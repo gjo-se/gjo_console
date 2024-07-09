@@ -1,6 +1,6 @@
 <?php
 
-namespace GjoSe\GjoScheduler\Task;
+namespace GjoSe\GjoConsole\Task;
 
 /***************************************************************
  *  created: 03.12.19 - 05:15

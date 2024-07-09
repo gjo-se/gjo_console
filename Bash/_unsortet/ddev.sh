@@ -20,7 +20,7 @@ ddev composer validate
 # - copy EXT in packages (Symlink dont work in WIN)
 # Error: gjo-se/gjo-site-package dev-main requires php ~8.3.0 -> your php version (8.1.1; overridden via config.platform, actual: 8.3.8) does not satisfy that requirement.
 # Solution: --ignore-platform-reqs
-ddev composer require gjo-se/gjo-scheduler:@dev --ignore-platform-reqs
+ddev composer require gjo-se/gjo-console:@dev --ignore-platform-reqs
 ddev composer update gjo-se/gjo-scheduler --ignore-platform-reqs
 ddev composer remove gjo-se/gjo-scheduler --ignore-platform-reqs
 ddev composer exec typo3 extension:setup

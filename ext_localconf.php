@@ -1,20 +1,20 @@
 <?php
 
-use GjoSe\GjoScheduler\Task\BackupDatabaseTask;
-use GjoSe\GjoScheduler\Task\BackupDatabaseTaskAdditionalFieldProvider;
-//use GjoSe\GjoScheduler\Task\CleanupDumpsTask;
-//use GjoSe\GjoScheduler\Task\CleanupDumpsTaskAdditionalFieldProvider;
-//use GjoSe\GjoScheduler\Task\DeploymentDatabaseTask;
-//use GjoSe\GjoScheduler\Task\DeploymentDatabaseTaskAdditionalFieldProvider;
-//use GjoSe\GjoScheduler\Task\RestoreDatabaseTask;
-//use GjoSe\GjoScheduler\Task\RestoreDatabaseTaskAdditionalFieldProvider;
+use GjoSe\GjoConsole\Task\BackupDatabaseTask;
+use GjoSe\GjoConsole\Task\BackupDatabaseTaskAdditionalFieldProvider;
+//use GjoSe\GjoConsole\Task\CleanupDumpsTask;
+//use GjoSe\GjoConsole\Task\CleanupDumpsTaskAdditionalFieldProvider;
+//use GjoSe\GjoConsole\Task\DeploymentDatabaseTask;
+//use GjoSe\GjoConsole\Task\DeploymentDatabaseTaskAdditionalFieldProvider;
+//use GjoSe\GjoConsole\Task\RestoreDatabaseTask;
+//use GjoSe\GjoConsole\Task\RestoreDatabaseTaskAdditionalFieldProvider;
 
 defined('TYPO3') or die('Access denied.');
 
 call_user_func(
     static function (): void {
 
-        $extensionKey = 'gjo_site_package';
+        $extensionKey = 'gjo_console';
 
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][BackupDatabaseTask::class] = array(
             'extension' => $extensionKey,

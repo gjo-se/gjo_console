@@ -1,6 +1,6 @@
 <?php
 
-namespace GjoSe\GjoScheduler\Task;
+namespace GjoSe\GjoConsole\Task;
 
 /***************************************************************
  *  created: 05.12.19 - 10:06
@@ -57,8 +57,8 @@ class BackupDatabaseTaskAdditionalFieldProvider implements AdditionalFieldProvid
             $options .= '<option value="' . $value . '" ' . ($value ==  $dbSource ? 'selected' : '') . ' >' . $option . '</option>';
         }
 
-        $fieldID = 'gjo_site_package_dbSource';
-        $fieldCode = '<select class="form-control" name="tx_scheduler[gjo_site_package][dbSource]" id="' . $fieldID . '">' . $options . '</select>';
+        $fieldID = 'gjo_console_dbSource';
+        $fieldCode = '<select class="form-control" name="tx_scheduler[gjo_console][dbSource]" id="' . $fieldID . '">' . $options . '</select>';
 
         $additionalFields[$fieldID] = array(
             'code'     => $fieldCode,
@@ -67,7 +67,7 @@ class BackupDatabaseTaskAdditionalFieldProvider implements AdditionalFieldProvid
 
         // -------------------------------
 
-        $dbTarget = $taskInfo['gjo_site_package']['dbTarget'];
+        $dbTarget = $taskInfo['gjo_console']['dbTarget'];
 
         if (empty($dbTarget)) {
             if ($schedulerModule->CMD == 'edit') {
@@ -86,8 +86,8 @@ class BackupDatabaseTaskAdditionalFieldProvider implements AdditionalFieldProvid
             $options .= '<option value="' . $value . '" ' . ($value ==  $dbTarget ? 'selected' : '') . ' >' . $option . '</option>';
         }
 
-        $fieldID = 'gjo_site_package_dbTarget';
-        $fieldCode = '<select class="form-control" name="tx_scheduler[gjo_site_package][dbTarget]" id="' . $fieldID . '">' . $options . '</select>';
+        $fieldID = 'gjo_console_dbTarget';
+        $fieldCode = '<select class="form-control" name="tx_scheduler[gjo_console][dbTarget]" id="' . $fieldID . '">' . $options . '</select>';
 
         $additionalFields[$fieldID] = array(
             'code'     => $fieldCode,
@@ -96,7 +96,7 @@ class BackupDatabaseTaskAdditionalFieldProvider implements AdditionalFieldProvid
 
         // -------------------------------
 
-        $email = $taskInfo['gjo_site_package']['email'];
+        $email = $taskInfo['gjo_console']['email'];
         if (empty($email)) {
             if ($schedulerModule->CMD === 'add') {
                 $email = $GLOBALS['BE_USER']->user['email'];
@@ -106,8 +106,8 @@ class BackupDatabaseTaskAdditionalFieldProvider implements AdditionalFieldProvid
                 $email = '';
             }
         }
-        $fieldID = 'gjo_site_package_email';
-        $fieldCode = '<input type="text" class="form-control" name="tx_scheduler[gjo_site_package][email]" id="' . $fieldID . '" value="' . htmlspecialchars($email) . '" size="30">';
+        $fieldID = 'gjo_console_email';
+        $fieldCode = '<input type="text" class="form-control" name="tx_scheduler[gjo_console][email]" id="' . $fieldID . '" value="' . htmlspecialchars($email) . '" size="30">';
 
         $additionalFields[$fieldID] = [
             'code' => $fieldCode,
@@ -120,8 +120,8 @@ class BackupDatabaseTaskAdditionalFieldProvider implements AdditionalFieldProvid
     {
         $result = true;
 
-        $submittedData['gjo_site_package']['email'] = trim($submittedData['gjo_site_package']['email']);
-        if (empty($submittedData['gjo_site_package']['email'])) {
+        $submittedData['gjo_console']['email'] = trim($submittedData['gjo_console']['email']);
+        if (empty($submittedData['gjo_console']['email'])) {
             $schedulerModule->addMessage($GLOBALS['LANG']->sL('LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:msg.noEmail'), FlashMessage::ERROR);
             $result = false;
         }
@@ -131,8 +131,8 @@ class BackupDatabaseTaskAdditionalFieldProvider implements AdditionalFieldProvid
 
     public function saveAdditionalFields(array $submittedData, AbstractTask $task)
     {
-        $task->dbSource = $submittedData['gjo_site_package']['dbSource'];
-        $task->dbTarget = $submittedData['gjo_site_package']['dbTarget'];
-        $task->email = $submittedData['gjo_site_package']['email'];
+        $task->dbSource = $submittedData['gjo_console']['dbSource'];
+        $task->dbTarget = $submittedData['gjo_console']['dbTarget'];
+        $task->email = $submittedData['gjo_console']['email'];
     }
 }

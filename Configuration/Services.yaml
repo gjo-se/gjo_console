@@ -4,6 +4,6 @@ services:
     autoconfigure: true
     public: false
 
-  GjoSe\GjoScheduler\:
+  GjoSe\GjoConsole\:
     resource: '../Classes/*'
     exclude: '../Classes/Domain/Model/*'

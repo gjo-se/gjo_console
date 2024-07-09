@@ -1,6 +1,6 @@
 <?php
 
-namespace GjoSe\GjoScheduler\Task;
+namespace GjoSe\GjoConsole\Task;
 
 /***************************************************************
  *  created: 05.12.19 - 11:12
@@ -34,7 +34,7 @@ class CleanupDumpsTaskAdditionalFieldProvider implements AdditionalFieldProvider
     {
         $additionalFields = array();
 
-        $backupPath = $taskInfo['gjo_site_package']['backupPath'];
+        $backupPath = $taskInfo['gjo_console']['backupPath'];
         if (empty($backupPath)) {
             if ($schedulerModule->CMD == 'edit') {
                 $backupPath = $task->backupPath;
@@ -43,14 +43,14 @@ class CleanupDumpsTaskAdditionalFieldProvider implements AdditionalFieldProvider
             }
         }
 
-        $fieldID = 'gjo_site_package_backupPath';
-        $fieldCode = '<select class="form-control" name="tx_scheduler[gjo_site_package][backupPath]" id="' . $fieldID . '"><option value="Test" title="">Testing</option><option value="Production" title="">Production</option></select>';
+        $fieldID = 'gjo_console_backupPath';
+        $fieldCode = '<select class="form-control" name="tx_scheduler[gjo_console][backupPath]" id="' . $fieldID . '"><option value="Test" title="">Testing</option><option value="Production" title="">Production</option></select>';
         $additionalFields[$fieldID] = array(
             'code'     => $fieldCode,
             'label'    => 'Backup-Path'
         );
 
-        $email = $taskInfo['gjo_site_package']['email'];
+        $email = $taskInfo['gjo_console']['email'];
         if (empty($email)) {
             if ($schedulerModule->CMD === 'add') {
                 $email = $GLOBALS['BE_USER']->user['email'];
@@ -60,8 +60,8 @@ class CleanupDumpsTaskAdditionalFieldProvider implements AdditionalFieldProvider
                 $email = '';
             }
         }
-        $fieldID = 'gjo_site_package_email';
-        $fieldCode = '<input type="text" class="form-control" name="tx_scheduler[gjo_site_package][email]" id="' . $fieldID . '" value="' . htmlspecialchars($email) . '" size="30">';
+        $fieldID = 'gjo_console_email';
+        $fieldCode = '<input type="text" class="form-control" name="tx_scheduler[gjo_console][email]" id="' . $fieldID . '" value="' . htmlspecialchars($email) . '" size="30">';
 
         $additionalFields[$fieldID] = [
             'code' => $fieldCode,
@@ -74,14 +74,14 @@ class CleanupDumpsTaskAdditionalFieldProvider implements AdditionalFieldProvider
     {
         $result = true;
 
-        $submittedData['gjo_site_package']['backupPath'] = trim($submittedData['gjo_site_package']['backupPath']);
-        if (empty($submittedData['gjo_site_package']['backupPath'])) {
+        $submittedData['gjo_console']['backupPath'] = trim($submittedData['gjo_console']['backupPath']);
+        if (empty($submittedData['gjo_console']['backupPath'])) {
             $schedulerModule->addMessage($GLOBALS['LANG']->sL('LLL:EXT:additional_scheduler/Resources/Private/Language/locallang.xlf:savedirerror'), FlashMessage::ERROR);
             $result = false;
         }
 
-        $submittedData['gjo_site_package']['email'] = trim($submittedData['gjo_site_package']['email']);
-        if (empty($submittedData['gjo_site_package']['email'])) {
+        $submittedData['gjo_console']['email'] = trim($submittedData['gjo_console']['email']);
+        if (empty($submittedData['gjo_console']['email'])) {
             $schedulerModule->addMessage($GLOBALS['LANG']->sL('LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:msg.noEmail'), FlashMessage::ERROR);
             $result = false;
         }
@@ -91,7 +91,7 @@ class CleanupDumpsTaskAdditionalFieldProvider implements AdditionalFieldProvider
 
     public function saveAdditionalFields(array $submittedData, AbstractTask $task)
     {
-        $task->email = $submittedData['gjo_site_package']['email'];
-        $task->backupPath = $submittedData['gjo_site_package']['backupPath'];
+        $task->email = $submittedData['gjo_console']['email'];
+        $task->backupPath = $submittedData['gjo_console']['backupPath'];
     }
 }

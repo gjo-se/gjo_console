@@ -3,8 +3,8 @@ source ~/.zsh
 
 source ~/.bashrc
 nano ~/.bashrc
-if [ -f /var/www/html/packages/gjo_console/shell/.bash/.bash_profile ]; then
-    . /var/www/html/packages/gjo_console/shell/.bash/.bash_profile
+if [ -f /var/www/html/packages/gjo_console/Bash/shell/.bash/.bash_profile ]; then
+    . /var/www/html/packages/gjo_console/Bash/shell/.bash/.bash_profile
 fi
 
 # Typo3 Console
@@ -17,7 +17,7 @@ cd C:\Users\gjo\Dropbox\5-Berufsleben\gjoSe\Development\Projects\tiger.de\packag
 # Softlink
 sudo mklink /d gjo_console C:\Users\gjo\Dropbox\5-Berufsleben\gjoSe\Development\localRepositories\ext\gjo\gjo_console
 # Hardlink
-sudo mklink /j gjo_site_package C:\Users\gjo\Dropbox\5-Berufsleben\gjoSe\Development\localRepositories\ext\gjo\gjo_site_package
+sudo mklink /j gjo_console C:\Users\gjo\Dropbox\5-Berufsleben\gjoSe\Development\localRepositories\ext\gjo\gjo_console
 
 
 # WIN Powershell Symlink (funktioniert nicht für Composer)

@@ -1,6 +1,6 @@
 <?php
 
-namespace GjoSe\GjoScheduler\Task;
+namespace GjoSe\GjoConsole\Task;
 
 /***************************************************************
  *  created: 29.11.19 - 06:12
@@ -60,7 +60,7 @@ class RestoreDatabaseTask extends BoilerplateAbstractTask
         // TODO: Filename stimmt nicht
         if (!is_file($backupFile)) {
             $this->sendMail($this->getEmailTemplate(), self::EMAIL_SUBJECT_RESTORE_DATABASE_TASK, parent::ERROR, "Dump NOT exists - cmd: " . $backupFile);
-//            log Error, $logMessage = 'No dump exists: ' . $backupDir; $this->scheduler->log($logMessage, 2, 'gjo_site_package');
+//            log Error, $logMessage = 'No dump exists: ' . $backupDir; $this->scheduler->log($logMessage, 2, 'gjo_console');
             return false;
         }
 
