@@ -1,9 +1,33 @@
 {
-  "name": "gjo/gjo-console",
+  "name": "gjo-se/gjo-console",
   "type": "typo3-cms-extension",
-  "description": "GJO Console",
-  "replace": {
-    "gjo_console": "self.version",
-    "gjo/gjo-console": "self.version"
+  "description": "Gjo Console",
+  "authors": [
+    {
+      "name": "Gregory Jo Erdmann",
+      "email": "gregory.jo@gjo-se.com",
+      "homepage": "https://www.gjo-se.com",
+      "role": "maintainer"
+    }
+  ],
+  "license": ["GPL-2.0-or-later"],
+  "require": {
+    "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0",
+    "typo3/cms-core": "^12.4",
+    "typo3/cms-scheduler": "^12.4"
+  },
+  "require-dev": {
+  },
+  "conflict": {
+  },
+  "autoload": {
+    "psr-4": {
+      "GjoSe\\GjoConsole\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "gjo_console"
+    }
   }
 }

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+    export TYPO3_CONTEXT=Development
+
 #    alias edit_bash_profile='$EDITOR ~/.bash_profile'
     alias reload_shell="source ~/.zsh"
 

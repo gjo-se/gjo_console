@@ -9,6 +9,8 @@
 
 ddev ssh
 ddev composer validate
+#https://docs.typo3.org/c/typo3/cms-lowlevel/12.4/en-us/Index.html
+  - cleanup:flexforms
 
 
 #############################
@@ -18,7 +20,13 @@ ddev composer validate
 # - copy EXT in packages (Symlink dont work in WIN)
 # Error: gjo-se/gjo-site-package dev-main requires php ~8.3.0 -> your php version (8.1.1; overridden via config.platform, actual: 8.3.8) does not satisfy that requirement.
 # Solution: --ignore-platform-reqs
-ddev composer require gjo-se/gjo-site-package:@dev --ignore-platform-reqs
+ddev composer require gjo-se/gjo-scheduler:@dev --ignore-platform-reqs
+ddev composer update gjo-se/gjo-scheduler --ignore-platform-reqs
+ddev composer remove gjo-se/gjo-scheduler --ignore-platform-reqs
+ddev composer exec typo3 extension:setup
+
+# after change composer.json autoload
+ddev composer dump-autoload
 
 
 
