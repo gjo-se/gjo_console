@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="gjo_site_package" date="2017-08-07T10:00:11+01:00">
+		<header/>
+		<body>
+            <trans-unit id="backupDatabaseTask.name" >
+                <source>Backup Database</source>
+            </trans-unit>
+            <trans-unit id="backupDatabaseTask.description" >
+                <source>backupDatabaseTask Beschreibung</source>
+            </trans-unit>
+            <trans-unit id="restoreDatabaseTask.name" >
+                <source>Restore Database</source>
+            </trans-unit>
+            <trans-unit id="restoreDatabaseTask.description" >
+                <source>restoreDatabaseTask Beschreibung</source>
+            </trans-unit>
+            <trans-unit id="deploymentDatabaseTask.name" >
+                <source>Deployment Database</source>
+            </trans-unit>
+            <trans-unit id="deploymentDatabaseTask.description" >
+                <source>DeploymentDatabaseTask Beschreibung</source>
+            </trans-unit>
+            <trans-unit id="cleanupDumpsTask.name" >
+                <source>Cleanup Dumps</source>
+            </trans-unit>
+            <trans-unit id="cleanupDumpsTask.description" >
+                <source>CleanupDumpsTask Beschreibung</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

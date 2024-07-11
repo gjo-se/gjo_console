@@ -1,6 +1,6 @@
 <?php
 
-namespace GjoSe\GjoConsole\Task;
+namespace GjoSe\GjoConsole\Task\BusinessLogic;
 
 /***************************************************************
  *  created: 03.12.19 - 05:15
@@ -21,16 +21,11 @@ namespace GjoSe\GjoConsole\Task;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-
-use TYPO3\CMS\Scheduler\Task\AbstractTask as CoreAbstractTask;
 use TYPO3\CMS\Core\Core\Environment;
-use GjoSe\GjoBoilerplate\Service\SendMailService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use GjoSe\GjoMail\Service\SendMailService;
 
-/**
- * Database Deployment selected Tables from TEST-DB to PROD-DB
- */
-abstract class AbstractTask extends CoreAbstractTask
+abstract class AbstractTaskBusinessLogic
 {
 
     const NECESSARY_LINE_BREAK = ' && echo ok 2>&1';
@@ -47,7 +42,7 @@ abstract class AbstractTask extends CoreAbstractTask
     const SMALLEST_TIMESTAMP = 201912051004;
     const TARGET_BACKUP = 'Backup';
 
-    protected $ignoredTablesBasic = Array(
+    protected $ignoredTablesBasic = array(
         'be_sessions',
         'fe_sessions',
         'cache_md5params',
@@ -84,11 +79,10 @@ abstract class AbstractTask extends CoreAbstractTask
     );
 
     // TEST-DB ist der Master
-    protected $ignoredTablesOnTestingForBackup = Array(
-        // alle in Basics
+    protected $ignoredTablesOnTestingForBackup = array(// alle in Basics
     );
 
-    protected $ignoredTablesOnTestingForDevelopment = Array(
+    protected $ignoredTablesOnTestingForDevelopment = array(
         // sollen nicht im Development-Betrieb auftauchen
         'tx_scheduler_task',
         'tx_scheduler_task_group',
@@ -97,7 +91,7 @@ abstract class AbstractTask extends CoreAbstractTask
         'sys_log'
     );
 
-    protected $ignoredTablesOnTestingForProduction = Array(
+    protected $ignoredTablesOnTestingForProduction = array(
         // werden auf Production von Testing gezogen (sind auf Prod leer)
         'fe_groups',
         'fe_users',
@@ -118,19 +112,18 @@ abstract class AbstractTask extends CoreAbstractTask
     );
 
     // nur zu Testzwecken
-    protected $ignoredTablesOnDevelopmentForRestoretest = Array(
+    protected $ignoredTablesOnDevelopmentForRestoretest = array(
         'sys-log'
     );
 
-    protected $ignoredTablesOnDevelopmentForBackup = Array();
+    protected $ignoredTablesOnDevelopmentForBackup = array();
 
-    protected $ignoredTablesOnRestoretestForBackup = Array();
+    protected $ignoredTablesOnRestoretestForBackup = array();
 
-    protected $ignoredTablesOnProductionForBackup = Array(
-        // Backup before Deployment
+    protected $ignoredTablesOnProductionForBackup = array(// Backup before Deployment
     );
 
-
+    public $task = null;
 
     protected $connection = array();
 
@@ -142,32 +135,11 @@ abstract class AbstractTask extends CoreAbstractTask
 
     protected $dbName = '';
 
-    protected $dbSource = '';
-
-    protected $dbTarget = '';
-
     protected $backupDate = '';
 
     protected $pathToMySql = '';
 
     protected $pathToMySqlDump = '';
-
-    protected $email = '';
-
-    /**
-     * @var SendMailService
-     */
-    protected $sendMailService;
-
-    /**
-     * Injects the SendMailService into the class.
-     *
-     * @param SendMailService $sendMailService
-     */
-    public function injectSendMailService(SendMailService $sendMailService)
-    {
-        $this->sendMailService = $sendMailService;
-    }
 
     /**
      * @return array
@@ -245,7 +217,6 @@ abstract class AbstractTask extends CoreAbstractTask
      */
     public function getConnection()
     {
-
         return $this->connection;
     }
 
@@ -313,72 +284,51 @@ abstract class AbstractTask extends CoreAbstractTask
         }
     }
 
-    /**
-     * @param false|string $backupDate
-     *
-     * @return void
-     */
-    public function setBackupDate($backupDate)
+    protected function sendMailTask($email, $emailTemplate, $subject, $success = 'success', $message = '')
     {
-        $this->backupDate = $backupDate;
-    }
-
-    protected function sendMail($emailTemplate, $subject, $success = 'success', $message = '')
-    {
-        if (filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
             $emailAddresses = array(
-                'toMail'   => $this->email,
-                'toName'   => $this->email,
-                'fromMail' => $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'],
-                'fromName' => $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromName']
+                'toMail' => $email,
+                'toName' => $email,
             );
 
             $subject = $subject . ' (' . $success . ')';
 
-            if (TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_CLI) {
+            if (Environment::isCli()) {
                 $calledBy = 'CLI module dispatcher';
-                $site     = '-';
+                $site = '-';
             } else {
                 $calledBy = 'TYPO3 backend';
-                $site     = GeneralUtility::getIndpEnv('TYPO3_SITE_URL');
+                $site = GeneralUtility::getIndpEnv('TYPO3_SITE_URL');
             }
 
             $assignMultiple = array(
-                'uid'         => $this->taskUid,
-                'success'     => $success,
-                'calledBy'    => $calledBy,
-                'site'        => $site,
-                'siteName'    => $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename'],
-                'tstamp'      => date('Y-m-d H:i:s') . ' [' . time() . ']',
-                'maxLifetime' => $this->scheduler->extConf['maxLifetime'],
-                'start'       => date('Y-m-d H:i:s', $this->getExecution()->getStart()) . ' [' . $this->getExecution()->getStart() . ']',
-                'end'         => (empty($this->getExecution()->getEnd()) ? '-' : date('Y-m-d H:i:s',
-                        $this->getExecution()->getEnd()) . ' [' . $this->getExecution()->getEnd() . ']'),
-                'interval'    => $this->getExecution()->getInterval(),
-                'multiple'    => ($this->getExecution()->getMultiple() ? 'yes' : 'no'),
-                'cronCmd'     => ($this->getExecution()->getCronCmd() ? $this->getExecution()->getCronCmd() : 'not used'),
-                'message'     => $message
+                'uid' => $this->task->getTaskUid(),
+                'success' => $success,
+                'calledBy' => $calledBy,
+                'site' => $site,
+                'siteName' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename'],
+                'tstamp' => date('Y-m-d H:i:s') . ' [' . time() . ']',
+                'start' => date('Y-m-d H:i:s', $this->task->getExecution()->getStart()) . ' [' . $this->task->getExecution()->getStart() . ']',
+                'end' => (empty($this->task->getExecution()->getEnd()) ? '-' : date('Y-m-d H:i:s',
+                        $this->task->getExecution()->getEnd()) . ' [' . $this->task->getExecution()->getEnd() . ']'),
+                'interval' => $this->task->getExecution()->getInterval(),
+                'multiple' => ($this->task->getExecution()->getMultiple() ? 'yes' : 'no'),
+                'cronCmd' => ($this->task->getExecution()->getCronCmd() ? $this->task->getExecution()->getCronCmd() : 'not used'),
+                'message' => $message
             );
+
             try {
-                $this->sendMailService->sendMail($emailAddresses, $emailTemplate, $subject, $assignMultiple);
+                /** @var SendMailService $sendMailService */
+                $sendMailService = GeneralUtility::makeInstance(SendMailService::class);
+                $sendMailService->sendMail($emailAddresses, $emailTemplate, $subject, $assignMultiple);
             } catch (\Exception $e) {
-                //                throw new \TYPO3\CMS\Core\Exception($e->getMessage(), 1575533775);
-                // log: no sendmail possible
+                throw new \Exception($e->getMessage(), 1575533775);
+                // TODO: log: no sendmail possible
             }
         }
-            // TODO: log: no valid email given
-    }
-
-    public function getExtensionKey()
-    {
-        $extensionKey = '';
-        if (strpos(__CLASS__, '\\') !== false) {
-            $classNameParts = explode('\\', __CLASS__, 4);
-            $extensionKey   = GeneralUtility::camelCaseToLowerCaseUnderscored($classNameParts[1]);
-        }
-
-        return $extensionKey;
+        // TODO: log: no valid email given
     }
 
     /**

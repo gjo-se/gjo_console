@@ -20,14 +20,48 @@ ddev composer validate
 # - copy EXT in packages (Symlink dont work in WIN)
 # Error: gjo-se/gjo-site-package dev-main requires php ~8.3.0 -> your php version (8.1.1; overridden via config.platform, actual: 8.3.8) does not satisfy that requirement.
 # Solution: --ignore-platform-reqs
-ddev composer require gjo-se/gjo-console:@dev --ignore-platform-reqs
-ddev composer update gjo-se/gjo-scheduler --ignore-platform-reqs
-ddev composer remove gjo-se/gjo-scheduler --ignore-platform-reqs
+ddev composer require gjo-se/gjo-mail:@dev
+ddev composer update gjo-se/gjo-console
+ddev composer remove gjo-se/gjo-console
 ddev composer exec typo3 extension:setup
+
+# RUN TYPO3 Scheduler Task: 5 = Backup Database, 2 = Cleanup Database
+ddev exec typo3 scheduler:run --task=5 -f --task=2
 
 # after change composer.json autoload
 ddev composer dump-autoload
 
+# Composer Parameter
+#require
+#  [--dev]
+#  [--dry-run]
+#  [--prefer-source]
+#  [--prefer-dist]
+#  [--prefer-install PREFER-INSTALL]
+#  [--fixed]
+#  [--no-suggest]
+#  [--no-progress]
+#  [--no-update]
+#  [--no-install]
+#  [--no-audit]
+#  [--audit-format AUDIT-FORMAT]
+#  [--update-no-dev]
+#  [-w|--update-with-dependencies]
+#  [-W|--update-with-all-dependencies]
+#  [--with-dependencies]
+#  [--with-all-dependencies]
+#  [--ignore-platform-req IGNORE-PLATFORM-REQ]
+#  [--ignore-platform-reqs]
+#  [--prefer-stable]
+#  [--prefer-lowest]
+#  [-m|--minimal-changes]
+#  [--sort-packages]
+#  [-o|--optimize-autoloader]
+#  [-a|--classmap-authoritative]
+#  [--apcu-autoloader]
+#  [--apcu-autoloader-prefix APCU-AUTOLOADER-PREFIX]
+#  [--]
+#  [<packages>...]
 
 
 #############################

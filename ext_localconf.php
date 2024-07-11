@@ -1,7 +1,8 @@
 <?php
 
+use GjoSe\GjoConsole\Task\AdditionalFieldProvider\BackupDatabaseTaskAdditionalFieldProvider;
 use GjoSe\GjoConsole\Task\BackupDatabaseTask;
-use GjoSe\GjoConsole\Task\BackupDatabaseTaskAdditionalFieldProvider;
+
 //use GjoSe\GjoConsole\Task\CleanupDumpsTask;
 //use GjoSe\GjoConsole\Task\CleanupDumpsTaskAdditionalFieldProvider;
 //use GjoSe\GjoConsole\Task\DeploymentDatabaseTask;
