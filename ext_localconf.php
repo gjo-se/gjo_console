@@ -1,14 +1,14 @@
 <?php
 
-use GjoSe\GjoConsole\Task\AdditionalFieldProvider\BackupDatabaseTaskAdditionalFieldProvider;
 use GjoSe\GjoConsole\Task\BackupDatabaseTask;
+use GjoSe\GjoConsole\Task\AdditionalFieldProvider\BackupDatabaseTaskAdditionalFieldProvider;
+use GjoSe\GjoConsole\Task\RestoreDatabaseTask;
+use GjoSe\GjoConsole\Task\AdditionalFieldProvider\RestoreDatabaseTaskAdditionalFieldProvider;
 
 //use GjoSe\GjoConsole\Task\CleanupDumpsTask;
 //use GjoSe\GjoConsole\Task\CleanupDumpsTaskAdditionalFieldProvider;
 //use GjoSe\GjoConsole\Task\DeploymentDatabaseTask;
 //use GjoSe\GjoConsole\Task\DeploymentDatabaseTaskAdditionalFieldProvider;
-//use GjoSe\GjoConsole\Task\RestoreDatabaseTask;
-//use GjoSe\GjoConsole\Task\RestoreDatabaseTaskAdditionalFieldProvider;
 
 defined('TYPO3') or die('Access denied.');
 
@@ -24,12 +24,12 @@ call_user_func(
             'additionalFields' => BackupDatabaseTaskAdditionalFieldProvider::class
         );
 
-//        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][RestoreDatabaseTask::class] = array(
-//            'extension' => $extensionKey,
-//            'title' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang.xlf:restoreDatabaseTask.name',
-//            'description' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang.xlf:restoreDatabaseTask.description',
-//            'additionalFields' => RestoreDatabaseTaskAdditionalFieldProvider::class
-//        );
+        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][RestoreDatabaseTask::class] = array(
+            'extension' => $extensionKey,
+            'title' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang.xlf:restoreDatabaseTask.name',
+            'description' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang.xlf:restoreDatabaseTask.description',
+            'additionalFields' => RestoreDatabaseTaskAdditionalFieldProvider::class
+        );
 //
 //        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][CleanupDumpsTask::class] = array(
 //            'extension' => $extensionKey,

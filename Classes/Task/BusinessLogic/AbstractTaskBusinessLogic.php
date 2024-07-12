@@ -75,6 +75,8 @@ abstract class AbstractTaskBusinessLogic
         'cf_vhs_markdown_tags',
         'tx_extensionmanager_domain_model_extension',
         'tx_extensionmanager_domain_model_repository',
+        'tx_scheduler_task',
+        'tx_scheduler_task_group',
         'sys_lockedrecords'
     );
 
@@ -83,9 +85,6 @@ abstract class AbstractTaskBusinessLogic
     );
 
     protected $ignoredTablesOnTestingForDevelopment = array(
-        // sollen nicht im Development-Betrieb auftauchen
-        'tx_scheduler_task',
-        'tx_scheduler_task_group',
         // unnötig für DEV
         'sys_history',
         'sys_log'
@@ -323,6 +322,7 @@ abstract class AbstractTaskBusinessLogic
                 /** @var SendMailService $sendMailService */
                 $sendMailService = GeneralUtility::makeInstance(SendMailService::class);
                 $sendMailService->sendMail($emailAddresses, $emailTemplate, $subject, $assignMultiple);
+                
             } catch (\Exception $e) {
                 throw new \Exception($e->getMessage(), 1575533775);
                 // TODO: log: no sendmail possible
