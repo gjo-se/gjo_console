@@ -322,7 +322,7 @@ abstract class AbstractTaskBusinessLogic
                 /** @var SendMailService $sendMailService */
                 $sendMailService = GeneralUtility::makeInstance(SendMailService::class);
                 $sendMailService->sendMail($emailAddresses, $emailTemplate, $subject, $assignMultiple);
-                
+
             } catch (\Exception $e) {
                 throw new \Exception($e->getMessage(), 1575533775);
                 // TODO: log: no sendmail possible
