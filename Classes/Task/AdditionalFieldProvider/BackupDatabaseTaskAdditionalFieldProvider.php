@@ -33,14 +33,13 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
     public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModule)
     {
         $additionalFields = [];
-
         $currentSchedulerModuleAction = $schedulerModule->getCurrentAction();
 
         // Field: dbSource
-        if (!isset($taskInfo['gjo_scheduler']['dbSource'])) {
-            $taskInfo['gjo_scheduler']['dbSource'] = '';
+        if (!isset($taskInfo['gjo_console']['dbSource'])) {
+            $taskInfo['gjo_console']['dbSource'] = '';
             if ($currentSchedulerModuleAction->equals(Action::EDIT)) {
-                $taskInfo['gjo_scheduler']['dbSource'] = $task->dbSource;
+                $taskInfo['gjo_console']['dbSource'] = $task->dbSource;
             }
         }
 
@@ -51,7 +50,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
             if($option == 'Default'){
                 $option = Environment::getContext();
             }
-            $options .= '<option value="' . $value . '" ' . ($value ==  $taskInfo['gjo_scheduler']['dbSource'] ? 'selected' : '') . ' >' . $option . '</option>';
+            $options .= '<option value="' . $value . '" ' . ($value ==  $taskInfo['gjo_console']['dbSource'] ? 'selected' : '') . ' >' . $option . '</option>';
         }
 
         $fieldID = 'gjo_console_dbSource';
@@ -63,20 +62,20 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
         );
 
         // Field: dbTarget
-        if (!isset($taskInfo['gjo_scheduler']['dbTarget'])) {
-            $taskInfo['gjo_scheduler']['dbTarget'] = '';
+        if (!isset($taskInfo['gjo_console']['dbTarget'])) {
+            $taskInfo['gjo_console']['dbTarget'] = '';
             if ($currentSchedulerModuleAction->equals(Action::EDIT)) {
-                $taskInfo['gjo_scheduler']['dbTarget'] = $task->dbTarget;
+                $taskInfo['gjo_console']['dbTarget'] = $task->dbTarget;
             }
         }
-        $selected = ($taskInfo['gjo_scheduler']['dbTarget'] == "Backup") ? 'selected' : '';
+        $selected = ($taskInfo['gjo_console']['dbTarget'] == "Backup") ? 'selected' : '';
         $options = '<option value="Backup" ' . $selected . ' > Backup </option>';
         foreach ($GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'] as $value => $dbConnectionOption) {
             $option = $value;
             if($option == 'Default'){
                 $option = Environment::getContext();
             }
-            $selected = ($taskInfo['gjo_scheduler']['dbTarget'] == $value) ? 'selected' : '';
+            $selected = ($taskInfo['gjo_console']['dbTarget'] == $value) ? 'selected' : '';
             $options .= '<option value="' . $value . '" ' . $selected . ' >' . $option . '</option>';
         }
 
@@ -89,18 +88,18 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
         );
 
         // Field: email
-        if (!isset($taskInfo['gjo_scheduler']['email'])) {
-            $taskInfo['gjo_scheduler']['email'] = '';
+        if (!isset($taskInfo['gjo_console']['email'])) {
+            $taskInfo['gjo_console']['email'] = '';
             if ($currentSchedulerModuleAction->equals(Action::ADD)) {
-                $taskInfo['gjo_scheduler']['email'] = $GLOBALS['BE_USER']->user['email'];
+                $taskInfo['gjo_console']['email'] = $GLOBALS['BE_USER']->user['email'];
             }
             if ($currentSchedulerModuleAction->equals(Action::EDIT)) {
-                $taskInfo['gjo_scheduler']['email'] = $task->email;
+                $taskInfo['gjo_console']['email'] = $task->email;
             }
         }
 
         $fieldID = 'gjo_console_email';
-        $fieldCode = '<input type="text" class="form-control" name="tx_scheduler[gjo_console][email]" id="' . $fieldID . '" value="' . htmlspecialchars($taskInfo['gjo_scheduler']['email']) . '" size="30">';
+        $fieldCode = '<input type="text" class="form-control" name="tx_scheduler[gjo_console][email]" id="' . $fieldID . '" value="' . htmlspecialchars($taskInfo['gjo_console']['email']) . '" size="30">';
 
         $additionalFields[$fieldID] = [
             'code' => $fieldCode,

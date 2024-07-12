@@ -102,6 +102,6 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
             "Build mysqldump for:  $filename");
 
         // log succsees deploy
-        return $this->getBackupDate();
+        return true;
     }
 }
