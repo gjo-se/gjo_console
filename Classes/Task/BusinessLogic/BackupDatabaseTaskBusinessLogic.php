@@ -30,6 +30,7 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
 
     public function run($task, $dbSource, $dbTarget, $email): bool
     {
+        $currentApplicationContext = '';
         $this->task = $task;
         $this->setConnection($dbSource);
         (getenv('IS_DDEV_PROJECT') == 'true') ? $currentApplicationContext = 'Development' : Environment::getContext();
