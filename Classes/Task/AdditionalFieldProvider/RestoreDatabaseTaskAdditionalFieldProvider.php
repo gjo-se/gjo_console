@@ -127,7 +127,12 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
         return $result;
     }
 
-    public function saveAdditionalFields(array $submittedData, AbstractTask $task)
+    /**
+     * @param array $submittedData, AbstractTask $task
+     *
+     * @return void
+     */
+    public function saveAdditionalFields(array $submittedData, AbstractTask $task): void
     {
         $task->dbDump = $submittedData['gjo_console']['dbDump'];
         $task->dbTarget = $submittedData['gjo_console']['dbTarget'];

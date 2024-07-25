@@ -220,7 +220,7 @@ abstract class AbstractTaskBusinessLogic
     }
 
     /**
-     * @param array $connection
+     * @param array $database
      *
      * @return void
      */
