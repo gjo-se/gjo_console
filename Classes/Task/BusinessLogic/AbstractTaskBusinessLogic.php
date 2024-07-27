@@ -184,7 +184,7 @@ abstract class AbstractTaskBusinessLogic
      *
      * @return void
      */
-    public function setConnection($database)
+    public function setConnection($database): void
     {
         $this->connection = $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][$database];
     }
