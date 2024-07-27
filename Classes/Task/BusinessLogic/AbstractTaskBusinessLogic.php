@@ -314,7 +314,7 @@ abstract class AbstractTaskBusinessLogic
                         $this->task->getExecution()->getEnd()) . ' [' . $this->task->getExecution()->getEnd() . ']'),
                 'interval' => $this->task->getExecution()->getInterval(),
                 'multiple' => ($this->task->getExecution()->getMultiple() ? 'yes' : 'no'),
-                'cronCmd' => ($this->task->getExecution()->getCronCmd() ? $this->task->getExecution()->getCronCmd() : 'not used'),
+                'cronCmd' => ($this->task->getExecution()->getCronCmd() ?: 'not used'),
                 'message' => $message
             );
 
