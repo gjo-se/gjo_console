@@ -32,8 +32,17 @@ use TYPO3\CMS\Scheduler\Task\Enumeration\Action;
 
 class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldProvider
 {
+    /**
+     * Gets additional fields to render in the form to add/edit a task
+     *
+     * @param array $taskInfo
+     * @param AbstractTask|null $task
+     * @param SchedulerModuleController $schedulerModule
+     *
+     * @return array<array<string>> array('fieldId' => array('code' => '', 'label' => '', 'cshKey' => '', 'cshLabel' => ''))
+     */
     #[\Override]
-    public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModule)
+    public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModule): array
     {
         $additionalFields = [];
         $currentSchedulerModuleAction = $schedulerModule->getCurrentAction();

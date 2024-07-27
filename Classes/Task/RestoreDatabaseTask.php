@@ -32,11 +32,11 @@ use GjoSe\GjoConsole\Task\BusinessLogic\RestoreDatabaseTaskBusinessLogic;
  */
 class RestoreDatabaseTask extends AbstractTask
 {
-    public $dbDump = '';
+    public string $dbDump = '';
 
-    public $dbTarget = '';
+    public string $dbTarget = '';
 
-    public $email = '';
+    public string $email = '';
 
     /**
      * @return bool

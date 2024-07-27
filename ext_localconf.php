@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use GjoSe\GjoConsole\Task\BackupDatabaseTask;
 use GjoSe\GjoConsole\Task\AdditionalFieldProvider\BackupDatabaseTaskAdditionalFieldProvider;
 use GjoSe\GjoConsole\Task\RestoreDatabaseTask;

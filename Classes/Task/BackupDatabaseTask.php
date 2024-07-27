@@ -29,11 +29,11 @@ use GjoSe\GjoConsole\Task\BusinessLogic\BackupDatabaseTaskBusinessLogic;
 
 class BackupDatabaseTask extends AbstractTask
 {
-    public $dbSource = '';
+    public string $dbSource = '';
 
-    public $dbTarget = '';
+    public string $dbTarget = '';
 
-    public $email = '';
+    public string $email = '';
 
     /**
      * @return bool

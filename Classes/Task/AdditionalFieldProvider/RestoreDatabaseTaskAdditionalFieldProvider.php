@@ -30,19 +30,31 @@ use TYPO3\CMS\Scheduler\AbstractAdditionalFieldProvider;
 use TYPO3\CMS\Scheduler\Controller\SchedulerModuleController;
 use TYPO3\CMS\Scheduler\Task\AbstractTask;
 use TYPO3\CMS\Scheduler\Task\Enumeration\Action;
+use GjoSe\GjoConsole\Task\RestoreDatabaseTask;
 
 class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldProvider
 {
-    public const BACKUP_DIR = '/fileadmin/_temp_/Backup/';
+    public const string BACKUP_DIR = '/fileadmin/_temp_/Backup/';
 
+    // getAdditionalFields(array &$taskInfo, ?TYPO3\CMS\Scheduler\Task\AbstractTask $task, TYPO3\CMS\Scheduler\Controller\SchedulerModuleController $schedulerModule)
+    // getAdditionalFields(array &$taskInfo, $task, TYPO3\CMS\Scheduler\Controller\SchedulerModuleController $schedulerModule)
+    /**
+     * Gets additional fields to render in the form to add/edit a task
+     *
+     * @param array<array<string>> $taskInfo
+     * @param RestoreDatabaseTask|null $task
+     * @param SchedulerModuleController $schedulerModule
+     *
+     * @return array<array<string>> array('fieldId' => array('code' => '', 'label' => '', 'cshKey' => '', 'cshLabel' => ''))
+     */
     #[\Override]
-    public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModule)
+    public function getAdditionalFields(array &$taskInfo, ?RestoreDatabaseTask $task, SchedulerModuleController $schedulerModule): array
     {
         $additionalFields = [];
         $currentSchedulerModuleAction = $schedulerModule->getCurrentAction();
 
         // Field: Available dumps
-        if (!isset($taskInfo['gjo_console']['dbDump'])) {
+        if (!isset($taskInfo['gjo_console']['dbDump']) && $task instanceof RestoreDatabaseTask) {
             $taskInfo['gjo_console']['dbDump'] = '';
             if ($currentSchedulerModuleAction->equals(Action::EDIT)) {
                 $taskInfo['gjo_console']['dbDump'] = $task->dbDump;
@@ -55,16 +67,16 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
         $options = '';
         foreach ($fileArr as $file) {
             $value = substr($file, strlen(Environment::getPublicPath() . self::BACKUP_DIR));
-            $options .= '<option value="' . $value . '" ' . ($value ==  $taskInfo['gjo_console']['dbDump'] ? 'selected' : '') . ' >' . $value . '</option>';
+            $options .= '<option value="' . $value . '" ' . ($value == $taskInfo['gjo_console']['dbDump'] ? 'selected' : '') . ' >' . $value . '</option>';
 
         }
 
         $fieldID = 'gjo_console_dbDumps';
         $fieldCode = '<select class="form-control" name="tx_scheduler[gjo_console][dbDump]" id="' . $fieldID . '">' . $options . '</select>';
 
-        $additionalFields[$fieldID] = ['code'     => $fieldCode, 'label'    => 'Verfügbare Dumps'];
+        $additionalFields[$fieldID] = ['code' => $fieldCode, 'label' => 'Verfügbare Dumps'];
 
-//        // Field: dbTarget
+        //        // Field: dbTarget
         if (!isset($taskInfo['gjo_console']['dbTarget'])) {
             $taskInfo['gjo_console']['dbTarget'] = '';
             if ($currentSchedulerModuleAction->equals(Action::EDIT)) {
@@ -75,19 +87,19 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
         $options = '';
         foreach ($GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'] as $value => $dbTargetOption) {
             // Prevent Testing-DB for Restore
-            if(Environment::getContext() != 'Testing'){
+            if (Environment::getContext() != 'Testing') {
                 $option = $value;
-                if($option == 'Default'){
+                if ($option == 'Default') {
                     $option = Environment::getContext();
                 }
-                $options .= '<option value="' . $value . '" ' . ($value ==  $taskInfo['gjo_console']['dbTarget'] ? 'selected' : '') . ' >' . $option . '</option>';
+                $options .= '<option value="' . $value . '" ' . ($value == $taskInfo['gjo_console']['dbTarget'] ? 'selected' : '') . ' >' . $option . '</option>';
             }
         }
 
         $fieldID = 'gjo_console_dbTarget';
         $fieldCode = '<select class="form-control" name="tx_scheduler[gjo_console][dbTarget]" id="' . $fieldID . '">' . $options . '</select>';
 
-        $additionalFields[$fieldID] = ['code'     => $fieldCode, 'label'    => 'Ziel Datenbank'];
+        $additionalFields[$fieldID] = ['code' => $fieldCode, 'label' => 'Ziel Datenbank'];
 
         // Field: email
         if (!isset($taskInfo['gjo_console']['email'])) {
@@ -101,22 +113,22 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
         }
 
         $fieldID = 'gjo_console_email';
-        $fieldCode = '<input type="text" class="form-control" name="tx_scheduler[gjo_console][email]" id="' . $fieldID . '" value="' . htmlspecialchars((string) $taskInfo['gjo_console']['email']) . '" size="30">';
+        $fieldCode = '<input type="text" class="form-control" name="tx_scheduler[gjo_console][email]" id="' . $fieldID . '" value="' . htmlspecialchars((string)$taskInfo['gjo_console']['email']) . '" size="30">';
 
         $additionalFields[$fieldID] = [
             'code' => $fieldCode,
-            'label' => 'Email: '
+            'label' => 'Email: ',
         ];
 
         return $additionalFields;
     }
 
     #[\Override]
-    public function validateAdditionalFields(array &$submittedData, SchedulerModuleController $schedulerModule)
+    public function validateAdditionalFields(array &$submittedData, SchedulerModuleController $schedulerModule): bool
     {
         $result = true;
 
-        $submittedData['gjo_console']['email'] = trim((string) $submittedData['gjo_console']['email']);
+        $submittedData['gjo_console']['email'] = trim((string)$submittedData['gjo_console']['email']);
         if (empty($submittedData['gjo_console']['email'])) {
             $this->addMessage('Please enter a Email', ContextualFeedbackSeverity::ERROR);
             $result = false;
@@ -126,9 +138,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
     }
 
     /**
-     * @param array $submittedData, AbstractTask $task
-     *
-     * @return void
+     * @param array $submittedData , AbstractTask $task
      */
     #[\Override]
     public function saveAdditionalFields(array $submittedData, AbstractTask $task): void

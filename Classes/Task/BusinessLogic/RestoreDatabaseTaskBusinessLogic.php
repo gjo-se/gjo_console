@@ -23,7 +23,10 @@ namespace GjoSe\GjoConsole\Task\BusinessLogic;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use GjoSe\GjoConsole\Task\RestoreDatabaseTask;
+use Psr\Log\LoggerAwareInterface;
 use TYPO3\CMS\Core\Core\Environment;
+
 //use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -31,21 +34,26 @@ use TYPO3\CMS\Core\Core\Environment;
  */
 class RestoreDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
 {
-    public const EMAIL_SUBJECT_RESTORE_DATABASE_TASK = 'RestoreDatabaseTask';
-    public const EMAIL_TEMPLATE_RESTORE_DATABASE_TASK = 'RestoreDatabaseTask';
+    public const string EMAIL_SUBJECT_RESTORE_DATABASE_TASK = 'RestoreDatabaseTask';
+    public const string EMAIL_TEMPLATE_RESTORE_DATABASE_TASK = 'RestoreDatabaseTask';
 
     /**
+     * @param RestoreDatabaseTask $task
+     * @param string $dbDump
+     * @param string $dbTarget
+     * @param string $email
+     *
      * @return bool
      */
-    public function run($task, string $dbDump, $dbTarget, $email): bool
+    public function run(RestoreDatabaseTask $task, string $dbDump, string $dbTarget, string $email): bool
     {
         $this->task = $task;
         $this->setConnection($dbTarget);
-        $backupFile = Environment::getPublicPath() . parent::BACKUP_DIR. $dbDump;
+        $backupFile = Environment::getPublicPath() . parent::BACKUP_DIR . $dbDump;
 
         if (!is_file($backupFile)) {
-            $this->sendMailTask($email, self::EMAIL_TEMPLATE_RESTORE_DATABASE_TASK, self::EMAIL_SUBJECT_RESTORE_DATABASE_TASK, parent::ERROR, "Dump NOT exists - cmd: " . $backupFile);
-//            log Error, $logMessage = 'No dump exists: ' . $backupDir; $this->scheduler->log($logMessage, 2, 'gjo_console');
+            $this->sendMailTask($email, self::EMAIL_TEMPLATE_RESTORE_DATABASE_TASK, self::EMAIL_SUBJECT_RESTORE_DATABASE_TASK, parent::ERROR, 'Dump NOT exists - cmd: ' . $backupFile);
+            //            log Error, $logMessage = 'No dump exists: ' . $backupDir; $this->scheduler->log($logMessage, 2, 'gjo_console');
             return false;
         }
 

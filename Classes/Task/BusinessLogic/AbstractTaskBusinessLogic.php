@@ -23,172 +23,139 @@ namespace GjoSe\GjoConsole\Task\BusinessLogic;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use GjoSe\GjoMail\Service\SendMailService;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerInterface;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use GjoSe\GjoMail\Service\SendMailService;
+use TYPO3\CMS\Scheduler\Task\AbstractTask;
 
 abstract class AbstractTaskBusinessLogic
 {
+    public const string NECESSARY_LINE_BREAK = ' && echo ok 2>&1';
+    public const string BACKUP_DIR = '/fileadmin/_temp_/Backup/';
+    public const string DUMP_PARAMS_ONLY_STRUCTURE = ' --single-transaction --no-data ';
+    public const string DUMP_PARAMS_COMPLETE = ' --opt --single-transaction ';
+    public const string DUMP_STRUCTURE_FILE = '_structure.sql';
+    public const string DUMP_COMPLETE_FILE = '_complete.sql';
+    public const string MYSQL_PARAMS = ' --default-character-set=utf8 ';
+    public const int KEEP_DUMPS = 5;
+    public const string DATE_FORMAT = 'YmdHi';
+    public const string SUCCESS = 'success';
+    public const string ERROR = 'error';
+    public const int SMALLEST_TIMESTAMP = 201912051004;
+    public const string TARGET_BACKUP = 'Backup';
+    public AbstractTask $task;
+    /**
+     * @var array<string>
+     */
+    protected array $ignoredTablesBasic = ['be_sessions', 'fe_sessions', 'cache_md5params', 'cache_treelist', 'cf_cache_hash', 'cf_cache_hash_tags', 'cf_cache_imagesizes', 'cf_cache_imagesizes_tags', 'cf_cache_news_category', 'cf_cache_news_category_tags', 'cf_cache_pages', 'cf_cache_pages_tags', 'cf_cache_pagesection', 'cf_cache_pagesection_tags', 'cf_cache_rootline', 'cf_cache_rootline_tags', 'cf_extbase_datamapfactory_datamap', 'cf_extbase_datamapfactory_datamap_tags', 'cf_extbase_object', 'cf_extbase_object_tags', 'cf_extbase_reflection', 'cf_extbase_reflection_tags', 'cf_fluidcontent', 'cf_fluidcontent_tags', 'cf_flux', 'cf_flux_tags', 'cf_vhs_main', 'cf_vhs_main_tags', 'cf_vhs_markdown', 'cf_vhs_markdown_tags', 'tx_extensionmanager_domain_model_extension', 'tx_extensionmanager_domain_model_repository', 'tx_scheduler_task', 'tx_scheduler_task_group', 'sys_lockedrecords'];
+    /**
+     * TEST-DB is Master
+     * @var array<string>
+     */
+    protected array $ignoredTablesOnTestingForBackup = [];
+    /**
+     * not used on DEV
+     * @var array<string>
+     */
+    protected array $ignoredTablesOnTestingForDevelopment = ['sys_history', 'sys_log'];
+    /**
+     * // on PROD: empty, get Data from TEST
+     * @var array<string>
+     */
+    protected array $ignoredTablesOnTestingForProduction = ['fe_groups', 'fe_users', 'tx_femanager_domain_model_log', 'tx_gjoshop_domain_model_billing_address', 'tx_gjoshop_domain_model_delivery_address', 'tx_gjoshop_domain_model_order', 'tx_gjoshop_domain_model_orderproducts', 'tx_gjoshop_domain_model_payment_paypal', // sollen nicht im Production-Betrieb auftauchen
+        'be_groups', 'be_users', 'tx_scheduler_task', 'tx_scheduler_task_group', // unnötig für DB-Deployment
+        'sys_history', 'sys_log', ];
+    /**
+     * only for Testing
+     * @var array<string>
+     */
+    protected array $ignoredTablesOnDevelopmentForRestoretest = ['sys-log'];
+    /**
+     * @var array<string>
+     */
+    protected array $ignoredTablesOnDevelopmentForBackup = [];
+    /**
+     * @var array<string>
+     */
+    protected array $ignoredTablesOnRestoretestForBackup = [];
+    /**
+     * @var array<string>
+     */
+    protected array $ignoredTablesOnProductionForBackup = [];
+    /**
+     * @var array<string>
+     */
+    protected array $connection = [];
 
-    public const NECESSARY_LINE_BREAK = ' && echo ok 2>&1';
-    public const BACKUP_DIR = '/fileadmin/_temp_/Backup/';
-    public const DUMP_PARAMS_ONLY_STRUCTURE = ' --single-transaction --no-data ';
-    public const DUMP_PARAMS_COMPLETE = ' --opt --single-transaction ';
-    public const DUMP_STRUCTURE_FILE = '_structure.sql';
-    public const DUMP_COMPLETE_FILE = '_complete.sql';
-    public const MYSQL_PARAMS = ' --default-character-set=utf8 ';
-    public const KEEP_DUMPS = 5;
-    public const DATE_FORMAT = "YmdHi";
-    public const SUCCESS = 'success';
-    public const ERROR = 'error';
-    public const SMALLEST_TIMESTAMP = 201912051004;
-    public const TARGET_BACKUP = 'Backup';
+    protected string $dbUser = '';
+    protected string $dbPassword = '';
 
-    protected $ignoredTablesBasic = ['be_sessions', 'fe_sessions', 'cache_md5params', 'cache_treelist', 'cf_cache_hash', 'cf_cache_hash_tags', 'cf_cache_imagesizes', 'cf_cache_imagesizes_tags', 'cf_cache_news_category', 'cf_cache_news_category_tags', 'cf_cache_pages', 'cf_cache_pages_tags', 'cf_cache_pagesection', 'cf_cache_pagesection_tags', 'cf_cache_rootline', 'cf_cache_rootline_tags', 'cf_extbase_datamapfactory_datamap', 'cf_extbase_datamapfactory_datamap_tags', 'cf_extbase_object', 'cf_extbase_object_tags', 'cf_extbase_reflection', 'cf_extbase_reflection_tags', 'cf_fluidcontent', 'cf_fluidcontent_tags', 'cf_flux', 'cf_flux_tags', 'cf_vhs_main', 'cf_vhs_main_tags', 'cf_vhs_markdown', 'cf_vhs_markdown_tags', 'tx_extensionmanager_domain_model_extension', 'tx_extensionmanager_domain_model_repository', 'tx_scheduler_task', 'tx_scheduler_task_group', 'sys_lockedrecords'];
+    protected string $dbHost = '';
 
-    // TEST-DB ist der Master
-    protected $ignoredTablesOnTestingForBackup = [];
+    protected string $dbName = '';
 
-    protected $ignoredTablesOnTestingForDevelopment = [
-        // unnötig für DEV
-        'sys_history',
-        'sys_log',
-    ];
+    protected string $backupDate = '';
 
-    protected $ignoredTablesOnTestingForProduction = [
-        // werden auf Production von Testing gezogen (sind auf Prod leer)
-        'fe_groups',
-        'fe_users',
-        'tx_femanager_domain_model_log',
-        'tx_gjoshop_domain_model_billing_address',
-        'tx_gjoshop_domain_model_delivery_address',
-        'tx_gjoshop_domain_model_order',
-        'tx_gjoshop_domain_model_orderproducts',
-        'tx_gjoshop_domain_model_payment_paypal',
-        // sollen nicht im Production-Betrieb auftauchen
-        'be_groups',
-        'be_users',
-        'tx_scheduler_task',
-        'tx_scheduler_task_group',
-        // unnötig für DB-Deployment
-        'sys_history',
-        'sys_log',
-    ];
+    protected string $pathToMySql = '';
 
-    // nur zu Testzwecken
-    protected $ignoredTablesOnDevelopmentForRestoretest = ['sys-log'];
-
-    protected $ignoredTablesOnDevelopmentForBackup = [];
-
-    protected $ignoredTablesOnRestoretestForBackup = [];
-
-    protected $ignoredTablesOnProductionForBackup = [];
-
-    public $task = null;
-
-    protected $connection = [];
-
-    protected $dbUser = '';
-
-    protected $dbPassword = '';
-
-    protected $dbHost = '';
-
-    protected $dbName = '';
-
-    protected $backupDate = '';
-
-    protected $pathToMySql = '';
-
-    protected $pathToMySqlDump = '';
+    protected string $pathToMySqlDump = '';
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getIgnoredTablesOnTestingForBackup(): array
     {
-        $ignoredTables = array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnTestingForBackup);
-
-        return $ignoredTables;
+        return array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnTestingForBackup);
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getIgnoredTablesOnTestingForDevelopment(): array
     {
-        $ignoredTables = array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnTestingForDevelopment);
-
-        return $ignoredTables;
+        return array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnTestingForDevelopment);
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getIgnoredTablesOnTestingForProduction(): array
     {
-        $ignoredTables = array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnTestingForProduction);
-
-        return $ignoredTables;
+        return array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnTestingForProduction);
     }
 
-
     /**
-     * @return array
+     * @return array<string>
      */
     public function getIgnoredTablesOnDevelopmentForRestoretest(): array
     {
-        $ignoredTables = array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnDevelopmentForRestoretest);
-
-        return $ignoredTables;
+        return array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnDevelopmentForRestoretest);
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getIgnoredTablesOnDevelopmentForBackup(): array
     {
-        $ignoredTables = array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnDevelopmentForBackup);
-
-        return $ignoredTables;
+        return array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnDevelopmentForBackup);
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getIgnoredTablesOnRestoretestForBackup(): array
     {
-        $ignoredTables = array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnRestoretestForBackup);
-
-        return $ignoredTables;
+        return array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnRestoretestForBackup);
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getIgnoredTablesOnProductionForBackup(): array
     {
-        $ignoredTables = array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnProductionForBackup);
-
-        return $ignoredTables;
-    }
-
-    /**
-     * @return array
-     */
-    public function getConnection()
-    {
-        return $this->connection;
-    }
-
-    /**
-     * @param array $database
-     *
-     * @return void
-     */
-    public function setConnection($database): void
-    {
-        $this->connection = $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][$database];
+        return array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnProductionForBackup);
     }
 
     /**
@@ -199,6 +166,22 @@ abstract class AbstractTaskBusinessLogic
         $this->dbUser = $this->getConnection()['user'];
 
         return $this->dbUser;
+    }
+
+    /**
+     * @return array<string>
+     */
+    public function getConnection(): array
+    {
+        return $this->connection;
+    }
+
+    /**
+     * @param string $database
+     */
+    public function setConnection(string $database): void
+    {
+        $this->connection = $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][$database];
     }
 
     /**
@@ -232,49 +215,17 @@ abstract class AbstractTaskBusinessLogic
     }
 
     /**
-     * @return false|string
+     * @return string
      */
-    public function getBackupDate()
+    public function getBackupDate(): string
     {
         if ($this->backupDate) {
             return $this->backupDate;
-        } else {
-            $this->backupDate = date(self::DATE_FORMAT);
-
-            return $this->backupDate;
         }
-    }
+        $this->backupDate = date(self::DATE_FORMAT);
 
-    protected function sendMailTask($email, string $emailTemplate, $subject, string $success = 'success', $message = '')
-    {
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return $this->backupDate;
 
-            $emailAddresses = ['toMail' => $email, 'toName' => $email];
-
-            $subject = $subject . ' (' . $success . ')';
-
-            if (Environment::isCli()) {
-                $calledBy = 'CLI module dispatcher';
-                $site = '-';
-            } else {
-                $calledBy = 'TYPO3 backend';
-                $site = GeneralUtility::getIndpEnv('TYPO3_SITE_URL');
-            }
-
-            $assignMultiple = ['uid' => $this->task->getTaskUid(), 'success' => $success, 'calledBy' => $calledBy, 'site' => $site, 'siteName' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename'], 'tstamp' => date('Y-m-d H:i:s') . ' [' . time() . ']', 'start' => date('Y-m-d H:i:s', $this->task->getExecution()->getStart()) . ' [' . $this->task->getExecution()->getStart() . ']', 'end' => (empty($this->task->getExecution()->getEnd()) ? '-' : date('Y-m-d H:i:s',
-                    $this->task->getExecution()->getEnd()) . ' [' . $this->task->getExecution()->getEnd() . ']'), 'interval' => $this->task->getExecution()->getInterval(), 'multiple' => ($this->task->getExecution()->getMultiple() ? 'yes' : 'no'), 'cronCmd' => ($this->task->getExecution()->getCronCmd() ?: 'not used'), 'message' => $message];
-
-            try {
-                /** @var SendMailService $sendMailService */
-                $sendMailService = GeneralUtility::makeInstance(SendMailService::class);
-                $sendMailService->sendMail($emailAddresses, $emailTemplate, $subject, $assignMultiple);
-
-            } catch (\Exception $e) {
-                throw new \Exception($e->getMessage(), 1575533775);
-                // TODO: log: no sendmail possible
-            }
-        }
-        // TODO: log: no valid email given
     }
 
     /**
@@ -303,5 +254,45 @@ abstract class AbstractTaskBusinessLogic
         }
 
         return $this->pathToMySqlDump;
+    }
+
+    /**
+     * @param string $email
+     * @param string $emailTemplate
+     * @param string $subject
+     * @param string $success
+     * @param string $message
+     *
+     * @throws \Exception
+     */
+    protected function sendMailTask(string $email, string $emailTemplate, string $subject, string $success = 'success', string $message = ''): void
+    {
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+            $emailAddresses = ['toMail' => $email, 'toName' => $email];
+
+            $subject = $subject . ' (' . $success . ')';
+
+            if (Environment::isCli()) {
+                $calledBy = 'CLI module dispatcher';
+                $site = '-';
+            } else {
+                $calledBy = 'TYPO3 backend';
+                $site = GeneralUtility::getIndpEnv('TYPO3_SITE_URL');
+            }
+
+            $assignMultiple = ['uid' => $this->task->getTaskUid(), 'success' => $success, 'calledBy' => $calledBy, 'site' => $site, 'siteName' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename'], 'tstamp' => date('Y-m-d H:i:s') . ' [' . time() . ']', 'start' => date('Y-m-d H:i:s', $this->task->getExecution()->getStart()) . ' [' . $this->task->getExecution()->getStart() . ']', 'end' => (empty($this->task->getExecution()->getEnd()) ? '-' : date('Y-m-d H:i:s', $this->task->getExecution()->getEnd()) . ' [' . $this->task->getExecution()->getEnd() . ']'), 'interval' => $this->task->getExecution()->getInterval(), 'multiple' => ($this->task->getExecution()->getMultiple() ? 'yes' : 'no'), 'cronCmd' => ($this->task->getExecution()->getCronCmd() ?: 'not used'), 'message' => $message];
+
+            try {
+                /** @var SendMailService $sendMailService */
+                $sendMailService = GeneralUtility::makeInstance(SendMailService::class);
+                $sendMailService->sendMail($emailAddresses, $emailTemplate, $subject, $assignMultiple);
+
+            } catch (\Exception $e) {
+                throw new \Exception($e->getMessage(), 1575533775);
+                // TODO: log: no sendmail possible
+            }
+        }
+        // TODO: log: no valid email given
     }
 }

@@ -23,14 +23,23 @@ namespace GjoSe\GjoConsole\Task\BusinessLogic;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use GjoSe\GjoConsole\Task\BackupDatabaseTask;
 use TYPO3\CMS\Core\Core\Environment;
 
 class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
 {
-    public const EMAIL_SUBJECT_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
-    public const EMAIL_TEMPLATE_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
+    public const string EMAIL_SUBJECT_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
+    public const string EMAIL_TEMPLATE_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
 
-    public function run($task, string $dbSource, string $dbTarget, $email): bool
+    /**
+     * @param BackupDatabaseTask $task
+     * @param string $dbSource
+     * @param string $dbTarget
+     * @param string $email
+     *
+     * @return bool
+     */
+    public function run(BackupDatabaseTask $task, string $dbSource, string $dbTarget, string $email): bool
     {
         $currentApplicationContext = '';
         $this->task = $task;
@@ -50,8 +59,13 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
             $cmd = 'mkdir ' . $backupDir . '/' . $this->getBackupDate();
 
             if (!shell_exec($cmd . parent::NECESSARY_LINE_BREAK)) {
-                $this->sendMailTask($email, self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK, self::EMAIL_SUBJECT_BACKUP_DATABASE_TASK, parent::ERROR,
-                    "Can NOT make DIR - cmd:  $cmd");
+                $this->sendMailTask(
+                    $email,
+                    self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK,
+                    self::EMAIL_SUBJECT_BACKUP_DATABASE_TASK,
+                    parent::ERROR,
+                    "Can NOT make DIR - cmd:  $cmd"
+                );
                 // Log Error
                 return false;
             }
@@ -80,13 +94,17 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
                 $ignoredTablesString = implode(' ', $ignoredTablesArr);
             }
         } else {
-            $this->sendMailTask($email, self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK, self::EMAIL_SUBJECT_BACKUP_DATABASE_TASK, parent::ERROR,
-                "ignoredTablesMethodName not exists:  $ignoredTablesMethodName" . ' - ' . 1575646335);
+            $this->sendMailTask(
+                $email,
+                self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK,
+                self::EMAIL_SUBJECT_BACKUP_DATABASE_TASK,
+                parent::ERROR,
+                "ignoredTablesMethodName not exists:  $ignoredTablesMethodName" . ' - ' . 1575646335
+            );
 
             // Log Error
             return false;
         }
-
 
         $cmd = $this->getPathToMySqlDump() . ' -u' . $this->getDbUser() . ' -p' . $this->getDbPassword() . ' -h' . $this->getDbHost() . ' ' . $this->getDbName() . self::DUMP_PARAMS_COMPLETE . ' ' . $ignoredTablesString . ' > ' . $backupDir . '/' . $this->getBackupDate() . '/' . $filename;
 
@@ -94,15 +112,25 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
         //        $cmd = $this->getPathToMySqlDump() . ' -u' . $this->getDbUser() . ' -p' . $this->getDbPassword() . ' -h' . $this->getDbHost() . ' ' . $this->getDbName() . parent::DUMP_PARAMS_ONLY_STRUCTURE . ' >  ' . $backupDir . '/' . $this->getBackupDate() . '/' . self::DUMP_STRUCTURE_FILE;
 
         if (!shell_exec($cmd . parent::NECESSARY_LINE_BREAK)) {
-            $this->sendMailTask($email, self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK, self::EMAIL_SUBJECT_BACKUP_DATABASE_TASK, parent::ERROR,
-                "Can NOT mysqldump - cmd:  $cmd");
+            $this->sendMailTask(
+                $email,
+                self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK,
+                self::EMAIL_SUBJECT_BACKUP_DATABASE_TASK,
+                parent::ERROR,
+                "Can NOT mysqldump - cmd:  $cmd"
+            );
 
             // Log Error
             return false;
         }
 
-        $this->sendMailTask($email, self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK, self::EMAIL_SUBJECT_BACKUP_DATABASE_TASK, parent::SUCCESS,
-            "Build mysqldump for:  $filename");
+        $this->sendMailTask(
+            $email,
+            self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK,
+            self::EMAIL_SUBJECT_BACKUP_DATABASE_TASK,
+            parent::SUCCESS,
+            "Build mysqldump for:  $filename"
+        );
 
         // log succsees deploy
         return true;
