@@ -93,7 +93,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
         }
 
         $fieldID = 'gjo_console_email';
-        $fieldCode = '<input type="text" class="form-control" name="tx_scheduler[gjo_console][email]" id="' . $fieldID . '" value="' . htmlspecialchars($taskInfo['gjo_console']['email']) . '" size="30">';
+        $fieldCode = '<input type="text" class="form-control" name="tx_scheduler[gjo_console][email]" id="' . $fieldID . '" value="' . htmlspecialchars((string) $taskInfo['gjo_console']['email']) . '" size="30">';
 
         $additionalFields[$fieldID] = [
             'code' => $fieldCode,
@@ -107,7 +107,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
     {
         $result = true;
 
-        $submittedData['gjo_console']['email'] = trim($submittedData['gjo_console']['email']);
+        $submittedData['gjo_console']['email'] = trim((string) $submittedData['gjo_console']['email']);
         if (empty($submittedData['gjo_console']['email'])) {
             $this->addMessage('Please enter a Email', ContextualFeedbackSeverity::ERROR);
             $result = false;
