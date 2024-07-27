@@ -28,19 +28,19 @@ use GjoSe\GjoMail\Service\SendMailService;
 abstract class AbstractTaskBusinessLogic
 {
 
-    const NECESSARY_LINE_BREAK = ' && echo ok 2>&1';
-    const BACKUP_DIR = '/fileadmin/_temp_/Backup/';
-    const DUMP_PARAMS_ONLY_STRUCTURE = ' --single-transaction --no-data ';
-    const DUMP_PARAMS_COMPLETE = ' --opt --single-transaction ';
-    const DUMP_STRUCTURE_FILE = '_structure.sql';
-    const DUMP_COMPLETE_FILE = '_complete.sql';
-    const MYSQL_PARAMS = ' --default-character-set=utf8 ';
-    const KEEP_DUMPS = 5;
-    const DATE_FORMAT = "YmdHi";
-    const SUCCESS = 'success';
-    const ERROR = 'error';
-    const SMALLEST_TIMESTAMP = 201912051004;
-    const TARGET_BACKUP = 'Backup';
+    public const NECESSARY_LINE_BREAK = ' && echo ok 2>&1';
+    public const BACKUP_DIR = '/fileadmin/_temp_/Backup/';
+    public const DUMP_PARAMS_ONLY_STRUCTURE = ' --single-transaction --no-data ';
+    public const DUMP_PARAMS_COMPLETE = ' --opt --single-transaction ';
+    public const DUMP_STRUCTURE_FILE = '_structure.sql';
+    public const DUMP_COMPLETE_FILE = '_complete.sql';
+    public const MYSQL_PARAMS = ' --default-character-set=utf8 ';
+    public const KEEP_DUMPS = 5;
+    public const DATE_FORMAT = "YmdHi";
+    public const SUCCESS = 'success';
+    public const ERROR = 'error';
+    public const SMALLEST_TIMESTAMP = 201912051004;
+    public const TARGET_BACKUP = 'Backup';
 
     protected $ignoredTablesBasic = ['be_sessions', 'fe_sessions', 'cache_md5params', 'cache_treelist', 'cf_cache_hash', 'cf_cache_hash_tags', 'cf_cache_imagesizes', 'cf_cache_imagesizes_tags', 'cf_cache_news_category', 'cf_cache_news_category_tags', 'cf_cache_pages', 'cf_cache_pages_tags', 'cf_cache_pagesection', 'cf_cache_pagesection_tags', 'cf_cache_rootline', 'cf_cache_rootline_tags', 'cf_extbase_datamapfactory_datamap', 'cf_extbase_datamapfactory_datamap_tags', 'cf_extbase_object', 'cf_extbase_object_tags', 'cf_extbase_reflection', 'cf_extbase_reflection_tags', 'cf_fluidcontent', 'cf_fluidcontent_tags', 'cf_flux', 'cf_flux_tags', 'cf_vhs_main', 'cf_vhs_main_tags', 'cf_vhs_markdown', 'cf_vhs_markdown_tags', 'tx_extensionmanager_domain_model_extension', 'tx_extensionmanager_domain_model_repository', 'tx_scheduler_task', 'tx_scheduler_task_group', 'sys_lockedrecords'];
 

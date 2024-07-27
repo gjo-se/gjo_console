@@ -31,7 +31,7 @@ use TYPO3\CMS\Scheduler\Task\Enumeration\Action;
 
 class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldProvider
 {
-    const BACKUP_DIR = '/fileadmin/_temp_/Backup/';
+    public const BACKUP_DIR = '/fileadmin/_temp_/Backup/';
 
     public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModule)
     {

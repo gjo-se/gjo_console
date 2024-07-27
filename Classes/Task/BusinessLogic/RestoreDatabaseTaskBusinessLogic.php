@@ -29,8 +29,8 @@ use TYPO3\CMS\Core\Core\Environment;
  */
 class RestoreDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
 {
-    const EMAIL_SUBJECT_RESTORE_DATABASE_TASK = 'RestoreDatabaseTask';
-    const EMAIL_TEMPLATE_RESTORE_DATABASE_TASK = 'RestoreDatabaseTask';
+    public const EMAIL_SUBJECT_RESTORE_DATABASE_TASK = 'RestoreDatabaseTask';
+    public const EMAIL_TEMPLATE_RESTORE_DATABASE_TASK = 'RestoreDatabaseTask';
 
     /**
      * @return bool

@@ -25,8 +25,8 @@ use TYPO3\CMS\Core\Core\Environment;
 
 class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
 {
-    const EMAIL_SUBJECT_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
-    const EMAIL_TEMPLATE_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
+    public const EMAIL_SUBJECT_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
+    public const EMAIL_TEMPLATE_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
 
     public function run($task, $dbSource, $dbTarget, $email): bool
     {
