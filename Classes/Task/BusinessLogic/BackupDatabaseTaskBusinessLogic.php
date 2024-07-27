@@ -28,7 +28,7 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
     public const EMAIL_SUBJECT_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
     public const EMAIL_TEMPLATE_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
 
-    public function run($task, $dbSource, $dbTarget, $email): bool
+    public function run($task, string $dbSource, string $dbTarget, $email): bool
     {
         $currentApplicationContext = '';
         $this->task = $task;

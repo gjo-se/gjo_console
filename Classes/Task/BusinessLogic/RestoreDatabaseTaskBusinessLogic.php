@@ -35,7 +35,7 @@ class RestoreDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
     /**
      * @return bool
      */
-    public function run($task, $dbDump, $dbTarget, $email): bool
+    public function run($task, string $dbDump, $dbTarget, $email): bool
     {
         $this->task = $task;
         $this->setConnection($dbTarget);
