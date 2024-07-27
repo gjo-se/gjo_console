@@ -243,7 +243,7 @@ abstract class AbstractTaskBusinessLogic
         }
     }
 
-    protected function sendMailTask($email, $emailTemplate, $subject, $success = 'success', $message = '')
+    protected function sendMailTask($email, string $emailTemplate, $subject, $success = 'success', $message = '')
     {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
