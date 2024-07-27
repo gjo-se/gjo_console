@@ -42,55 +42,18 @@ abstract class AbstractTaskBusinessLogic
     const SMALLEST_TIMESTAMP = 201912051004;
     const TARGET_BACKUP = 'Backup';
 
-    protected $ignoredTablesBasic = array(
-        'be_sessions',
-        'fe_sessions',
-        'cache_md5params',
-        'cache_treelist',
-        'cf_cache_hash',
-        'cf_cache_hash_tags',
-        'cf_cache_imagesizes',
-        'cf_cache_imagesizes_tags',
-        'cf_cache_news_category',
-        'cf_cache_news_category_tags',
-        'cf_cache_pages',
-        'cf_cache_pages_tags',
-        'cf_cache_pagesection',
-        'cf_cache_pagesection_tags',
-        'cf_cache_rootline',
-        'cf_cache_rootline_tags',
-        'cf_extbase_datamapfactory_datamap',
-        'cf_extbase_datamapfactory_datamap_tags',
-        'cf_extbase_object',
-        'cf_extbase_object_tags',
-        'cf_extbase_reflection',
-        'cf_extbase_reflection_tags',
-        'cf_fluidcontent',
-        'cf_fluidcontent_tags',
-        'cf_flux',
-        'cf_flux_tags',
-        'cf_vhs_main',
-        'cf_vhs_main_tags',
-        'cf_vhs_markdown',
-        'cf_vhs_markdown_tags',
-        'tx_extensionmanager_domain_model_extension',
-        'tx_extensionmanager_domain_model_repository',
-        'tx_scheduler_task',
-        'tx_scheduler_task_group',
-        'sys_lockedrecords'
-    );
+    protected $ignoredTablesBasic = ['be_sessions', 'fe_sessions', 'cache_md5params', 'cache_treelist', 'cf_cache_hash', 'cf_cache_hash_tags', 'cf_cache_imagesizes', 'cf_cache_imagesizes_tags', 'cf_cache_news_category', 'cf_cache_news_category_tags', 'cf_cache_pages', 'cf_cache_pages_tags', 'cf_cache_pagesection', 'cf_cache_pagesection_tags', 'cf_cache_rootline', 'cf_cache_rootline_tags', 'cf_extbase_datamapfactory_datamap', 'cf_extbase_datamapfactory_datamap_tags', 'cf_extbase_object', 'cf_extbase_object_tags', 'cf_extbase_reflection', 'cf_extbase_reflection_tags', 'cf_fluidcontent', 'cf_fluidcontent_tags', 'cf_flux', 'cf_flux_tags', 'cf_vhs_main', 'cf_vhs_main_tags', 'cf_vhs_markdown', 'cf_vhs_markdown_tags', 'tx_extensionmanager_domain_model_extension', 'tx_extensionmanager_domain_model_repository', 'tx_scheduler_task', 'tx_scheduler_task_group', 'sys_lockedrecords'];
 
     // TEST-DB ist der Master
-    protected $ignoredTablesOnTestingForBackup = array(// alle in Basics
-    );
+    protected $ignoredTablesOnTestingForBackup = [];
 
-    protected $ignoredTablesOnTestingForDevelopment = array(
+    protected $ignoredTablesOnTestingForDevelopment = [
         // unnötig für DEV
         'sys_history',
-        'sys_log'
-    );
+        'sys_log',
+    ];
 
-    protected $ignoredTablesOnTestingForProduction = array(
+    protected $ignoredTablesOnTestingForProduction = [
         // werden auf Production von Testing gezogen (sind auf Prod leer)
         'fe_groups',
         'fe_users',
@@ -107,24 +70,21 @@ abstract class AbstractTaskBusinessLogic
         'tx_scheduler_task_group',
         // unnötig für DB-Deployment
         'sys_history',
-        'sys_log'
-    );
+        'sys_log',
+    ];
 
     // nur zu Testzwecken
-    protected $ignoredTablesOnDevelopmentForRestoretest = array(
-        'sys-log'
-    );
+    protected $ignoredTablesOnDevelopmentForRestoretest = ['sys-log'];
 
-    protected $ignoredTablesOnDevelopmentForBackup = array();
+    protected $ignoredTablesOnDevelopmentForBackup = [];
 
-    protected $ignoredTablesOnRestoretestForBackup = array();
+    protected $ignoredTablesOnRestoretestForBackup = [];
 
-    protected $ignoredTablesOnProductionForBackup = array(// Backup before Deployment
-    );
+    protected $ignoredTablesOnProductionForBackup = [];
 
     public $task = null;
 
-    protected $connection = array();
+    protected $connection = [];
 
     protected $dbUser = '';
 
@@ -287,10 +247,7 @@ abstract class AbstractTaskBusinessLogic
     {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-            $emailAddresses = array(
-                'toMail' => $email,
-                'toName' => $email,
-            );
+            $emailAddresses = ['toMail' => $email, 'toName' => $email];
 
             $subject = $subject . ' (' . $success . ')';
 
@@ -302,21 +259,8 @@ abstract class AbstractTaskBusinessLogic
                 $site = GeneralUtility::getIndpEnv('TYPO3_SITE_URL');
             }
 
-            $assignMultiple = array(
-                'uid' => $this->task->getTaskUid(),
-                'success' => $success,
-                'calledBy' => $calledBy,
-                'site' => $site,
-                'siteName' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename'],
-                'tstamp' => date('Y-m-d H:i:s') . ' [' . time() . ']',
-                'start' => date('Y-m-d H:i:s', $this->task->getExecution()->getStart()) . ' [' . $this->task->getExecution()->getStart() . ']',
-                'end' => (empty($this->task->getExecution()->getEnd()) ? '-' : date('Y-m-d H:i:s',
-                        $this->task->getExecution()->getEnd()) . ' [' . $this->task->getExecution()->getEnd() . ']'),
-                'interval' => $this->task->getExecution()->getInterval(),
-                'multiple' => ($this->task->getExecution()->getMultiple() ? 'yes' : 'no'),
-                'cronCmd' => ($this->task->getExecution()->getCronCmd() ?: 'not used'),
-                'message' => $message
-            );
+            $assignMultiple = ['uid' => $this->task->getTaskUid(), 'success' => $success, 'calledBy' => $calledBy, 'site' => $site, 'siteName' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename'], 'tstamp' => date('Y-m-d H:i:s') . ' [' . time() . ']', 'start' => date('Y-m-d H:i:s', $this->task->getExecution()->getStart()) . ' [' . $this->task->getExecution()->getStart() . ']', 'end' => (empty($this->task->getExecution()->getEnd()) ? '-' : date('Y-m-d H:i:s',
+                    $this->task->getExecution()->getEnd()) . ' [' . $this->task->getExecution()->getEnd() . ']'), 'interval' => $this->task->getExecution()->getInterval(), 'multiple' => ($this->task->getExecution()->getMultiple() ? 'yes' : 'no'), 'cronCmd' => ($this->task->getExecution()->getCronCmd() ?: 'not used'), 'message' => $message];
 
             try {
                 /** @var SendMailService $sendMailService */

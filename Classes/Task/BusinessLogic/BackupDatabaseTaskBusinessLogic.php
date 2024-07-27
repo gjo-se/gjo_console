@@ -71,7 +71,7 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
         $ignoredTablesString = '';
         if (method_exists($this, $ignoredTablesMethodName)) {
             if ($this->$ignoredTablesMethodName()) {
-                $ignoredTablesArr = array();
+                $ignoredTablesArr = [];
                 foreach ($this->$ignoredTablesMethodName() as $ignoredTable) {
                     $ignoredTablesArr[] = '--ignore-table=' . $this->getDbName() . '.' . $ignoredTable;
                 }

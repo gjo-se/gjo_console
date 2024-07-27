@@ -35,7 +35,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
 
     public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModule)
     {
-        $additionalFields = array();
+        $additionalFields = [];
         $currentSchedulerModuleAction = $schedulerModule->getCurrentAction();
 
         // Field: Available dumps
@@ -46,7 +46,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
             }
         }
 
-        $fileArrHelper = array();
+        $fileArrHelper = [];
         $fileArr = GeneralUtility::getAllFilesAndFoldersInPath($fileArrHelper, Environment::getPublicPath() . self::BACKUP_DIR);
 
         $options = '';
@@ -59,10 +59,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
         $fieldID = 'gjo_console_dbDumps';
         $fieldCode = '<select class="form-control" name="tx_scheduler[gjo_console][dbDump]" id="' . $fieldID . '">' . $options . '</select>';
 
-        $additionalFields[$fieldID] = array(
-            'code'     => $fieldCode,
-            'label'    => 'Verfügbare Dumps'
-        );
+        $additionalFields[$fieldID] = ['code'     => $fieldCode, 'label'    => 'Verfügbare Dumps'];
 
 //        // Field: dbTarget
         if (!isset($taskInfo['gjo_console']['dbTarget'])) {
@@ -87,10 +84,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
         $fieldID = 'gjo_console_dbTarget';
         $fieldCode = '<select class="form-control" name="tx_scheduler[gjo_console][dbTarget]" id="' . $fieldID . '">' . $options . '</select>';
 
-        $additionalFields[$fieldID] = array(
-            'code'     => $fieldCode,
-            'label'    => 'Ziel Datenbank'
-        );
+        $additionalFields[$fieldID] = ['code'     => $fieldCode, 'label'    => 'Ziel Datenbank'];
 
         // Field: email
         if (!isset($taskInfo['gjo_console']['email'])) {

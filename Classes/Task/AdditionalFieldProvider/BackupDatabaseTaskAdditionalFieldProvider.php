@@ -56,10 +56,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
         $fieldID = 'gjo_console_dbSource';
         $fieldCode = '<select class="form-control" name="tx_scheduler[gjo_console][dbSource]" id="' . $fieldID . '">' . $options . '</select>';
 
-        $additionalFields[$fieldID] = array(
-            'code'     => $fieldCode,
-            'label'    => 'Source: '
-        );
+        $additionalFields[$fieldID] = ['code'     => $fieldCode, 'label'    => 'Source: '];
 
         // Field: dbTarget
         if (!isset($taskInfo['gjo_console']['dbTarget'])) {
@@ -82,10 +79,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
         $fieldID = 'gjo_console_dbTarget';
         $fieldCode = '<select class="form-control" name="tx_scheduler[gjo_console][dbTarget]" id="' . $fieldID . '">' . $options . '</select>';
 
-        $additionalFields[$fieldID] = array(
-            'code'     => $fieldCode,
-            'label'    => 'Target: '
-        );
+        $additionalFields[$fieldID] = ['code'     => $fieldCode, 'label'    => 'Target: '];
 
         // Field: email
         if (!isset($taskInfo['gjo_console']['email'])) {
