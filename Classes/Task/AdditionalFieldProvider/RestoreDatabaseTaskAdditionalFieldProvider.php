@@ -33,6 +33,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
 {
     public const BACKUP_DIR = '/fileadmin/_temp_/Backup/';
 
+    #[\Override]
     public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModule)
     {
         $additionalFields = [];
@@ -108,6 +109,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
         return $additionalFields;
     }
 
+    #[\Override]
     public function validateAdditionalFields(array &$submittedData, SchedulerModuleController $schedulerModule)
     {
         $result = true;
@@ -126,6 +128,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
      *
      * @return void
      */
+    #[\Override]
     public function saveAdditionalFields(array $submittedData, AbstractTask $task): void
     {
         $task->dbDump = $submittedData['gjo_console']['dbDump'];

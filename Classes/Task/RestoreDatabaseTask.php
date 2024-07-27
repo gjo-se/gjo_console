@@ -39,6 +39,7 @@ class RestoreDatabaseTask extends AbstractTask
     /**
      * @return bool
      */
+    #[\Override]
     public function execute(): bool
     {
         $businessLogic = GeneralUtility::makeInstance(RestoreDatabaseTaskBusinessLogic::class);

@@ -30,6 +30,7 @@ use TYPO3\CMS\Scheduler\Task\Enumeration\Action;
 
 class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldProvider
 {
+    #[\Override]
     public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModule)
     {
         $additionalFields = [];
@@ -103,6 +104,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
         return $additionalFields;
     }
 
+    #[\Override]
     public function validateAdditionalFields(array &$submittedData, SchedulerModuleController $schedulerModule): bool
     {
         $result = true;
@@ -116,6 +118,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
         return $result;
     }
 
+    #[\Override]
     public function saveAdditionalFields(array $submittedData, AbstractTask $task): void
     {
         $task->dbSource = $submittedData['gjo_console']['dbSource'];
