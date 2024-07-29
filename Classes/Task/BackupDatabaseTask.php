@@ -31,7 +31,9 @@ class BackupDatabaseTask extends AbstractTask
 {
     // todo-b: add getter
     public string $dbSource = '';
+
     public string $dbTarget = '';
+
     public string $email = '';
 
     #[Override]

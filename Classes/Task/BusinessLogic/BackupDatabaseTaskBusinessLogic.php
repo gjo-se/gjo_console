@@ -29,9 +29,10 @@ use TYPO3\CMS\Core\Core\Environment;
 class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
 {
     public const string EMAIL_SUBJECT_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
+
     public const string EMAIL_TEMPLATE_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
 
-    
+
     public function run(BackupDatabaseTask $task, string $dbSource, string $dbTarget, string $email): bool
     {
         $currentApplicationContext = '';
@@ -57,7 +58,7 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
                     self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK,
                     self::EMAIL_SUBJECT_BACKUP_DATABASE_TASK,
                     parent::ERROR,
-                    "Can NOT make DIR - cmd:  $cmd"
+                    'Can NOT make DIR - cmd:  ' . $cmd
                 );
                 // Log Error
                 return false;
@@ -70,6 +71,7 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
         } else {
             $ignoredTablesMethodName .= $dbSource;
         }
+
         $ignoredTablesMethodName .= 'For';
         if ($dbTarget === 'Default') {
             $ignoredTablesMethodName .= $currentApplicationContext;
@@ -84,6 +86,7 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
                 foreach ($this->$ignoredTablesMethodName() as $ignoredTable) {
                     $ignoredTablesArr[] = '--ignore-table=' . $this->getDbName() . '.' . $ignoredTable;
                 }
+
                 $ignoredTablesString = implode(' ', $ignoredTablesArr);
             }
         } else {
@@ -92,7 +95,7 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
                 self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK,
                 self::EMAIL_SUBJECT_BACKUP_DATABASE_TASK,
                 parent::ERROR,
-                "ignoredTablesMethodName not exists:  $ignoredTablesMethodName" . ' - ' . 1575646335
+                'ignoredTablesMethodName not exists:  ' . $ignoredTablesMethodName . ' - ' . 1575646335
             );
 
             // Log Error
@@ -110,7 +113,7 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
                 self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK,
                 self::EMAIL_SUBJECT_BACKUP_DATABASE_TASK,
                 parent::ERROR,
-                "Can NOT mysqldump - cmd:  $cmd"
+                'Can NOT mysqldump - cmd:  ' . $cmd
             );
 
             // Log Error
@@ -122,7 +125,7 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
             self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK,
             self::EMAIL_SUBJECT_BACKUP_DATABASE_TASK,
             parent::SUCCESS,
-            "Build mysqldump for:  $filename"
+            'Build mysqldump for:  ' . $filename
         );
 
         // log succsees deploy

@@ -92,6 +92,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
                 if ($option == 'Default') {
                     $option = Environment::getContext();
                 }
+
                 $options .= '<option value="' . $value . '" ' . ($value == $taskInfo['gjo_console']['dbTarget'] ? 'selected' : '') . ' >' . $option . '</option>';
             }
         }
@@ -107,6 +108,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
             if ($currentSchedulerModuleAction->equals(Action::ADD)) {
                 $taskInfo['gjo_console']['email'] = $GLOBALS['BE_USER']->user['email'];
             }
+
             if ($currentSchedulerModuleAction->equals(Action::EDIT)) {
                 $taskInfo['gjo_console']['email'] = $task->email;
             }

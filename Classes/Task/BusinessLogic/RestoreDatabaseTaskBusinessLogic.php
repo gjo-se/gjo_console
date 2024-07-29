@@ -34,9 +34,10 @@ use TYPO3\CMS\Core\Core\Environment;
 class RestoreDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
 {
     public const string EMAIL_SUBJECT_RESTORE_DATABASE_TASK = 'RestoreDatabaseTask';
+
     public const string EMAIL_TEMPLATE_RESTORE_DATABASE_TASK = 'RestoreDatabaseTask';
 
-    
+
     public function run(RestoreDatabaseTask $task, string $dbDump, string $dbTarget, string $email): bool
     {
         $this->task = $task;
@@ -52,12 +53,12 @@ class RestoreDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
         $cmd = $this->getPathToMySql() . ' -u' . $this->getDbUser() . ' -p' . $this->getDbPassword() . ' -h' . $this->getDbHost() . parent::MYSQL_PARAMS . $this->getDbName() . ' < ' . $backupFile;
 
         if (!shell_exec($cmd . parent::NECESSARY_LINE_BREAK)) {
-            $this->sendMailTask($email, self::EMAIL_TEMPLATE_RESTORE_DATABASE_TASK, self::EMAIL_SUBJECT_RESTORE_DATABASE_TASK, parent::ERROR, "Can NOT restore DataBase - cmd:  $cmd");
+            $this->sendMailTask($email, self::EMAIL_TEMPLATE_RESTORE_DATABASE_TASK, self::EMAIL_SUBJECT_RESTORE_DATABASE_TASK, parent::ERROR, 'Can NOT restore DataBase - cmd:  ' . $cmd);
             // Log Error
             return false;
         }
 
-        $this->sendMailTask($email, self::EMAIL_TEMPLATE_RESTORE_DATABASE_TASK, self::EMAIL_SUBJECT_RESTORE_DATABASE_TASK, parent::SUCCESS, "Restore Database:  $dbTarget with $dbDump");
+        $this->sendMailTask($email, self::EMAIL_TEMPLATE_RESTORE_DATABASE_TASK, self::EMAIL_SUBJECT_RESTORE_DATABASE_TASK, parent::SUCCESS, sprintf('Restore Database:  %s with %s', $dbTarget, $dbDump));
         // log succsees restore
         return true;
     }

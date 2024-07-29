@@ -31,33 +31,50 @@ use TYPO3\CMS\Scheduler\Task\AbstractTask;
 abstract class AbstractTaskBusinessLogic
 {
     public const string NECESSARY_LINE_BREAK = ' && echo ok 2>&1';
+
     public const string BACKUP_DIR = '/fileadmin/_temp_/Backup/';
+
     public const string DUMP_PARAMS_ONLY_STRUCTURE = ' --single-transaction --no-data ';
+
     public const string DUMP_PARAMS_COMPLETE = ' --opt --single-transaction ';
+
     public const string DUMP_STRUCTURE_FILE = '_structure.sql';
+
     public const string DUMP_COMPLETE_FILE = '_complete.sql';
+
     public const string MYSQL_PARAMS = ' --default-character-set=utf8 ';
+
     public const int KEEP_DUMPS = 5;
+
     public const string DATE_FORMAT = 'YmdHi';
+
     public const string SUCCESS = 'success';
+
     public const string ERROR = 'error';
+
     public const int SMALLEST_TIMESTAMP = 201912051004;
+
     public const string TARGET_BACKUP = 'Backup';
+
     public AbstractTask $task;
+
     /**
      * @var array<string>
      */
     protected array $ignoredTablesBasic = ['be_sessions', 'fe_sessions', 'cache_md5params', 'cache_treelist', 'cf_cache_hash', 'cf_cache_hash_tags', 'cf_cache_imagesizes', 'cf_cache_imagesizes_tags', 'cf_cache_news_category', 'cf_cache_news_category_tags', 'cf_cache_pages', 'cf_cache_pages_tags', 'cf_cache_pagesection', 'cf_cache_pagesection_tags', 'cf_cache_rootline', 'cf_cache_rootline_tags', 'cf_extbase_datamapfactory_datamap', 'cf_extbase_datamapfactory_datamap_tags', 'cf_extbase_object', 'cf_extbase_object_tags', 'cf_extbase_reflection', 'cf_extbase_reflection_tags', 'cf_fluidcontent', 'cf_fluidcontent_tags', 'cf_flux', 'cf_flux_tags', 'cf_vhs_main', 'cf_vhs_main_tags', 'cf_vhs_markdown', 'cf_vhs_markdown_tags', 'tx_extensionmanager_domain_model_extension', 'tx_extensionmanager_domain_model_repository', 'tx_scheduler_task', 'tx_scheduler_task_group', 'sys_lockedrecords'];
+
     /**
      * TEST-DB is Master
      * @var array<string>
      */
     protected array $ignoredTablesOnTestingForBackup = [];
+
     /**
      * not used on DEV
      * @var array<string>
      */
     protected array $ignoredTablesOnTestingForDevelopment = ['sys_history', 'sys_log'];
+
     /**
      * // on PROD: empty, get Data from TEST
      * @var array<string>
@@ -65,29 +82,35 @@ abstract class AbstractTaskBusinessLogic
     protected array $ignoredTablesOnTestingForProduction = ['fe_groups', 'fe_users', 'tx_femanager_domain_model_log', 'tx_gjoshop_domain_model_billing_address', 'tx_gjoshop_domain_model_delivery_address', 'tx_gjoshop_domain_model_order', 'tx_gjoshop_domain_model_orderproducts', 'tx_gjoshop_domain_model_payment_paypal', // sollen nicht im Production-Betrieb auftauchen
         'be_groups', 'be_users', 'tx_scheduler_task', 'tx_scheduler_task_group', // unnötig für DB-Deployment
         'sys_history', 'sys_log', ];
+
     /**
      * only for Testing
      * @var array<string>
      */
     protected array $ignoredTablesOnDevelopmentForRestoretest = ['sys-log'];
+
     /**
      * @var array<string>
      */
     protected array $ignoredTablesOnDevelopmentForBackup = [];
+
     /**
      * @var array<string>
      */
     protected array $ignoredTablesOnRestoretestForBackup = [];
+
     /**
      * @var array<string>
      */
     protected array $ignoredTablesOnProductionForBackup = [];
+
     /**
      * @var array<string>
      */
     protected array $connection = [];
 
     protected string $dbUser = '';
+
     protected string $dbPassword = '';
 
     protected string $dbHost = '';
@@ -202,6 +225,7 @@ abstract class AbstractTaskBusinessLogic
         if ($this->backupDate !== '' && $this->backupDate !== '0') {
             return $this->backupDate;
         }
+
         $this->backupDate = date(self::DATE_FORMAT);
 
         return $this->backupDate;
@@ -254,6 +278,7 @@ abstract class AbstractTaskBusinessLogic
                 // TODO: log: no sendmail possible
             }
         }
+
         // TODO: log: no valid email given
     }
 }

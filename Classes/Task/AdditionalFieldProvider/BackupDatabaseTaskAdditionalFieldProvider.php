@@ -63,6 +63,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
             if ($option == 'Default') {
                 $option = Environment::getContext();
             }
+
             $options .= '<option value="' . $value . '" ' . ($value ==  $taskInfo['gjo_console']['dbSource'] ? 'selected' : '') . ' >' . $option . '</option>';
         }
 
@@ -78,6 +79,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
                 $taskInfo['gjo_console']['dbTarget'] = $task->dbTarget;
             }
         }
+
         $selected = ($taskInfo['gjo_console']['dbTarget'] == 'Backup') ? 'selected' : '';
         $options = '<option value="Backup" ' . $selected . ' > Backup </option>';
         foreach ($GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'] as $value => $dbConnectionOption) {
@@ -85,6 +87,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
             if ($option == 'Default') {
                 $option = Environment::getContext();
             }
+
             $selected = ($taskInfo['gjo_console']['dbTarget'] == $value) ? 'selected' : '';
             $options .= '<option value="' . $value . '" ' . $selected . ' >' . $option . '</option>';
         }
@@ -100,6 +103,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
             if ($currentSchedulerModuleAction->equals(Action::ADD)) {
                 $taskInfo['gjo_console']['email'] = $GLOBALS['BE_USER']->user['email'];
             }
+
             if ($currentSchedulerModuleAction->equals(Action::EDIT)) {
                 $taskInfo['gjo_console']['email'] = $task->email;
             }
