@@ -40,7 +40,7 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
         (getenv('IS_DDEV_PROJECT') == 'true') ? $currentApplicationContext = 'Development' : Environment::getContext();
 
         $backupDir = Environment::getPublicPath() . parent::BACKUP_DIR;
-        if ($dbSource == 'Default') {
+        if ($dbSource === 'Default') {
             $backupDir .= $currentApplicationContext;
             $filename = 'dump_' . $currentApplicationContext . '_for_' . $dbTarget . parent::DUMP_COMPLETE_FILE;
         } else {
@@ -65,13 +65,13 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
         }
 
         $ignoredTablesMethodName = 'getIgnoredTablesOn';
-        if ($dbSource == 'Default') {
+        if ($dbSource === 'Default') {
             $ignoredTablesMethodName .= $currentApplicationContext;
         } else {
             $ignoredTablesMethodName .= $dbSource;
         }
         $ignoredTablesMethodName .= 'For';
-        if ($dbTarget == 'Default') {
+        if ($dbTarget === 'Default') {
             $ignoredTablesMethodName .= $currentApplicationContext;
         } else {
             $ignoredTablesMethodName .= $dbTarget;
