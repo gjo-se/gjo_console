@@ -18,8 +18,6 @@ $EM_CONF[$_EXTKEY] = [
         ],
     ],
     'state' => 'stable',
-    'uploadfolder' => false,
-    'createDirs' => '',
     'author' => 'Gregory Jo Erdmann',
     'author_email' => 'gregory.jo@gjo-se.com',
     'author_company' => 'GjoSe',
