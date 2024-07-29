@@ -233,11 +233,7 @@ abstract class AbstractTaskBusinessLogic
      */
     public function getPathToMySql(): string
     {
-        if (Environment::getContext()->isDevelopment()) {
-            $this->pathToMySql = 'mysql';
-        } else {
-            $this->pathToMySql = 'mysql';
-        }
+        $this->pathToMySql = 'mysql';
 
         return $this->pathToMySql;
     }
@@ -247,11 +243,7 @@ abstract class AbstractTaskBusinessLogic
      */
     public function getPathToMySqlDump(): string
     {
-        if (Environment::getContext()->isDevelopment()) {
-            $this->pathToMySqlDump = 'mysqldump';
-        } else {
-            $this->pathToMySqlDump = 'mysqldump';
-        }
+        $this->pathToMySqlDump = 'mysqldump';
 
         return $this->pathToMySqlDump;
     }
