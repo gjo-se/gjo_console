@@ -252,7 +252,7 @@ abstract class AbstractTaskBusinessLogic
                 $sendMailService->sendMail($emailAddresses, $emailTemplate, $subject, $assignMultiple);
 
             } catch (\Exception $e) {
-                throw new \Exception($e->getMessage(), 1575533775);
+                throw new \Exception($e->getMessage(), 1575533775, $e);
                 // TODO: log: no sendmail possible
             }
         }
