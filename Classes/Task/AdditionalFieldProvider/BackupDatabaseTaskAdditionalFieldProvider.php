@@ -38,7 +38,6 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
      *
      * @param array<array<string>> $taskInfo
      * @param AbstractTask|null $task
-     * @param SchedulerModuleController $schedulerModule
      *
      * @return array<array<string>> array('fieldId' => array('code' => '', 'label' => '', 'cshKey' => '', 'cshLabel' => ''))
      */
@@ -119,7 +118,6 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
 
     /**
      * @param array<array<string>> $submittedData
-     * @param SchedulerModuleController $schedulerModule
      *
      * @return bool
      */
@@ -139,7 +137,6 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
 
     /**
      * @param array<array<string>> $submittedData
-     * @param AbstractTask $task
      */
     #[\Override]
     public function saveAdditionalFields(array $submittedData, AbstractTask $task): void

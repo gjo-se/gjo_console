@@ -32,10 +32,6 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
     public const string EMAIL_TEMPLATE_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
 
     /**
-     * @param BackupDatabaseTask $task
-     * @param string $dbSource
-     * @param string $dbTarget
-     * @param string $email
      *
      * @return bool
      */

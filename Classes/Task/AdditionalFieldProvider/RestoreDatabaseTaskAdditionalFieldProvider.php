@@ -43,7 +43,6 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
      *
      * @param array<array<string>> $taskInfo
      * @param AbstractTask|null $task
-     * @param SchedulerModuleController $schedulerModule
      *
      * @return array<array<string>> array('fieldId' => array('code' => '', 'label' => '', 'cshKey' => '', 'cshLabel' => ''))
      */
@@ -126,7 +125,6 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
 
     /**
      * @param array<array<string>> $submittedData
-     * @param SchedulerModuleController $schedulerModule
      *
      * @return bool
      */
@@ -146,7 +144,6 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
 
     /**
      * @param array<array<string>> $submittedData
-     * @param AbstractTask $task
      */
     #[\Override] // todo-c: kann das anders? RestoreDatabaseTask $task statt AbstractTask $task?
     public function saveAdditionalFields(array $submittedData, AbstractTask $task): void

@@ -176,9 +176,6 @@ abstract class AbstractTaskBusinessLogic
         return $this->connection;
     }
 
-    /**
-     * @param string $database
-     */
     public function setConnection(string $database): void
     {
         $this->connection = $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][$database];
@@ -249,11 +246,6 @@ abstract class AbstractTaskBusinessLogic
     }
 
     /**
-     * @param string $email
-     * @param string $emailTemplate
-     * @param string $subject
-     * @param string $success
-     * @param string $message
      *
      * @throws \Exception
      */
