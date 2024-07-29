@@ -201,7 +201,7 @@ abstract class AbstractTaskBusinessLogic
 
     public function getBackupDate(): string
     {
-        if ($this->backupDate) {
+        if ($this->backupDate !== '' && $this->backupDate !== '0') {
             return $this->backupDate;
         }
         $this->backupDate = date(self::DATE_FORMAT);
