@@ -23,6 +23,7 @@ namespace GjoSe\GjoConsole\Task\AdditionalFieldProvider;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use GjoSe\GjoConsole\Task\BackupDatabaseTask;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Scheduler\AbstractAdditionalFieldProvider;
@@ -35,20 +36,21 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
     /**
      * Gets additional fields to render in the form to add/edit a task
      *
-     * @param array $taskInfo
+     * @param array<array<string>> $taskInfo
      * @param AbstractTask|null $task
      * @param SchedulerModuleController $schedulerModule
      *
      * @return array<array<string>> array('fieldId' => array('code' => '', 'label' => '', 'cshKey' => '', 'cshLabel' => ''))
      */
-    #[\Override]
+    #[\Override] // todo-b:  must be compatible with AdditionalFieldProviderInterface::getAdditionalFields
+    // (AbstractTask $task, SchedulerModuleController $schedulerModule): array
     public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModule): array
     {
         $additionalFields = [];
         $currentSchedulerModuleAction = $schedulerModule->getCurrentAction();
 
-        // Field: dbSource
-        if (!isset($taskInfo['gjo_console']['dbSource'])) {
+        // Field: dbSource todo-c: Fields auslagern
+        if (!isset($taskInfo['gjo_console']['dbSource']) && $task instanceof BackupDatabaseTask) {
             $taskInfo['gjo_console']['dbSource'] = '';
             if ($currentSchedulerModuleAction->equals(Action::EDIT)) {
                 $taskInfo['gjo_console']['dbSource'] = $task->dbSource;
@@ -59,7 +61,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
         foreach ($GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'] as $value => $dbConnectionOption) {
 
             $option = $value;
-            if($option == 'Default'){
+            if ($option == 'Default') {
                 $option = Environment::getContext();
             }
             $options .= '<option value="' . $value . '" ' . ($value ==  $taskInfo['gjo_console']['dbSource'] ? 'selected' : '') . ' >' . $option . '</option>';
@@ -71,17 +73,17 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
         $additionalFields[$fieldID] = ['code'     => $fieldCode, 'label'    => 'Source: '];
 
         // Field: dbTarget
-        if (!isset($taskInfo['gjo_console']['dbTarget'])) {
+        if (!isset($taskInfo['gjo_console']['dbTarget']) && $task instanceof BackupDatabaseTask) {
             $taskInfo['gjo_console']['dbTarget'] = '';
             if ($currentSchedulerModuleAction->equals(Action::EDIT)) {
                 $taskInfo['gjo_console']['dbTarget'] = $task->dbTarget;
             }
         }
-        $selected = ($taskInfo['gjo_console']['dbTarget'] == "Backup") ? 'selected' : '';
+        $selected = ($taskInfo['gjo_console']['dbTarget'] == 'Backup') ? 'selected' : '';
         $options = '<option value="Backup" ' . $selected . ' > Backup </option>';
         foreach ($GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'] as $value => $dbConnectionOption) {
             $option = $value;
-            if($option == 'Default'){
+            if ($option == 'Default') {
                 $option = Environment::getContext();
             }
             $selected = ($taskInfo['gjo_console']['dbTarget'] == $value) ? 'selected' : '';
@@ -94,7 +96,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
         $additionalFields[$fieldID] = ['code'     => $fieldCode, 'label'    => 'Target: '];
 
         // Field: email
-        if (!isset($taskInfo['gjo_console']['email'])) {
+        if (!isset($taskInfo['gjo_console']['email']) && $task instanceof BackupDatabaseTask) {
             $taskInfo['gjo_console']['email'] = '';
             if ($currentSchedulerModuleAction->equals(Action::ADD)) {
                 $taskInfo['gjo_console']['email'] = $GLOBALS['BE_USER']->user['email'];
@@ -105,22 +107,28 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
         }
 
         $fieldID = 'gjo_console_email';
-        $fieldCode = '<input type="text" class="form-control" name="tx_scheduler[gjo_console][email]" id="' . $fieldID . '" value="' . htmlspecialchars((string) $taskInfo['gjo_console']['email']) . '" size="30">';
+        $fieldCode = '<input type="text" class="form-control" name="tx_scheduler[gjo_console][email]" id="' . $fieldID . '" value="' . htmlspecialchars((string)$taskInfo['gjo_console']['email']) . '" size="30">';
 
         $additionalFields[$fieldID] = [
             'code' => $fieldCode,
-            'label' => 'Email: '
+            'label' => 'Email: ',
         ];
 
         return $additionalFields;
     }
 
+    /**
+     * @param array<array<string>> $submittedData
+     * @param SchedulerModuleController $schedulerModule
+     *
+     * @return bool
+     */
     #[\Override]
     public function validateAdditionalFields(array &$submittedData, SchedulerModuleController $schedulerModule): bool
     {
         $result = true;
 
-        $submittedData['gjo_console']['email'] = trim((string) $submittedData['gjo_console']['email']);
+        $submittedData['gjo_console']['email'] = trim((string)$submittedData['gjo_console']['email']);
         if (empty($submittedData['gjo_console']['email'])) {
             $this->addMessage('Please enter a Email', ContextualFeedbackSeverity::ERROR);
             $result = false;
@@ -129,11 +137,17 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
         return $result;
     }
 
+    /**
+     * @param array<array<string>> $submittedData
+     * @param AbstractTask $task
+     */
     #[\Override]
     public function saveAdditionalFields(array $submittedData, AbstractTask $task): void
     {
-        $task->dbSource = $submittedData['gjo_console']['dbSource'];
-        $task->dbTarget = $submittedData['gjo_console']['dbTarget'];
-        $task->email = $submittedData['gjo_console']['email'];
+        if ($task instanceof BackupDatabaseTask) {
+            $task->dbSource = $submittedData['gjo_console']['dbSource'];
+            $task->dbTarget = $submittedData['gjo_console']['dbTarget'];
+            $task->email = $submittedData['gjo_console']['email'];
+        }
     }
 }

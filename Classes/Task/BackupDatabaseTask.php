@@ -29,10 +29,9 @@ use GjoSe\GjoConsole\Task\BusinessLogic\BackupDatabaseTaskBusinessLogic;
 
 class BackupDatabaseTask extends AbstractTask
 {
+    // todo-b: add getter
     public string $dbSource = '';
-
     public string $dbTarget = '';
-
     public string $email = '';
 
     /**

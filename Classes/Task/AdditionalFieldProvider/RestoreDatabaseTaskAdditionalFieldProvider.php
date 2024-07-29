@@ -23,6 +23,7 @@ namespace GjoSe\GjoConsole\Task\AdditionalFieldProvider;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use GjoSe\GjoConsole\Task\RestoreDatabaseTask;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -30,7 +31,6 @@ use TYPO3\CMS\Scheduler\AbstractAdditionalFieldProvider;
 use TYPO3\CMS\Scheduler\Controller\SchedulerModuleController;
 use TYPO3\CMS\Scheduler\Task\AbstractTask;
 use TYPO3\CMS\Scheduler\Task\Enumeration\Action;
-use GjoSe\GjoConsole\Task\RestoreDatabaseTask;
 
 class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldProvider
 {
@@ -42,13 +42,14 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
      * Gets additional fields to render in the form to add/edit a task
      *
      * @param array<array<string>> $taskInfo
-     * @param RestoreDatabaseTask|null $task
+     * @param AbstractTask|null $task
      * @param SchedulerModuleController $schedulerModule
      *
      * @return array<array<string>> array('fieldId' => array('code' => '', 'label' => '', 'cshKey' => '', 'cshLabel' => ''))
      */
-    #[\Override]
-    public function getAdditionalFields(array &$taskInfo, ?RestoreDatabaseTask $task, SchedulerModuleController $schedulerModule): array
+    #[\Override] // todo-b:  must be compatible with AdditionalFieldProviderInterface::getAdditionalFields
+        // (AbstractTask $task, SchedulerModuleController $schedulerModule): array
+    public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModule): array
     {
         $additionalFields = [];
         $currentSchedulerModuleAction = $schedulerModule->getCurrentAction();
@@ -77,7 +78,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
         $additionalFields[$fieldID] = ['code' => $fieldCode, 'label' => 'Verfügbare Dumps'];
 
         //        // Field: dbTarget
-        if (!isset($taskInfo['gjo_console']['dbTarget'])) {
+        if (!isset($taskInfo['gjo_console']['dbTarget']) && $task instanceof RestoreDatabaseTask) {
             $taskInfo['gjo_console']['dbTarget'] = '';
             if ($currentSchedulerModuleAction->equals(Action::EDIT)) {
                 $taskInfo['gjo_console']['dbTarget'] = $task->dbTarget;
@@ -102,7 +103,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
         $additionalFields[$fieldID] = ['code' => $fieldCode, 'label' => 'Ziel Datenbank'];
 
         // Field: email
-        if (!isset($taskInfo['gjo_console']['email'])) {
+        if (!isset($taskInfo['gjo_console']['email']) && $task instanceof RestoreDatabaseTask) {
             $taskInfo['gjo_console']['email'] = '';
             if ($currentSchedulerModuleAction->equals(Action::ADD)) {
                 $taskInfo['gjo_console']['email'] = $GLOBALS['BE_USER']->user['email'];
@@ -123,6 +124,12 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
         return $additionalFields;
     }
 
+    /**
+     * @param array<array<string>> $submittedData
+     * @param SchedulerModuleController $schedulerModule
+     *
+     * @return bool
+     */
     #[\Override]
     public function validateAdditionalFields(array &$submittedData, SchedulerModuleController $schedulerModule): bool
     {
@@ -138,13 +145,16 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
     }
 
     /**
-     * @param array $submittedData , AbstractTask $task
+     * @param array<array<string>> $submittedData
+     * @param AbstractTask $task
      */
-    #[\Override]
+    #[\Override] // todo-c: kann das anders? RestoreDatabaseTask $task statt AbstractTask $task?
     public function saveAdditionalFields(array $submittedData, AbstractTask $task): void
     {
-        $task->dbDump = $submittedData['gjo_console']['dbDump'];
-        $task->dbTarget = $submittedData['gjo_console']['dbTarget'];
-        $task->email = $submittedData['gjo_console']['email'];
+        if ($task instanceof RestoreDatabaseTask) {
+            $task->dbDump = $submittedData['gjo_console']['dbDump'];
+            $task->dbTarget = $submittedData['gjo_console']['dbTarget'];
+            $task->email = $submittedData['gjo_console']['email'];
+        }
     }
 }
