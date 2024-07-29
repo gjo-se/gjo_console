@@ -39,7 +39,7 @@ class BackupDatabaseTask extends AbstractTask
     #[Override]
     public function execute(): bool
     {
-        $businessLogic = GeneralUtility::makeInstance(BackupDatabaseTaskBusinessLogic::class);
-        return $businessLogic->run($this, $this->dbSource, $this->dbTarget, $this->email);
+        $backupDatabaseTaskBusinessLogic = GeneralUtility::makeInstance(BackupDatabaseTaskBusinessLogic::class);
+        return $backupDatabaseTaskBusinessLogic->run($this, $this->dbSource, $this->dbTarget, $this->email);
     }
 }

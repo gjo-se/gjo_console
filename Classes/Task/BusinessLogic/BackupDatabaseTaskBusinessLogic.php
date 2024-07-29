@@ -33,10 +33,10 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
     public const string EMAIL_TEMPLATE_BACKUP_DATABASE_TASK = 'BackupDatabaseTask';
 
 
-    public function run(BackupDatabaseTask $task, string $dbSource, string $dbTarget, string $email): bool
+    public function run(BackupDatabaseTask $backupDatabaseTask, string $dbSource, string $dbTarget, string $email): bool
     {
         $currentApplicationContext = '';
-        $this->task = $task;
+        $this->task = $backupDatabaseTask;
         $this->setConnection($dbSource);
         (getenv('IS_DDEV_PROJECT') == 'true') ? $currentApplicationContext = 'Development' : Environment::getContext();
 

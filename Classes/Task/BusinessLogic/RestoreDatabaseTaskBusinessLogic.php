@@ -38,9 +38,9 @@ class RestoreDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
     public const string EMAIL_TEMPLATE_RESTORE_DATABASE_TASK = 'RestoreDatabaseTask';
 
 
-    public function run(RestoreDatabaseTask $task, string $dbDump, string $dbTarget, string $email): bool
+    public function run(RestoreDatabaseTask $restoreDatabaseTask, string $dbDump, string $dbTarget, string $email): bool
     {
-        $this->task = $task;
+        $this->task = $restoreDatabaseTask;
         $this->setConnection($dbTarget);
         $backupFile = Environment::getPublicPath() . parent::BACKUP_DIR . $dbDump;
 
