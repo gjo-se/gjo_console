@@ -52,7 +52,7 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
         if (!is_dir($backupDir . '/' . $this->getBackupDate())) {
             $cmd = 'mkdir ' . $backupDir . '/' . $this->getBackupDate();
 
-            if (!shell_exec($cmd . parent::NECESSARY_LINE_BREAK)) {
+            if (shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === '' || shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === '0' || shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === false || shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === null) {
                 $this->sendMailTask(
                     $email,
                     self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK,
@@ -107,7 +107,7 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
         //        TODO: aktuell drauf verzeichten, wenn dann mit Flag (Field), als entweder Structur / Complete
         //        $cmd = $this->getPathToMySqlDump() . ' -u' . $this->getDbUser() . ' -p' . $this->getDbPassword() . ' -h' . $this->getDbHost() . ' ' . $this->getDbName() . parent::DUMP_PARAMS_ONLY_STRUCTURE . ' >  ' . $backupDir . '/' . $this->getBackupDate() . '/' . self::DUMP_STRUCTURE_FILE;
 
-        if (!shell_exec($cmd . parent::NECESSARY_LINE_BREAK)) {
+        if (shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === '' || shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === '0' || shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === false || shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === null) {
             $this->sendMailTask(
                 $email,
                 self::EMAIL_TEMPLATE_BACKUP_DATABASE_TASK,

@@ -52,7 +52,7 @@ class RestoreDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
 
         $cmd = $this->getPathToMySql() . ' -u' . $this->getDbUser() . ' -p' . $this->getDbPassword() . ' -h' . $this->getDbHost() . parent::MYSQL_PARAMS . $this->getDbName() . ' < ' . $backupFile;
 
-        if (!shell_exec($cmd . parent::NECESSARY_LINE_BREAK)) {
+        if (shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === '' || shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === '0' || shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === false || shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === null) {
             $this->sendMailTask($email, self::EMAIL_TEMPLATE_RESTORE_DATABASE_TASK, self::EMAIL_SUBJECT_RESTORE_DATABASE_TASK, parent::ERROR, 'Can NOT restore DataBase - cmd:  ' . $cmd);
             // Log Error
             return false;
