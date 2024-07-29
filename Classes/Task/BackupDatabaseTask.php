@@ -22,7 +22,7 @@ namespace GjoSe\GjoConsole\Task;
  *  GNU General Public License for more details.
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
+use Override;
 use TYPO3\CMS\Scheduler\Task\AbstractTask;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use GjoSe\GjoConsole\Task\BusinessLogic\BackupDatabaseTaskBusinessLogic;
@@ -34,7 +34,7 @@ class BackupDatabaseTask extends AbstractTask
     public string $dbTarget = '';
     public string $email = '';
 
-    #[\Override]
+    #[Override]
     public function execute(): bool
     {
         $businessLogic = GeneralUtility::makeInstance(BackupDatabaseTaskBusinessLogic::class);

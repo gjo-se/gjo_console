@@ -24,7 +24,6 @@ namespace GjoSe\GjoConsole\Task\BusinessLogic;
  ***************************************************************/
 
 use GjoSe\GjoConsole\Task\RestoreDatabaseTask;
-use Psr\Log\LoggerAwareInterface;
 use TYPO3\CMS\Core\Core\Environment;
 
 //use TYPO3\CMS\Core\Utility\GeneralUtility;

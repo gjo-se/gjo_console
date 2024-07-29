@@ -22,10 +22,8 @@ namespace GjoSe\GjoConsole\Task\BusinessLogic;
  *  GNU General Public License for more details.
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
+use Exception;
 use GjoSe\GjoMail\Service\SendMailService;
-use Psr\Log\LoggerAwareInterface;
-use Psr\Log\LoggerInterface;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Scheduler\Task\AbstractTask;
@@ -226,7 +224,7 @@ abstract class AbstractTaskBusinessLogic
 
     /**
      *
-     * @throws \Exception
+     * @throws Exception
      */
     protected function sendMailTask(string $email, string $emailTemplate, string $subject, string $success = 'success', string $message = ''): void
     {
@@ -251,8 +249,8 @@ abstract class AbstractTaskBusinessLogic
                 $sendMailService = GeneralUtility::makeInstance(SendMailService::class);
                 $sendMailService->sendMail($emailAddresses, $emailTemplate, $subject, $assignMultiple);
 
-            } catch (\Exception $e) {
-                throw new \Exception($e->getMessage(), 1575533775, $e);
+            } catch (Exception $e) {
+                throw new Exception($e->getMessage(), 1575533775, $e);
                 // TODO: log: no sendmail possible
             }
         }

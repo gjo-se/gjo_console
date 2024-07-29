@@ -22,7 +22,7 @@ namespace GjoSe\GjoConsole\Task\AdditionalFieldProvider;
  *  GNU General Public License for more details.
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
+use Override;
 use GjoSe\GjoConsole\Task\BackupDatabaseTask;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
@@ -41,7 +41,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
      *
      * @return array<array<string>> array('fieldId' => array('code' => '', 'label' => '', 'cshKey' => '', 'cshLabel' => ''))
      */
-    #[\Override] // todo-b:  must be compatible with AdditionalFieldProviderInterface::getAdditionalFields
+    #[Override] // todo-b:  must be compatible with AdditionalFieldProviderInterface::getAdditionalFields
     // (AbstractTask $task, SchedulerModuleController $schedulerModule): array
     public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModule): array
     {
@@ -119,7 +119,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
     /**
      * @param array<array<string>> $submittedData
      */
-    #[\Override]
+    #[Override]
     public function validateAdditionalFields(array &$submittedData, SchedulerModuleController $schedulerModule): bool
     {
         $result = true;
@@ -136,7 +136,7 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
     /**
      * @param array<array<string>> $submittedData
      */
-    #[\Override]
+    #[Override]
     public function saveAdditionalFields(array $submittedData, AbstractTask $task): void
     {
         if ($task instanceof BackupDatabaseTask) {
