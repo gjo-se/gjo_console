@@ -37,10 +37,7 @@ class RestoreDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
     public const string EMAIL_SUBJECT_RESTORE_DATABASE_TASK = 'RestoreDatabaseTask';
     public const string EMAIL_TEMPLATE_RESTORE_DATABASE_TASK = 'RestoreDatabaseTask';
 
-    /**
-     *
-     * @return bool
-     */
+    
     public function run(RestoreDatabaseTask $task, string $dbDump, string $dbTarget, string $email): bool
     {
         $this->task = $task;

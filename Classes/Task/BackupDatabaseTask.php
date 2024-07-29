@@ -34,9 +34,6 @@ class BackupDatabaseTask extends AbstractTask
     public string $dbTarget = '';
     public string $email = '';
 
-    /**
-     * @return bool
-     */
     #[\Override]
     public function execute(): bool
     {

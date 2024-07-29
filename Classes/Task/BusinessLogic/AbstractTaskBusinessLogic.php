@@ -158,9 +158,6 @@ abstract class AbstractTaskBusinessLogic
         return array_merge($this->ignoredTablesBasic, $this->ignoredTablesOnProductionForBackup);
     }
 
-    /**
-     * @return string
-     */
     public function getDbUser(): string
     {
         $this->dbUser = $this->getConnection()['user'];
@@ -181,9 +178,6 @@ abstract class AbstractTaskBusinessLogic
         $this->connection = $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][$database];
     }
 
-    /**
-     * @return string
-     */
     public function getDbPassword(): string
     {
         $this->dbPassword = $this->getConnection()['password'];
@@ -191,9 +185,6 @@ abstract class AbstractTaskBusinessLogic
         return $this->dbPassword;
     }
 
-    /**
-     * @return string
-     */
     public function getDbHost(): string
     {
         $this->dbHost = $this->getConnection()['host'];
@@ -201,9 +192,6 @@ abstract class AbstractTaskBusinessLogic
         return $this->dbHost;
     }
 
-    /**
-     * @return string
-     */
     public function getDbName(): string
     {
         $this->dbName = $this->getConnection()['dbname'];
@@ -211,9 +199,6 @@ abstract class AbstractTaskBusinessLogic
         return $this->dbName;
     }
 
-    /**
-     * @return string
-     */
     public function getBackupDate(): string
     {
         if ($this->backupDate) {
@@ -225,9 +210,6 @@ abstract class AbstractTaskBusinessLogic
 
     }
 
-    /**
-     * @return string
-     */
     public function getPathToMySql(): string
     {
         $this->pathToMySql = 'mysql';
@@ -235,9 +217,6 @@ abstract class AbstractTaskBusinessLogic
         return $this->pathToMySql;
     }
 
-    /**
-     * @return string
-     */
     public function getPathToMySqlDump(): string
     {
         $this->pathToMySqlDump = 'mysqldump';

@@ -125,8 +125,6 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
 
     /**
      * @param array<array<string>> $submittedData
-     *
-     * @return bool
      */
     #[\Override]
     public function validateAdditionalFields(array &$submittedData, SchedulerModuleController $schedulerModule): bool

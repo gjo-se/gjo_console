@@ -38,9 +38,6 @@ class RestoreDatabaseTask extends AbstractTask
 
     public string $email = '';
 
-    /**
-     * @return bool
-     */
     #[\Override]
     public function execute(): bool
     {

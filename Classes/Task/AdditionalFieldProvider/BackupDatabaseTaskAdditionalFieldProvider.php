@@ -118,8 +118,6 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
 
     /**
      * @param array<array<string>> $submittedData
-     *
-     * @return bool
      */
     #[\Override]
     public function validateAdditionalFields(array &$submittedData, SchedulerModuleController $schedulerModule): bool
