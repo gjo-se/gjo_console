@@ -22,6 +22,7 @@ namespace GjoSe\GjoConsole\Task\BusinessLogic;
  *  GNU General Public License for more details.
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use Carbon\Carbon;
 use Exception;
 use GjoSe\GjoMail\Service\SendMailService;
 use TYPO3\CMS\Core\Core\Environment;
@@ -266,7 +267,7 @@ abstract class AbstractTaskBusinessLogic
                 $site = GeneralUtility::getIndpEnv('TYPO3_SITE_URL');
             }
 
-            $assignMultiple = ['uid' => $this->task->getTaskUid(), 'success' => $success, 'calledBy' => $calledBy, 'site' => $site, 'siteName' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename'], 'tstamp' => date('Y-m-d H:i:s') . ' [' . time() . ']', 'start' => date('Y-m-d H:i:s', $this->task->getExecution()->getStart()) . ' [' . $this->task->getExecution()->getStart() . ']', 'end' => (empty($this->task->getExecution()->getEnd()) ? '-' : date('Y-m-d H:i:s', $this->task->getExecution()->getEnd()) . ' [' . $this->task->getExecution()->getEnd() . ']'), 'interval' => $this->task->getExecution()->getInterval(), 'multiple' => ($this->task->getExecution()->getMultiple() ? 'yes' : 'no'), 'cronCmd' => ($this->task->getExecution()->getCronCmd() ?: 'not used'), 'message' => $message];
+            $assignMultiple = ['uid' => $this->task->getTaskUid(), 'success' => $success, 'calledBy' => $calledBy, 'site' => $site, 'siteName' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename'], 'tstamp' => Carbon::now()->format('Y-m-d H:i:s') . ' [' . Carbon::now()->timestamp . ']', 'start' => date('Y-m-d H:i:s', $this->task->getExecution()->getStart()) . ' [' . $this->task->getExecution()->getStart() . ']', 'end' => (empty($this->task->getExecution()->getEnd()) ? '-' : date('Y-m-d H:i:s', $this->task->getExecution()->getEnd()) . ' [' . $this->task->getExecution()->getEnd() . ']'), 'interval' => $this->task->getExecution()->getInterval(), 'multiple' => ($this->task->getExecution()->getMultiple() ? 'yes' : 'no'), 'cronCmd' => ($this->task->getExecution()->getCronCmd() ?: 'not used'), 'message' => $message];
 
             try {
                 /** @var SendMailService $sendMailService */
