@@ -12,7 +12,7 @@ use GjoSe\GjoConsole\Task\AdditionalFieldProvider\RestoreDatabaseTaskAdditionalF
 //use GjoSe\GjoConsole\Task\DeploymentDatabaseTask;
 //use GjoSe\GjoConsole\Task\DeploymentDatabaseTaskAdditionalFieldProvider;
 
-defined('TYPO3') or die('Access denied.');
+defined('TYPO3') || die('Access denied.');
 
 call_user_func(
     static function (): void {
