@@ -46,7 +46,8 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
      *
      * @return array<array<string>> array('fieldId' => array('code' => '', 'label' => '', 'cshKey' => '', 'cshLabel' => ''))
      */
-    #[Override] // todo-b:  must be compatible with AdditionalFieldProviderInterface::getAdditionalFields
+    #[Override]
+    // @todo-next-iteration:  must be compatible with AdditionalFieldProviderInterface::getAdditionalFields
         // (AbstractTask $task, SchedulerModuleController $schedulerModule): array
     public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModuleController): array
     {
@@ -145,7 +146,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
     /**
      * @param array<array<string>> $submittedData
      */
-    #[Override] // todo-c: kann das anders? RestoreDatabaseTask $task statt AbstractTask $task?
+    #[Override] // @todo-next-iteration: kann das anders? RestoreDatabaseTask $task statt AbstractTask $task?
     public function saveAdditionalFields(array $submittedData, AbstractTask $task): void
     {
         if ($task instanceof RestoreDatabaseTask) {

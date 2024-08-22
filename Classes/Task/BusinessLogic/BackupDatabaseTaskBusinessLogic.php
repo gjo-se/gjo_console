@@ -104,7 +104,8 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
 
         $cmd = $this->getPathToMySqlDump() . ' -u' . $this->getDbUser() . ' -p' . $this->getDbPassword() . ' -h' . $this->getDbHost() . ' ' . $this->getDbName() . self::DUMP_PARAMS_COMPLETE . ' ' . $ignoredTablesString . ' > ' . $backupDir . '/' . $this->getBackupDate() . '/' . $filename;
 
-        //        TODO: aktuell drauf verzeichten, wenn dann mit Flag (Field), als entweder Structur / Complete
+        // @todo-next-iteration:
+        //  aktuell drauf verzeichten, wenn dann mit Flag (Field), als entweder Structur / Complete
         //        $cmd = $this->getPathToMySqlDump() . ' -u' . $this->getDbUser() . ' -p' . $this->getDbPassword() . ' -h' . $this->getDbHost() . ' ' . $this->getDbName() . parent::DUMP_PARAMS_ONLY_STRUCTURE . ' >  ' . $backupDir . '/' . $this->getBackupDate() . '/' . self::DUMP_STRUCTURE_FILE;
 
         if (shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === '' || shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === '0' || shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === false || shell_exec($cmd . parent::NECESSARY_LINE_BREAK) === null) {
@@ -119,6 +120,12 @@ class BackupDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
             // Log Error
             return false;
         }
+
+        // :
+        // // :
+        // // :
+        // // :
+        // // :
 
         $this->sendMailTask(
             $email,

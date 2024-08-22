@@ -41,14 +41,16 @@ class BackupDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalFieldP
      *
      * @return array<array<string>> array('fieldId' => array('code' => '', 'label' => '', 'cshKey' => '', 'cshLabel' => ''))
      */
-    #[Override] // todo-b:  must be compatible with AdditionalFieldProviderInterface::getAdditionalFields
-    // (AbstractTask $task, SchedulerModuleController $schedulerModule): array
+    #[Override]
+    // @todo-next-iteration:
+    // must be compatible with AdditionalFieldProviderInterface::getAdditionalFields (AbstractTask $task,
+    // SchedulerModuleController $schedulerModule): array
     public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModuleController): array
     {
         $additionalFields = [];
         $currentSchedulerModuleAction = $schedulerModuleController->getCurrentAction();
 
-        // Field: dbSource todo-c: Fields auslagern
+        // @todo-next-iteration: Field: dbSource Fields auslagern
         if (!isset($taskInfo['gjo_console']['dbSource']) && $task instanceof BackupDatabaseTask) {
             $taskInfo['gjo_console']['dbSource'] = '';
             if ($currentSchedulerModuleAction->equals(Action::EDIT)) {

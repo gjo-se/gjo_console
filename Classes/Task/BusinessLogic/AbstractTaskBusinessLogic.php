@@ -285,10 +285,10 @@ abstract class AbstractTaskBusinessLogic
 
             } catch (Exception $e) {
                 throw new Exception($e->getMessage(), 1575533775, $e);
-                // TODO: log: no sendmail possible
+                // @todo-next-iteration: log: no sendmail possible
             }
         }
 
-        // TODO: log: no valid email given
+        // @todo-next-iteration: log: no valid email given
     }
 }

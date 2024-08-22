@@ -22,20 +22,22 @@ namespace GjoSe\GjoConsole\Task;
  *  GNU General Public License for more details.
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use Override;
 use GjoSe\GjoConsole\Task\BusinessLogic\BackupDatabaseTaskBusinessLogic;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Scheduler\Task\AbstractTask;
 
-class BackupDatabaseTask extends AbstractTask
+final class BackupDatabaseTask extends AbstractTask
 {
-    // todo-b: add getter
-    private string $dbSource = '';
+    // @todo-next-iteration:
+    //  add getter
+    public string $dbSource = '';
 
-    private string $dbTarget = '';
+    public string $dbTarget = '';
 
-    private string $email = '';
+    public string $email = '';
 
-    #[\Override]
+    #[Override]
     public function execute(): bool
     {
         // DI NOT in Scheduler
