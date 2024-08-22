@@ -41,6 +41,7 @@ class RestoreDatabaseTask extends AbstractTask
     #[Override]
     public function execute(): bool
     {
+        // DI NOT in Scheduler
         $restoreDatabaseTaskBusinessLogic = GeneralUtility::makeInstance(RestoreDatabaseTaskBusinessLogic::class);
         return $restoreDatabaseTaskBusinessLogic->run($this, $this->dbDump, $this->dbTarget, $this->email);
     }

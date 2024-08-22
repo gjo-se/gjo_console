@@ -80,9 +80,17 @@ abstract class AbstractTaskBusinessLogic
      * // on PROD: empty, get Data from TEST
      * @var array<string>
      */
-    protected array $ignoredTablesOnTestingForProduction = ['fe_groups', 'fe_users', 'tx_femanager_domain_model_log', 'tx_gjoshop_domain_model_billing_address', 'tx_gjoshop_domain_model_delivery_address', 'tx_gjoshop_domain_model_order', 'tx_gjoshop_domain_model_orderproducts', 'tx_gjoshop_domain_model_payment_paypal', // sollen nicht im Production-Betrieb auftauchen
-        'be_groups', 'be_users', 'tx_scheduler_task', 'tx_scheduler_task_group', // unnötig für DB-Deployment
-        'sys_history', 'sys_log', ];
+    protected array $ignoredTablesOnTestingForProduction = [
+        'fe_groups',
+        'fe_users',
+        'tx_femanager_domain_model_log',
+        'be_groups',
+        'be_users',
+        'tx_scheduler_task',
+        'tx_scheduler_task_group',
+        'sys_history',
+        'sys_log',
+        ];
 
     /**
      * only for Testing
@@ -271,6 +279,7 @@ abstract class AbstractTaskBusinessLogic
 
             try {
                 /** @var SendMailService $sendMailService */
+                // DI NOT in Scheduler
                 $sendMailService = GeneralUtility::makeInstance(SendMailService::class);
                 $sendMailService->sendMail($emailAddresses, $emailTemplate, $subject, $assignMultiple);
 

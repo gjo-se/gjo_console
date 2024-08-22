@@ -22,24 +22,39 @@ namespace GjoSe\GjoConsole\Task;
  *  GNU General Public License for more details.
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use Override;
-use TYPO3\CMS\Scheduler\Task\AbstractTask;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use GjoSe\GjoConsole\Task\BusinessLogic\BackupDatabaseTaskBusinessLogic;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Scheduler\Task\AbstractTask;
 
 class BackupDatabaseTask extends AbstractTask
 {
     // todo-b: add getter
-    public string $dbSource = '';
+    private string $dbSource = '';
 
-    public string $dbTarget = '';
+    private string $dbTarget = '';
 
-    public string $email = '';
+    private string $email = '';
 
-    #[Override]
+    #[\Override]
     public function execute(): bool
     {
+        // DI NOT in Scheduler
         $backupDatabaseTaskBusinessLogic = GeneralUtility::makeInstance(BackupDatabaseTaskBusinessLogic::class);
         return $backupDatabaseTaskBusinessLogic->run($this, $this->dbSource, $this->dbTarget, $this->email);
+    }
+
+    public function getDbSource(): string
+    {
+        return $this->dbSource;
+    }
+
+    public function getDbTarget(): string
+    {
+        return $this->dbTarget;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
     }
 }
