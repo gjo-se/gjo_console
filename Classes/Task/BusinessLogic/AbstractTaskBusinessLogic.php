@@ -4,27 +4,8 @@ declare(strict_types=1);
 
 namespace GjoSe\GjoConsole\Task\BusinessLogic;
 
-/***************************************************************
- *  created: 03.12.19 - 05:15
- *  Copyright notice
- *  (c) 2019 Gregory Jo Erdmann <gregory.jo@gjo-se.com>
- *  All rights reserved
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
-use Carbon\Carbon;
-use Exception;
 use GjoSe\GjoMail\Service\SendMailService;
+use Symfony\Component\Mailer\Exception\TransportException;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Scheduler\Task\AbstractTask;
@@ -62,7 +43,43 @@ abstract class AbstractTaskBusinessLogic
     /**
      * @var array<string>
      */
-    protected array $ignoredTablesBasic = ['be_sessions', 'fe_sessions', 'cache_md5params', 'cache_treelist', 'cf_cache_hash', 'cf_cache_hash_tags', 'cf_cache_imagesizes', 'cf_cache_imagesizes_tags', 'cf_cache_news_category', 'cf_cache_news_category_tags', 'cf_cache_pages', 'cf_cache_pages_tags', 'cf_cache_pagesection', 'cf_cache_pagesection_tags', 'cf_cache_rootline', 'cf_cache_rootline_tags', 'cf_extbase_datamapfactory_datamap', 'cf_extbase_datamapfactory_datamap_tags', 'cf_extbase_object', 'cf_extbase_object_tags', 'cf_extbase_reflection', 'cf_extbase_reflection_tags', 'cf_fluidcontent', 'cf_fluidcontent_tags', 'cf_flux', 'cf_flux_tags', 'cf_vhs_main', 'cf_vhs_main_tags', 'cf_vhs_markdown', 'cf_vhs_markdown_tags', 'tx_extensionmanager_domain_model_extension', 'tx_extensionmanager_domain_model_repository', 'tx_scheduler_task', 'tx_scheduler_task_group', 'sys_lockedrecords'];
+    protected array $ignoredTablesBasic = [
+        'be_sessions',
+        'fe_sessions',
+        'cache_md5params',
+        'cache_treelist',
+        'cf_cache_hash',
+        'cf_cache_hash_tags',
+        'cf_cache_imagesizes',
+        'cf_cache_imagesizes_tags',
+        'cf_cache_news_category',
+        'cf_cache_news_category_tags',
+        'cf_cache_pages',
+        'cf_cache_pages_tags',
+        'cf_cache_pagesection',
+        'cf_cache_pagesection_tags',
+        'cf_cache_rootline',
+        'cf_cache_rootline_tags',
+        'cf_extbase_datamapfactory_datamap',
+        'cf_extbase_datamapfactory_datamap_tags',
+        'cf_extbase_object',
+        'cf_extbase_object_tags',
+        'cf_extbase_reflection',
+        'cf_extbase_reflection_tags',
+        'cf_fluidcontent',
+        'cf_fluidcontent_tags',
+        'cf_flux',
+        'cf_flux_tags',
+        'cf_vhs_main',
+        'cf_vhs_main_tags',
+        'cf_vhs_markdown',
+        'cf_vhs_markdown_tags',
+        'tx_extensionmanager_domain_model_extension',
+        'tx_extensionmanager_domain_model_repository',
+        'tx_scheduler_task',
+        'tx_scheduler_task_group',
+        'sys_lockedrecords',
+    ];
 
     /**
      * TEST-DB is Master
@@ -74,7 +91,10 @@ abstract class AbstractTaskBusinessLogic
      * not used on DEV
      * @var array<string>
      */
-    protected array $ignoredTablesOnTestingForDevelopment = ['sys_history', 'sys_log'];
+    protected array $ignoredTablesOnTestingForDevelopment = [
+        'sys_history',
+        'sys_log',
+    ];
 
     /**
      * // on PROD: empty, get Data from TEST
@@ -90,13 +110,15 @@ abstract class AbstractTaskBusinessLogic
         'tx_scheduler_task_group',
         'sys_history',
         'sys_log',
-        ];
+    ];
 
     /**
      * only for Testing
      * @var array<string>
      */
-    protected array $ignoredTablesOnDevelopmentForRestoretest = ['sys-log'];
+    protected array $ignoredTablesOnDevelopmentForRestoretest = [
+        'sys-log',
+    ];
 
     /**
      * @var array<string>
@@ -256,8 +278,7 @@ abstract class AbstractTaskBusinessLogic
     }
 
     /**
-     *
-     * @throws Exception
+     * @throws TransportException
      */
     protected function sendMailTask(string $email, string $emailTemplate, string $subject, string $success = 'success', string $message = ''): void
     {
@@ -275,7 +296,20 @@ abstract class AbstractTaskBusinessLogic
                 $site = GeneralUtility::getIndpEnv('TYPO3_SITE_URL');
             }
 
-            $assignMultiple = ['uid' => $this->task->getTaskUid(), 'success' => $success, 'calledBy' => $calledBy, 'site' => $site, 'siteName' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename'], 'tstamp' => Carbon::now()->format('Y-m-d H:i:s') . ' [' . Carbon::now()->timestamp . ']', 'start' => date('Y-m-d H:i:s', $this->task->getExecution()->getStart()) . ' [' . $this->task->getExecution()->getStart() . ']', 'end' => (empty($this->task->getExecution()->getEnd()) ? '-' : date('Y-m-d H:i:s', $this->task->getExecution()->getEnd()) . ' [' . $this->task->getExecution()->getEnd() . ']'), 'interval' => $this->task->getExecution()->getInterval(), 'multiple' => ($this->task->getExecution()->getMultiple() ? 'yes' : 'no'), 'cronCmd' => ($this->task->getExecution()->getCronCmd() ?: 'not used'), 'message' => $message];
+            $assignMultiple = [
+                'uid' => $this->task->getTaskUid(),
+                'success' => $success,
+                'calledBy' => $calledBy,
+                'site' => $site,
+                'siteName' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename'],
+                'tstamp' => date('Y-m-d H:i:s') . ' [' . time() . ']',
+                'start' => date('Y-m-d H:i:s', $this->task->getExecution()->getStart()) . ' [' . $this->task->getExecution()->getStart() . ']',
+                'end' => (empty($this->task->getExecution()->getEnd()) ? '-' : date('Y-m-d H:i:s', $this->task->getExecution()->getEnd()) . ' [' . $this->task->getExecution()->getEnd() . ']'),
+                'interval' => $this->task->getExecution()->getInterval(),
+                'multiple' => ($this->task->getExecution()->getMultiple() ? 'yes' : 'no'),
+                'cronCmd' => ($this->task->getExecution()->getCronCmd() ?: 'not used'),
+                'message' => $message,
+            ];
 
             try {
                 /** @var SendMailService $sendMailService */
@@ -283,9 +317,9 @@ abstract class AbstractTaskBusinessLogic
                 $sendMailService = GeneralUtility::makeInstance(SendMailService::class);
                 $sendMailService->sendMail($emailAddresses, $emailTemplate, $subject, $assignMultiple);
 
-            } catch (Exception $e) {
-                throw new Exception($e->getMessage(), 1575533775, $e);
-                // @todo-next-iteration: log: no sendmail possible
+            } catch (TransportException $e) {
+                throw new TransportException($e->getMessage(), 1575533775, $e);
+                // @todo-next-iteration: log & try/catch: no sendmail possible
             }
         }
 

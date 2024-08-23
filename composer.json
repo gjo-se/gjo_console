@@ -12,9 +12,6 @@
   ],
   "license": ["GPL-2.0-or-later"],
   "require": {
-    "php": "^8.3",
-    "typo3/cms-core": "^12.4",
-    "typo3/cms-scheduler": "^12.4"
   },
   "require-dev": {
   },

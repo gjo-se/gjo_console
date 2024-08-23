@@ -59,7 +59,7 @@ class RestoreDatabaseTaskBusinessLogic extends AbstractTaskBusinessLogic
         }
 
         $this->sendMailTask($email, self::EMAIL_TEMPLATE_RESTORE_DATABASE_TASK, self::EMAIL_SUBJECT_RESTORE_DATABASE_TASK, parent::SUCCESS, sprintf('Restore Database:  %s with %s', $dbTarget, $dbDump));
-        // log succsees restore
+        // log success restore
         return true;
     }
 }

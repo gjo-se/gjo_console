@@ -49,10 +49,10 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
     #[Override]
     // @todo-next-iteration:  must be compatible with AdditionalFieldProviderInterface::getAdditionalFields
         // (AbstractTask $task, SchedulerModuleController $schedulerModule): array
-    public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModuleController): array
+    public function getAdditionalFields(array &$taskInfo, $task, SchedulerModuleController $schedulerModule): array
     {
         $additionalFields = [];
-        $currentSchedulerModuleAction = $schedulerModuleController->getCurrentAction();
+        $currentSchedulerModuleAction = $schedulerModule->getCurrentAction();
 
         // Field: Available dumps
         if (!isset($taskInfo['gjo_console']['dbDump']) && $task instanceof RestoreDatabaseTask) {
@@ -130,7 +130,7 @@ class RestoreDatabaseTaskAdditionalFieldProvider extends AbstractAdditionalField
      * @param array<array<string>> $submittedData
      */
     #[Override]
-    public function validateAdditionalFields(array &$submittedData, SchedulerModuleController $schedulerModuleController): bool
+    public function validateAdditionalFields(array &$submittedData, SchedulerModuleController $schedulerModule): bool
     {
         $result = true;
 
