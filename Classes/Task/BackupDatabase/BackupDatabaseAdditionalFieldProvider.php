@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GjoSe\GjoConsole\Task\BackupDatabase;
 
-use GjoSe\GjoApi\Service\Database\DatabaseBackupService;
+use GjoSe\GjoApi\Service\Database\BackupDatabaseService;
 use GjoSe\GjoApi\Service\Site\SiteSettingsService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Scheduler\AbstractAdditionalFieldProvider;
@@ -20,12 +20,13 @@ class BackupDatabaseAdditionalFieldProvider extends AbstractAdditionalFieldProvi
 
     private const string FIELD_DB_TARGET = 'dbTarget';
 
-    private DatabaseBackupService $databaseBackupService;
+    private BackupDatabaseService $backupDatabaseService;
+
     private SiteSettingsService $siteSettingsService;
 
     public function __construct()
     {
-        $this->databaseBackupService = GeneralUtility::makeInstance(DatabaseBackupService::class);
+        $this->backupDatabaseService = GeneralUtility::makeInstance(BackupDatabaseService::class);
         $this->siteSettingsService = GeneralUtility::makeInstance(SiteSettingsService::class);
     }
 
@@ -95,8 +96,8 @@ class BackupDatabaseAdditionalFieldProvider extends AbstractAdditionalFieldProvi
     private function getHtmlTagDbSourceOptions(array $taskInfo): string
     {
         $options = '';
-        foreach (array_keys($this->databaseBackupService->getConnections()) as $connectionName) {
-            $convertedConnectionName = $this->databaseBackupService->convertDefaultConnectionNameToContext($connectionName);
+        foreach (array_keys($this->backupDatabaseService->getConnections()) as $connectionName) {
+            $convertedConnectionName = $this->backupDatabaseService->convertDefaultConnectionNameToContext($connectionName);
             $options .= '<option value="' . $convertedConnectionName . '" ' . ($convertedConnectionName === $taskInfo[self::EXTENSION_KEY][self::FIELD_DB_SOURCE] ? 'selected' : '') . ' >' . $convertedConnectionName . '</option>';
         }
 

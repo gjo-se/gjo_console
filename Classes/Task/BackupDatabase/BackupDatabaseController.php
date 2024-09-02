@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace GjoSe\GjoConsole\Task\BackupDatabase;
 
-use GjoSe\GjoApi\Service\Database\DatabaseBackupService;
+use GjoSe\GjoApi\Service\Database\BackupDatabaseService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class BackupDatabaseController
 {
     public function execute(BackupDatabaseTask $backupDatabaseTask): bool
     {
-        /** @var DatabaseBackupService $dataBaseBackupService */
-        $dataBaseBackupService = GeneralUtility::makeInstance(DatabaseBackupService::class);
-        return $dataBaseBackupService
+        /** @var BackupDatabaseService $backupDatabaseService */
+        $backupDatabaseService = GeneralUtility::makeInstance(BackupDatabaseService::class);
+        $backupDatabaseService
             ->setDbSource($backupDatabaseTask->getDbSource())
-            ->setDbTarget($backupDatabaseTask->getDbTarget())
-            ->backup();
+            ->setDbTarget($backupDatabaseTask->getDbTarget());
+        return $backupDatabaseService->backup();
     }
 }
