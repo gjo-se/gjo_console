@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace GjoSe\GjoConsole\Task\Controller;
+namespace GjoSe\GjoConsole\Task\BackupDatabase;
 
 use GjoSe\GjoApi\Service\Database\DatabaseBackupService;
-use GjoSe\GjoConsole\Task\BackupDatabaseTask;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class BackupDatabaseController

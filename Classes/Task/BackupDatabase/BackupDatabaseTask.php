@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace GjoSe\GjoConsole\Task;
+namespace GjoSe\GjoConsole\Task\BackupDatabase;
 
-use GjoSe\GjoConsole\Task\Controller\BackupDatabaseController;
+use GjoSe\GjoConsole\Task\AbstractTask;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class BackupDatabaseTask extends AbstractTask
